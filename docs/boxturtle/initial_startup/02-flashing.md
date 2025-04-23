@@ -3,12 +3,11 @@
 The AFC-Lite MCU can be connected with either CAN bus or USB.
 
 If you choose to use CAN bus,
-follow [this guide from Esoterical](https://canbus.esoterical.online/toolhead_flashing/common_hardware/AFC-Lite/README.html).
-This site also has a wealth of information on how to configure CAN bus if this is your first time using it.
+follow [this guide from Esoterical](https://canbus.esoterical.online). This site has a wealth of information on how to configure CAN bus. If you just need the required settings for flashing the AFC-Lite to operate over CAN bus, those can be directly found [here](https://canbus.esoterical.online/toolhead_flashing/common_hardware/AFC-Lite/README.html).
 
 If you choose to use USB, you will still need to run a 24 V+/V- cable to the AFC-Lite CAN bus port, just leave the CAN
 High/Low pins unpopulated. To flash the AFC-Lite for use with USB for data,
-follow [this guide from Esoterial](https://usb.esoterical.online/hardware_config/STM32/AFC_Lite.html)
+follow [this guide from Esoterical](https://usb.esoterical.online). This site has a wealth of information on how to flash numerous boards for USB. If you just need the required settings for flashing the AFC-Lite to operate over USB, those can be directly found [here](https://usb.esoterical.online/hardware_config/STM32/AFC_Lite.html)
 
 Further details regarding the AFC-Lite can be
 found [in the AFC-Lite manual](https://github.com/xbst/AFC-Lite/blob/master/Docs/AFC-Lite_Manual.pdf).
