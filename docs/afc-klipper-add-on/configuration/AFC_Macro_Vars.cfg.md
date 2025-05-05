@@ -411,8 +411,8 @@ variable_purge_length_addition    : 0
 -----
 === "variable_purge_start"
     Default: `0.6`  
-    The height to raise the nozzle above the tray before purging. This allows any built up pressure to escape before 
-    the purge.
+    The z height of the nozzle at the purge position before purging. This allows any built up
+    pressure to escape before the purge.
 
 -----
 === "variable_part_cooling_fan"
