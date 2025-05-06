@@ -24,13 +24,6 @@ These commands are used to manage the buffer and its properties.
       heading_level: 3
 
 -----
-[SET_BUFFER_VELOCITY]
-::: AFC_buffer.AFCTrigger.cmd_SET_BUFFER_VELOCITY
-    options:
-      docstring_style: numpy
-      heading_level: 3
-
------
 [ENABLE_BUFFER]
 ::: AFC_buffer.AFCTrigger.cmd_ENABLE_BUFFER
     options:

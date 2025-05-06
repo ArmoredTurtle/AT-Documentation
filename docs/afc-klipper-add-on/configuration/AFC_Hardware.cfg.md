@@ -72,9 +72,6 @@ multiplier_low: 0.95
 led_index: Buffer_Indicator:1
 #    LED index for the buffer, used to control the buffer LED
 #    (if present).
-velocity: 0
-#    Default: 0
-#    Velocity for the forward assist.
 accel: 0
 #    Default: 0 
 #    Error if the buffer is not configured properly.

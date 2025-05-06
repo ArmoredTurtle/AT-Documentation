@@ -34,3 +34,11 @@ Below is an example diagram of a Revo Voron hotend on FilamATrix/Clockwork 2:
     - `variable_retract_length`: 20
     - `variable_pushback_length`: 10
 
+=== "Revo Voron + G2E"
+
+    - `tool_stn`: 72
+    - `tool_stn_unload`: 62
+    - `tool_sensor_after_extruder`: 0 (if running a single sensor)
+    - `tool_unload_speed`: 25
+    - `tool_load_speed`: 25
+

@@ -86,3 +86,31 @@ the toolhead / extruder.
     options:
       docstring_style: numpy
       heading_level: 3
+
+-----
+[SET_ESPOOLER_VALUES]
+::: AFC_assist.Espooler.cmd_SET_ESPOOLER_VALUES
+    options:
+      docstring_style: numpy
+      heading_level: 3
+
+-----
+[ENABLE_ESPOOLER_ASSIST]
+::: AFC_assist.Espooler.cmd_ENABLE_ESPOOLER_ASSIST
+    options:
+      docstring_style: numpy
+      heading_level: 3
+
+-----
+[DISABLE_ESPOOLER_ASSIST]
+::: AFC_assist.Espooler.cmd_DISABLE_ESPOOLER_ASSIST
+    options:
+      docstring_style: numpy
+      heading_level: 3
+
+-----
+[TEST_ESPOOLER_ASSIST]
+::: AFC_assist.Espooler.cmd_TEST_ESPOOLER_ASSIST
+    options:
+      docstring_style: numpy
+      heading_level: 3

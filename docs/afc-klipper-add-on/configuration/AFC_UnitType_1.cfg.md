@@ -186,6 +186,51 @@ n20_break_delay_time: 0.200
 #    Time to wait between breaking n20 motors(nSleep/FWD/RWD all 1) 
 #    and then releasing the break to allow coasting. Setting value 
 #    here overrides values set in unit (AFC_BoxTurtle/NightOwl/etc) section.
+enable_assist: True
+#    Default: True
+#    Enables espooler print assist. Setting value 
+#    here overrides values set in unit (AFC_BoxTurtle/NightOwl/etc) section.
+timer_delay: 5
+#    Default: 5
+#    Affects espooler assist, number of seconds to wait before checking 
+#    filament movement for espooler print assist. Setting value here 
+#    overrides values set in unit (AFC_BoxTurtle/NightOwl/etc) section.
+enable_kick_start: True
+#    Default: True
+#    Enables full speed espoolers for `kick_start_time` amount to
+#    help spools to start moving. Setting value here overrides values
+#    set in unit (AFC_BoxTurtle/NightOwl/etc) section.
+kick_start_time: 0.070
+#    Default: 0.070
+#    Time in seconds to enable spooler at full speed to help with
+#    getting the spool to spin. Setting value here overrides values set 
+#    in unit (AFC_BoxTurtle/NightOwl/etc) section.
+delta_movement: 150
+#    Default: 150
+#    Affects espooler assist, delta amount in mm to move from last assist
+#    to trigger another assist move. Setting value here overrides values 
+#    set in unit (AFC_BoxTurtle/NightOwl/etc) section.
+mm_movement: 150
+#    Default: 150
+#    Affects espooler assist, amount to move during the assist in mm once 
+#    filament has moved by `delta_movement` amount. Setting value here 
+#    overrides values set in unit (AFC_BoxTurtle/NightOwl/etc) section.
+cycles_per_rotation: 1275
+#    Default: 1275
+#    Affects espooler assist, time it takes to in milliseconds to turn 
+#    a spool a full rotation. Setting value here overrides values set 
+#    in unit (AFC_BoxTurtle/NightOwl/etc) section.
+pwm_value: 0.6706
+#    Default: 0.6706
+#    Affects espooler assist, PWM cycle time. Setting value 
+#    here overrides values set in unit (AFC_BoxTurtle/NightOwl/etc) section.
+spoolrate: 1.0
+#    Default: 1.0
+#    Scaling factor for the following variables: 
+#      kick_start_time, spool_outer_diameter, cycles_per_rotation, 
+#      pwm_value, delta_movement, mm_movement
+#    Setting value here overrides values set in unit(AFC_BoxTurtle/NightOwl/etc)
+#    section.
 load_to_hub: True
 #    Default: True
 #    Fast loads filament to hub when inserted, set to False to disable. 
@@ -221,7 +266,7 @@ spool_inner_diameter: 100
 #    Inner diameter of the spool in mm.
 spool_outer_diameter: 200
 #    Default: 200 
-#    Outer diameter of the spool in mm.
+#    Outer diameter of the spool in mm. Affects espooler assist logic
 empty_spool_weight: 190
 #    Default: 190
 #    Weight of the empty spool in grams.
@@ -393,16 +438,60 @@ typically used to define the unit name and other options that are specific to th
 [AFC_BoxTurtle Turtle_1]
 hub:
 #    Default: <none>
-#    Hub name(AFC_hub) that belongs to this unit. can be overriden in 
+#    Hub name(AFC_hub) that belongs to this unit. can be overridden in 
 #    the [AFC_stepper] section.
 extruder:
 #    Default: <none>
 #    Extruder name(AFC_extruder) that belongs to this unit. can be
-#    overriden in the [AFC_stepper] section.
+#    overridden in the [AFC_stepper] section.
 buffer: 
 #    Default: <none>
 #    Buffer name(AFC_buffer) that belongs to this unit. can be
-#    overriden in the [AFC_stepper] section.
+#    overridden in the [AFC_stepper] section.
+enable_assist: True
+#    Default: True
+#    Enables espooler print assist
+#    Can be overridden in the [AFC_stepper] section.
+timer_delay: 5
+#    Default: 5
+#    Affects espooler assist, number of seconds to wait before 
+#    checking filament movement for espooler print assist
+#    Can be overridden in the [AFC_stepper] section.
+enable_kick_start: True
+#    Default: True
+#    Enables full speed espoolers for `kick_start_time` amount to
+#    help spools to start moving
+#    Can be overridden in the [AFC_stepper] section.
+kick_start_time: 0.070
+#    Default: 0.070
+#    Time in seconds to enable spooler at full speed to help with
+#    getting the spool to spin
+#    Can be overridden in the [AFC_stepper] section.
+delta_movement: 150
+#    Default: 150
+#    Affects espooler assist, delta amount in mm to move from last 
+#    assist to trigger another assist move
+#    Can be overridden in the [AFC_stepper] section.
+mm_movement: 150
+#    Default: 150
+#    Affects espooler assist, amount to move during the assist in mm 
+#    once filament has moved by `delta_movement` amount
+#    Can be overridden in the [AFC_stepper] section.
+cycles_per_rotation: 1275
+#    Default: 1275
+#    Affects espooler assist, time it takes to in milliseconds to turn 
+#    a spool a full rotation
+#    Can be overridden in the [AFC_stepper] section.
+pwm_value: 0.6706
+#    Default: 0.6706
+#    Affects espooler assist, PWM cycle time
+#    Can be overridden in the [AFC_stepper] section.
+spoolrate: 1.0
+#    Default: 1.0
+#    Scaling factor for the following variables: 
+#      kick_start_time, spool_outer_diameter, cycles_per_rotation, 
+#      pwm_value, delta_movement, mm_movement
+#    Can be overridden in the [AFC_stepper] section.
 led_fault: 1,0,0,0
 #    Default: 1,0,0,0
 #    LED color to set when faults occur in lane        
@@ -486,16 +575,60 @@ typically used to define the unit name and other options that are specific to th
 [AFC_NightOwl NightOwl_1]
 hub:
 #    Default: <none>
-#    Hub name(AFC_hub) that belongs to this unit. can be overriden in 
+#    Hub name(AFC_hub) that belongs to this unit. can be overridden in 
 #    the [AFC_stepper] section.
 extruder:
 #    Default: <none>
 #    Extruder name(AFC_extruder) that belongs to this unit. can be
-#    overriden in the [AFC_stepper] section.
+#    overridden in the [AFC_stepper] section.
 buffer: 
 #    Default: <none>
 #    Buffer name(AFC_buffer) that belongs to this unit. can be
-#    overriden in the [AFC_stepper] section.
+#    overridden in the [AFC_stepper] section.
+enable_assist: True
+#    Default: True
+#    Enables espooler print assist
+#    Can be overridden in the [AFC_stepper] section.
+timer_delay: 5
+#    Default: 5
+#    Affects espooler assist, number of seconds to wait before 
+#    checking filament movement for espooler print assist
+#    Can be overridden in the [AFC_stepper] section.
+enable_kick_start: True
+#    Default: True
+#    Enables full speed espoolers for `kick_start_time` amount to
+#    help spools to start moving
+#    Can be overridden in the [AFC_stepper] section.
+kick_start_time: 0.070
+#    Default: 0.070
+#    Time in seconds to enable spooler at full speed to help with
+#    getting the spool to spin
+#    Can be overridden in the [AFC_stepper] section.
+delta_movement: 150
+#    Default: 150
+#    Affects espooler assist, delta amount in mm to move from last 
+#    assist to trigger another assist move
+#    Can be overridden in the [AFC_stepper] section.
+mm_movement: 150
+#    Default: 150
+#    Affects espooler assist, amount to move during the assist in mm 
+#    once filament has moved by `delta_movement` amount
+#    Can be overridden in the [AFC_stepper] section.
+cycles_per_rotation: 1275
+#    Default: 1275
+#    Affects espooler assist, time it takes to in milliseconds to turn 
+#    a spool a full rotation
+#    Can be overridden in the [AFC_stepper] section.
+pwm_value: 0.6706
+#    Default: 0.6706
+#    Affects espooler assist, PWM cycle time
+#    Can be overridden in the [AFC_stepper] section.
+spoolrate: 1.0
+#    Default: 1.0
+#    Scaling factor for the following variables: 
+#      kick_start_time, spool_outer_diameter, cycles_per_rotation, 
+#      pwm_value, delta_movement, mm_movement
+#    Can be overridden in the [AFC_stepper] section.
 led_fault: 1,0,0,0
 #    Default: 1,0,0,0
 #    LED color to set when faults occur in lane        
@@ -556,4 +689,27 @@ unload_on_runout: False
 #    When True, AFC will unload lane and then pause when runout is 
 #    triggered and spool to swap is not set (infinite spool). Setting
 #    value here overrides values set in AFC.cfg file.
+```
+## [servo tool_cut] Section
+
+The following options are available for all units (BoxTurtle, HTLF, and NightOwl) and allow for the configuration and 
+operation of a gantry mounted servo to assist in tool cutting. 
+
+``` cfg
+[servo tool_cut]
+#--=================================================================================--#
+######### Tip Cut Servo ###############################################################
+#--=================================================================================--#
+pin: YOUR_SERVO_PIN_HERE
+#    This should be the MCU/pin combination for the servo pin.
+minimum_pulse_width: 0.00053
+#    Adjust this value until a '_CUTTER_SERVO POS=out' extends the pin 
+#    fully without a buzzing sound.
+maximum_pulse_width: 0.0023
+#    Adjust this value until a '_CUTTER_SERVO POS=in' retracts the pin 
+#    fully without a buzzing sound.
+maximum_servo_angle: 180
+#   Initial angle (in degrees) to set the servo to. The default is to
+#   not send any signal at startup.
+
 ```

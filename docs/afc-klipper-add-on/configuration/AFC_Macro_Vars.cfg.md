@@ -138,6 +138,12 @@ variable_conf_name_stepper_y: "tmc2209 stepper_y"
 variable_conf_name_stepper_dual_carriage: "tmc2209 dual_carriage"
 variable_conf_name_stepper_z: "tmc2209 stepper_z"
 variable_awd: False
+
+# Addon variables for cutter pin servo control
+variable_tool_servo_enable        : False
+variable_tool_servo_name          : "tool_cut"
+variable_tool_servo_angle_out     : 115
+variable_tool_servo_angle_in      : 0
 ```
 
 -----
@@ -343,6 +349,30 @@ engage different combinations of steppers for that motion. If enabled, the value
     steppers. 
     This value should be set to `True` or `False`.
 
+-----
+=== "variable_tool_servo_enable"
+    Default: `False`  
+    This is the value that is used to define whether the tool servo is enabled. 
+    This value should be set to `True` or `False`.
+
+-----
+=== "variable_tool_servo_name"
+    Default: `"tool_cut"`  
+    This is the value that is used to define the name of the tool servo in the printer.cfg file. 
+    This value should be set to the name of the servo in your printer.cfg file.
+
+-----
+=== "variable_tool_servo_angle_out"
+    Default: `115`  
+    This is the value that is used to define the angle of the tool servo when it is out. 
+    This value should be set to the angle of the servo in degrees.
+
+-----
+=== "variable_tool_servo_angle_in"
+    Default: `0`  
+    This is the value that is used to define the angle of the tool servo when it is in. 
+    This value should be set to the angle of the servo in degrees.
+
 ## [_AFC_POOP_VARS]
 
 The `_AFC_POOP_VARS` section is used to define the variables for the AFC-Klipper-Add-On for the `POOP` macro. These
@@ -359,7 +389,7 @@ variable_purge_loc_xy             : -1, -1
 variable_purge_spd                : 6.5      
 variable_z_purge_move             : True 
 variable_fast_z                   : 200
-variable_z_lift                   : 20    
+variable_z_lift                   : 10    
 variable_restore_position         : False 
 variable_purge_start              : 0.6
 variable_part_cooling_fan         : True      
@@ -397,9 +427,10 @@ variable_purge_length_addition    : 0
 
 -----
 === "variable_z_lift"
-    Default: `20`  
+    Default: `10`  
     This is the value that is used to define the Z lift distance in mm. 
-    This is the distance that the toolhead will be lifted after the purge is completed.
+    This is the distance that the toolhead will be lifted above the final purge position after the purge is completed.  
+    Example: If final poop height ends at 20mm this variable will raise Z to 30mm
 
 -----
 === "variable_restore_position"
@@ -476,7 +507,7 @@ variables help define items such as locations, speed, and other parameters that 
 description: Kick macro configuration variables
 gcode: # Leave empty
 
-variable_kick_start_loc           : -1,-1,10  
+variable_kick_start_loc           : -1,-1,5  
 variable_kick_z                   : 1.5       
 variable_kick_speed               : 150      
 variable_kick_accel               : 0       
@@ -487,7 +518,7 @@ variable_z_after_kick             : 10
 
 -----
 === "variable_kick_start_loc"
-    Default: `-1,-1, 10`  
+    Default: `-1,-1, 5`  
     This is the value that is used to define the location of the toolhead prior to the kick macro being executed. 
     This should be set to the location of the kick in the X,Y,Z axis.
 
