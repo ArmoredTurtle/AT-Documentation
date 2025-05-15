@@ -53,6 +53,13 @@ toolhead / extruder.
       heading_level: 3
 
 -----
+[SET_LONG_MOVE_SPEED]
+::: AFC_lane.AFCLane.cmd_SET_LONG_MOVE_SPEED
+    options:
+      docstring_style: numpy
+      heading_level: 3
+
+-----
 [SET_SPEED_MULTIPLIER]
 ::: AFC_lane.AFCLane.cmd_SET_SPEED_MULTIPLIER
     options:

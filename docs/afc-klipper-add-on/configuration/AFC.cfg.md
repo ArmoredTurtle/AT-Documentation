@@ -25,6 +25,11 @@ long_moves_speed: 150
 #    Default: 150     
 #    Speed in mm/s. This is the speed used for long moves, such as when 
 #    loading or unloading filament.
+rev_long_moves_speed_factor: 1.0
+#    Default: 1.0
+#    Range: 0.5 to 1.2
+#    Scalar factor multiplied to long_moves_speed when rewinding filament.
+#    Useful when reversing is done using non-assisted systems, e.g. filamentalist
 long_moves_accel: 250
 #    Default: 250           
 #    Speed in mm/s². This is the acceleration used for long moves.
@@ -125,6 +130,9 @@ tool_max_unload_attempts: 2
 #    Default: 2
 #    Max number of attempts to unload filament from toolhead when using 
 #    buffer as ramming sensor.
+tool_homing_distance: 200
+#    Default: 200
+#    Distance in mm over which toolhead homing is to be attempted. 
 tool_max_load_checks: 4
 #    Default: 4
 #    Max number of attempts to check to make sure filament is loaded into 

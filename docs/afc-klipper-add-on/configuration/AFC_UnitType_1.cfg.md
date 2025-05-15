@@ -154,6 +154,11 @@ long_moves_speed: 150
 #    Speed in mm/s to move filament when doing long moves. 
 #    Setting value here overrides values set in 
 #    unit(AFC_BoxTurtle/NightOwl/etc) section
+rev_long_moves_speed_factor: 1.0
+#    Default: 1.0
+#    Range: 0.5 to 1.2
+#    Scalar factor multiplied to long_moves_speed when rewinding filament.
+#    Useful when reversing is done using non-assisted systems, e.g. filamentalist
 long_moves_accel: 250
 #    Default: 250
 #    Acceleration in mm/s squared when doing long moves. 
@@ -526,6 +531,11 @@ long_moves_speed: 100
 #    Default: 100
 #    Speed in mm/s to move filament when doing long moves.
 #    Setting value here overrides values set in AFC.cfg file.
+rev_long_moves_speed_factor: 1.0
+#    Default: 1.0
+#    Range: 0.5 to 1.2
+#    Scalar factor multiplied to long_moves_speed when rewinding filament.
+#    Useful when reversing is done using non-assisted systems, e.g. filamentalist
 long_moves_accel: 400
 #    Default: 400
 #    Acceleration in mm/s squared when doing long moves.
@@ -663,6 +673,11 @@ long_moves_speed: 100
 #    Default: 100
 #    Speed in mm/s to move filament when doing long moves.
 #    Setting value here overrides values set in AFC.cfg file.
+rev_long_moves_speed_factor: 1.0
+#    Default: 1.0
+#    Range: 0.5 to 1.2
+#    Scalar factor multiplied to long_moves_speed when rewinding filament.
+#    Useful when reversing is done using non-assisted systems, e.g. filamentalist
 long_moves_accel: 400
 #    Default: 400
 #    Acceleration in mm/s squared when doing long moves.
