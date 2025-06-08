@@ -31,14 +31,14 @@ nav:
               - AFC_UnitType_1.cfg: afc-klipper-add-on/configuration/AFC_UnitType_1.cfg.md
               - AFC_Macro_Vars.cfg: afc-klipper-add-on/configuration/AFC_Macro_Vars.cfg.md
       - Klipper Commands:
-          - Macro Overview: afc-klipper-add-on/klipper/macros.md
-          - Internal Macros:
-              - Spool Macros: afc-klipper-add-on/klipper/internal/spool.md
-              - Calibration Macros: afc-klipper-add-on/klipper/internal/calibration.md
-              - Tip Forming Macros: afc-klipper-add-on/klipper/internal/tip_forming.md
-              - Buffer Macros: afc-klipper-add-on/klipper/internal/buffer.md
-              - Lane / Movement Macros: afc-klipper-add-on/klipper/internal/lane.md
-              - Misc. Macros: afc-klipper-add-on/klipper/internal/misc.md
+          - Command Overview: afc-klipper-add-on/klipper/commands.md
+          - Internal Commands:
+              - Spool Commands: afc-klipper-add-on/klipper/internal/spool.md
+              - Calibration Commands: afc-klipper-add-on/klipper/internal/calibration.md
+              - Tip Forming Commands: afc-klipper-add-on/klipper/internal/tip_forming.md
+              - Buffer Commands: afc-klipper-add-on/klipper/internal/buffer.md
+              - Lane / Movement Commands: afc-klipper-add-on/klipper/internal/lane.md
+              - Misc. Commands: afc-klipper-add-on/klipper/internal/misc.md
           - External Macros: afc-klipper-add-on/klipper/external/macros.md
       - Configuration Examples: afc-klipper-add-on/configuration/configuration_examples.md
       - Calibration Process: afc-klipper-add-on/installation/calibration.md

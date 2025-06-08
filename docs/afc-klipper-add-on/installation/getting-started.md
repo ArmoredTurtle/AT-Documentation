@@ -16,7 +16,7 @@ More information about BoxTurtle can be found [here](https://github.com/ArmoredT
 
 The `AFC-Klipper-Add-On` has the following pre-requisites:
 
-- Klipper
+- Klipper 12 or later
 - Moonraker
 - WebUI (Mainsail or Fluidd)
 - Python3 >= 3.8

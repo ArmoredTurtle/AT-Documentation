@@ -1,6 +1,6 @@
-## Calibration Related Macros
+## Calibration Related Commands
 
-These macros are used to help calibrate the AFC system. Most of them will provide a guided prompt to help you through the process.
+These commands are used to help calibrate the AFC system. Most of them will provide a guided prompt to help you through the process.
 
 -----
 [AFC_CALIBRATION]

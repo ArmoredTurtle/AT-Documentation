@@ -1,5 +1,15 @@
 # Troubleshooting
 
+## Known Issues
+
+As with any project, there are some known issues that may arise. Known issues for the AFC-Klipper-Add-On project can 
+be found [here](https://github.com/ArmoredTurtle/AFC-Klipper-Add-On/issues?q=is%3Aissue%20state%3Aopen%20label%3Abug).
+
+We encourage anyone who experiences an issue to check the known issues list first, and if the issue is not listed, please
+open a new issue on the GitHub repository. When opening a new issue, please provide as much detail as possible,
+following the issue template provided. This will help us to quickly identify and resolve the issue.
+
+
 ## AFC Debug Script
 
 A debug script is available to be run that can assist the Armored Turtle support team on their Discord server. To run 
@@ -83,3 +93,22 @@ troubleshooting problems when you can re-crimp the connectors and test in a half
 Powering the SBC via your MCU (e.g., on a Leviathan) may also not provide sufficient power to the device. Rule out
 this as a cause by running separate power to the device.  If you are sharing multiple AC to DC PSUs, 
 ensure that the V- wires are connected together for a common reference voltage.
+
+## Flashing Issues or Errors
+
+If you are having issues flashing the AFC-Lite, please ensure that you are using the correct configuration for your device.
+
+### Error sending command: [SEND_BLOCK] to Device
+
+The easiest way to resolve this issue is to revert to a known commit in Katapult, rebuild the katapult firmware, and then
+reflash the katapult firmware to the AFC-Lite.
+
+```shell
+cd ~/katapult
+git checkout e1716657
+make clean
+make menuconfig
+make
+```
+
+Once the new katapult firmware is built, you can flash it to the AFC-Lite, and then proceed with flashing Klipper as normal.

@@ -19,7 +19,7 @@ Two options here are especially important to note for most users:
 
 === "Prior AFC-Klipper-Add-On installation detected"
     This boolean value will be set to `true` if the script detects that the AFC-Klipper-Add-On software has been
-    detected being previously installed on your system. This is checking for the existing of a symbolic link in your
+    detected being previously installed on your system. This is checking for the existence of a symbolic link in your
     Klipper extras directory to the AFC-Klipper-Add-On software. 
 
 === "Force Update Required"

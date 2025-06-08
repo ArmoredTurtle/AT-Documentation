@@ -20,7 +20,7 @@ The documentation is organized into several sections, each covering a specific a
   AFC-Klipper-Add-On on your system.
 - [**Configuration**](configuration/configuration_overview.md): Detailed information on how to configure the 
   AFC-Klipper-Add-On to work with your specific setup.
-- [**Commands**](klipper/macros.md): Information on how to use the built-in macros and commands within the 
+- [**Commands**](klipper/commands.md): Information on how to use the built-in macros and commands within the 
   AFC-Klipper-Add-On module.
 - [**Troubleshooting**](../troubleshooting/troubleshooting.md): Common issues and their solutions, as well as tips for 
   diagnosing and resolving 

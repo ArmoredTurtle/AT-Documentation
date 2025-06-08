@@ -1,6 +1,6 @@
-## Tip-Forming Related Macros
+## Tip-Forming Related Commands
 
-These macros can be used to assist in finding appropriate tip-forming settings.
+These commands can be used to assist in finding appropriate tip-forming settings.
 
 -----
 [TEST_AFC_TIP_FORMING]

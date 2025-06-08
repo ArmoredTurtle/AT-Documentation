@@ -6,7 +6,12 @@ AFC integrates with [mainsail](https://www.mainsail.xyz), currently via [an open
 ![mainsail-AFC integration screenshot](../assets/images/mainsail-bt-htlf.png)
 
 ## KlipperScreen
-KlipperScreen integration is under development, but not yet in a released state. However, for basic functionality you can use [Weemantella's BoxTurtle KlipperScreen Menus](https://github.com/weemantella/Box-Turtle-Klipper-Screen-Menus).
+A KlipperScreen integration is available, which allows you to control AFC features directly from the KlipperScreen interface. This includes loading and unloading filament, as well as monitoring the status of the AFC system.
+
+For more information, please refer to the [AFC KlipperScreen GitHub repository](https://github.com/ArmoredTurtle/AFC-Klipper-Screen-Add-On)
+
+![KlipperScreen integration screenshot](../assets/images/klipperscreen.png)
+![KlipperScreen integration screenshot 2](../assets/images/klipperscreen2.png)
 
 ## Fluidd
 Integration with Fluidd is under development, but not yet in a released state.

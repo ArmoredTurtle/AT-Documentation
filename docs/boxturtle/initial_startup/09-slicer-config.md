@@ -22,6 +22,10 @@ Increase the number of filaments to match your BoxTurtle's lane count.
 - Set `Machine start G-code` appropriately for your printer, specifically adding the `TOOL={initial_tool}` to your `
   PRINT_START` macro.
 
+!!! note
+
+    More information about the `PRINT_START` macro will be covered in the next section, so keep this in mind!
+
 ``` g-code
 M104 S0 ; Stops OrcaSlicer from sending temperature waits separately
 M140 S0 ; Stops OrcaSlicer from sending temperature waits separately
@@ -67,3 +71,8 @@ betas/release candidates) you will need to make the following additional changes
 Because the AFC-Klipper-Add-On handles any tip forming in the extension, we need to disable these specific settings in
 the slicer software. Below is a screenshot for OrcaSlicer, but most Slic3r-based slicers have a similar dialog/setting.
 ![Orca_Ramming_Settings](../../assets/images/orca-ramming-settings.png)
+
+
+### Other slicers
+
+PrusaSlicer - https://www.youtube.com/watch?v=ilxtHVNhsM4

@@ -1,7 +1,7 @@
-## Lane and Movement Related Macros
+## Lane and Movement Related Commands
 
-These macros are used to manipulate the status of a specific lane or update settings related to either the lane or the 
-toolhead / extruder.
+These commands are used to manipulate the status of a specific lane or update settings related to either the lane or 
+the toolhead / extruder.
 
 -----
 [UNSET_LANE_LOADED] 

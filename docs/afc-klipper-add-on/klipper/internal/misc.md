@@ -1,6 +1,6 @@
-## Miscellaneous Macros
+## Miscellaneous Commands
 
-These macros are used for various purposes, including error handling, tool changes, and AFC status updates.
+These commands are used for various purposes, including error handling, tool changes, and AFC status updates.
 
 -----
 [AFC_TOGGLE_MACRO]

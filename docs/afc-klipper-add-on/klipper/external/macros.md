@@ -1,6 +1,7 @@
 ## External Macros
 
-These macros are available in the Mainsail/Fluidd interface and generally serve as a wrapper around the internal macros.
+These macros are available in the Mainsail/Fluidd interface and generally serve as a wrapper around the internal 
+commands.
 
 In a default installation, these macros are available in the `~/printer_data/config/AFC/macros/AFC_macros.cfg` file.
 

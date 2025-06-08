@@ -1,6 +1,6 @@
-## Spool Related Macros
+## Spool Related Commands
 
-These macros are used to manage the spool and its properties. This allows for tracking filament usage if you are not
+These commands are used to manage the spool and its properties. This allows for tracking filament usage if you are not
 using a spool tracking system such as [Spoolman](https://github.com/Donkie/Spoolman).
 
 -----

@@ -1,6 +1,6 @@
-## Buffer Related Macros
+## Buffer Related Commands
 
-These macros are used to manage the buffer and its properties. 
+These commands are used to manage the buffer and its properties. 
 
 -----
 [QUERY_BUFFER]
