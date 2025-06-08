@@ -1,4 +1,4 @@
 [submodule "AFC-Klipper-Add-On"]
 	path = AFC-Klipper-Add-On
 	url = https://github.com/ArmoredTurtle/AFC-Klipper-Add-On
-	branch = main
+	branch = DEV 
