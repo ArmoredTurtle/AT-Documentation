@@ -26,13 +26,13 @@ pin_tool_end: mcu:pin
 #    extruder gears. This is used to detect the presence of filament
 #    after the extruder gears.
 tool_stn: 72
-#    Default: 72              
-#    Distance in mm from the toolhead sensor (pin_tool_start)to the 
-#    tip of the nozzle in mm, if `pin_tool_end` is defined then 
-#    distance is from this sensor 
+#    Default: 72
+#    See documentation for details on how to calculate this value. 
+#    https://armoredturtle.xyz/docs/afc-klipper-add-on/toolhead/calculation.html
 tool_stn_unload: 100
 #    Default: 100      
-#    Distance to move in mm while unloading toolhead
+#    See documentation for details on how to calculate this value.
+#    https://armoredturtle.xyz/docs/afc-klipper-add-on/toolhead/calculation.html
 tool_sensor_after_extruder: 0
 #    Default: 0
 #    Extra distance to move in mm once pre/post sensors are clear. 

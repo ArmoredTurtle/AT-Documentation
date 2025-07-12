@@ -19,8 +19,14 @@ is [Ellis' Print Tuning Guide](https://ellis3dp.com/Print-Tuning-Guide/).
 
 ### Ensure minimum system requirements
 
-The AFC Klipper Add-On requires a minimum Klipper/Kalico version of 0.12.0, as well as a corresponding klippy-env python
-environment at least 3.x.
+The AFC Klipper Add-On requires a minimum Klipper/Kalico version of 0.12, as well as a corresponding klippy-env python
+environment at least 3.8.
+
+!!!warning "Minimum Klipper Requirements"
+
+    If you are running a version of Klipper/Kalico older than 0.12, you will need to update your system before proceeding.
+    The AFC Klipper Add-On will not work with older versions. You must be on or past commit id `1d92be71` of Klipper.
+    This was released on Jan 18th, 2024.
 
 If you are on Klipper/Kalico 12, but running `~/klippy-env/bin/python --version` returns version 2.7.x, you can
 recreate it with the following.
