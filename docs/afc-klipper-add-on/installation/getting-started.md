@@ -21,6 +21,13 @@ The `AFC-Klipper-Add-On` has the following pre-requisites:
 - WebUI (Mainsail or Fluidd)
 - Python3 >= 3.8
 
+!!!warning "SBC Hardware Recommendations"
+    
+    Your choice of SBC will impact your ability to complete multicolor prints. Users with SBCs such as a BTT CB1 and similiar
+    may find that they are unable to complete multicolor prints due to the limited resources available on these SBCs. We 
+    recommend using a Raspberry Pi 4 or similar SBC with at least 2GB of RAM for the best experience.
+
+
 The following software prerequisites should also be available on your system: 
 
 - jq
