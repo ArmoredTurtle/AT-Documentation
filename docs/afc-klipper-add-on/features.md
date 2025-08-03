@@ -281,3 +281,8 @@ BOM:
 - 4ea Omron B3F-1026 switches/Optional verified off brand switches Amazon https://a.co/d/hmtJkk8
 - 4ea JST 3 pin male connectors for AFC Lite board
 - 3 Meters of 24awg or 28awg wire (your choice)
+
+!!!note
+
+    Configuration information can be found [here](configuration/AFC_UnitType_1.cfg.md#afc_button-lane_name-section) for the 
+    buttons.
