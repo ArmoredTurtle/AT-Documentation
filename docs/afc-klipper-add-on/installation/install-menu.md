@@ -26,6 +26,9 @@ This option will allow you to select the type of installation you wish to perfor
 available are:
 
 - BoxTurtle (4-Lane)
+- BoxTurtle (8-Lane)
+- HTLF
+- QuattroBox
 - NightOwl
 
 #### `1. Printer.cfg Configuration`
