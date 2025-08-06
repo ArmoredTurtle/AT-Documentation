@@ -33,6 +33,7 @@ EU:
 - [3Djake](https://www.3djake.ch/fr-CH/ldo-motors/boxturtle-v10)
 - [myrigs3d](https://myrigs3d.com/)
 - [zen3d](https://shop.zen3d.eu/ldo-boxturtle-v10)
+- [Levendigs](https://levendigs.com/products/ldo-boxturtle-v1-0-kit-afc-automatic-filament-changer)
 
 UK:
 
