@@ -197,6 +197,14 @@ enable_assist_weight: 500
 #    Number in grams to activate espooler print assist once spool weight is 
 #    less than this number.
 #    Can be overridden in the [AFC_Boxturtle/AFC_NightOwl etc] sections.
+debounce_delay: 0
+#    Default: 0
+#    Global value for a period of time in seconds to debounce switches prior
+#    to detecting runout. If switches are pressed and released during this delay,
+#    the entire switch event is ignored.
+#
+#    This value can be overridden in AFC_extruder, AFC_hub, AFC_lane, AFC_stepper
+#    config sections.
 ```
 
 The next part of the `[AFC]` section contains the configuration for the AFC macros. These macros are used to control the

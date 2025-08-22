@@ -318,6 +318,13 @@ extruder:
 #    Extruder name(AFC_extruder) that belongs to this stepper, 
 #    overrides extruder that is set in unit(AFC_BoxTurtle/NightOwl/etc) 
 #    section.
+debounce_delay: 0
+#    Default: 0
+#    A period of time in seconds to debounce switches prior to detecting
+#    runout. If switches are pressed and released during this delay,
+#    the entire switch event is ignored.
+#
+#    This value overrides value set in AFC config section
 ```
 
 ## [AFC_stepper lane_name] Section
@@ -454,6 +461,13 @@ enable_sensors_in_gui: False
 #    Default: False
 #    Set to True to show hub sensor switch as a filament sensor in 
 #    Mainsail/Fluidd gui, overrides value set in AFC.cfg.
+debounce_delay: 0
+#    Default: 0
+#    A period of time in seconds to debounce hub switch prior to detecting
+#    runout. If hub switch is pressed and released during this delay,
+#    the entire switch event is ignored.
+#
+#    This value overrides value set in AFC config section
 ```
 
 ## [AFC_led led_name] Section
