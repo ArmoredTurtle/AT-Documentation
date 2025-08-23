@@ -281,3 +281,16 @@ BOM:
 - 4ea Omron B3F-1026 switches/Optional verified off brand switches Amazon https://a.co/d/hmtJkk8
 - 4ea JST 3 pin male connectors for AFC Lite board
 - 3 Meters of 24awg or 28awg wire (your choice)
+
+## Detecting runouts
+AFC has the ability to detect runouts or filament breakage while printing. If filament is not detected at the toolhead or hub sensors while printing then a pause command is issued with an error message stating what happened so the error can be fixed before resuming the print.  
+
+During printing if the PREP sensor goes low, one of two things can happen.  
+
+- If infinite spool is not set for the lane that the PREP sensor went low on, AFC will issue a pause command so issue can be fixed before resuming print. Note: If `unload_on_runout: True` is set in AFC config section, lane will be unloaded from toolhead after pausing.
+- If infinite spool is set with [SET_MAP](klipper/internal/spool.md#AFC_spool.AFCSpool.cmd_SET_MAP) macro, then AFC will unload filament from runout lane and then load lane as specified when running SET_MAP macro. If tool loading was successful print will continue. If tool load was unsuccessful AFC will issue pause command and an error will be displayed.  
+
+Runout detection can be turned off while printing by disabling sensor in web gui. If PREP sensor is disabled this also disables infinite spool. The state of the switches is not persistent and will reset to enabled when klipper is restarted.
+
+Example of runout enabled/disabled:
+![runout_enabled_disabled](../assets/images/runout_switch.png)

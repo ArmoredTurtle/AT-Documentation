@@ -183,7 +183,7 @@ show_macros: True
 error_timeout: 36000
 #    Default: 36000
 #    Time in seconds to pause if AFC encounters an error. This value will be 
-#    overridden if the [idle_timeout].timeout value is higher.
+#    overridden if the `[idle_timeout].timeout value is higher.
 auto_home: False
 #    Default: False
 #    Enable to turn on auto homing if printer is not already homed when
@@ -197,6 +197,14 @@ enable_assist_weight: 500
 #    Number in grams to activate espooler print assist once spool weight is 
 #    less than this number.
 #    Can be overridden in the [AFC_Boxturtle/AFC_NightOwl etc] sections.
+debounce_delay: 0
+#    Default: 0
+#    Global value for a period of time in seconds to debounce switches prior
+#    to detecting runout. If switches are pressed and released during this delay,
+#    the entire switch event is ignored.
+#
+#    This value can be overridden in AFC_extruder, AFC_hub, AFC_lane, AFC_stepper
+#    config sections.
 test_extrude_amt: 10
 #    Default: 10
 #    Amount in mm to extrude when use the `AFC_TEST_LANES` calibration

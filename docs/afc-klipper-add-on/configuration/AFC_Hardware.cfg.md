@@ -51,6 +51,13 @@ enable_sensors_in_gui: False
 #    Default: False
 #    Set to True toolhead sensors switches as filament sensors in 
 #    Mainsail/Fluidd gui, overrides value set in AFC.cfg.
+debounce_delay: 0
+#    Default: 0
+#    A period of time in seconds to debounce switches prior to detecting
+#    runout. If switches are pressed and released during this delay,
+#    the entire switch event is ignored.
+#
+#    This value overrides value set in AFC config section
 ``` 
 
 ## [AFC_buffer buffer_name] Section
