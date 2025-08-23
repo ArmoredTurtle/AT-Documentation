@@ -51,3 +51,17 @@ These commands are used to help calibrate the AFC system. Most of them will prov
       docstring_style: numpy
       heading_level: 3
 
+
+-----
+[AFC_TEST_LANES]
+::: AFC_functions.afcFunction.cmd_AFC_TEST_LANES
+    options:
+      docstring_style: numpy
+      heading_level: 3
+
+-----
+[TEST_LANE]
+::: AFC_functions.afcFunction.cmd_TEST_LANE
+    options:
+      docstring_style: numpy
+      heading_level: 3

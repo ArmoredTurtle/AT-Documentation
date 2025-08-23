@@ -183,7 +183,7 @@ show_macros: True
 error_timeout: 36000
 #    Default: 36000
 #    Time in seconds to pause if AFC encounters an error. This value will be 
-#    overridden if the `[idle_timeout].timeout value is higher.
+#    overridden if the [idle_timeout].timeout value is higher.
 auto_home: False
 #    Default: False
 #    Enable to turn on auto homing if printer is not already homed when
@@ -197,6 +197,11 @@ enable_assist_weight: 500
 #    Number in grams to activate espooler print assist once spool weight is 
 #    less than this number.
 #    Can be overridden in the [AFC_Boxturtle/AFC_NightOwl etc] sections.
+test_extrude_amt: 10
+#    Default: 10
+#    Amount in mm to extrude when use the `AFC_TEST_LANES` calibration
+#    command. This is typically sufficient when using the `POOP` macro;
+#    however, it may need to be adjusted otherwise.
 ```
 
 The next part of the `[AFC]` section contains the configuration for the AFC macros. These macros are used to control the
