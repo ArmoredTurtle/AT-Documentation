@@ -290,6 +290,8 @@ During printing if the PREP sensor goes low, one of two things can happen.
 - If infinite spool is not set for the lane that the PREP sensor went low on, AFC will issue a pause command so issue can be fixed before resuming print. Note: If `unload_on_runout: True` is set in AFC config section, lane will be unloaded from toolhead after pausing.
 - If infinite spool is set with [SET_MAP](klipper/internal/spool.md#AFC_spool.AFCSpool.cmd_SET_MAP) macro, then AFC will unload filament from runout lane and then load lane as specified when running SET_MAP macro. If tool loading was successful print will continue. If tool load was unsuccessful AFC will issue pause command and an error will be displayed.  
 
+A debounce delay can also be added so that the sensor(s) need to be low for a period of time before triggering the runout logic. By default this is set to zero but can be changed by adding `debounce_delay: <delay_value>` to your AFC config which is a global value. Debounce delay can also be added in AFC_extruder, AFC_hub, AFC_stepper, and AFC_lane configs which override the global AFC setting. See configuration sections for each config for more information.
+
 Runout detection can be turned off while printing by disabling sensor in web gui. If PREP sensor is disabled this also disables infinite spool. The state of the switches is not persistent and will reset to enabled when klipper is restarted.
 
 Example of runout enabled/disabled:
