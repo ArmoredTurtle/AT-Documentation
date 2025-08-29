@@ -24,6 +24,7 @@ US:
 CA:
 
 - [Sparta3D](https://sparta3d.ca/products/ldo-box-turtle-kit)
+- [3D Lab Tech](https://www.3dlabtech.ca/product/ldo-box-turtle-kit/)
 
 EU:
 

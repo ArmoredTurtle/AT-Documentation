@@ -243,6 +243,8 @@ poop_cmd: AFC_POOP
 #    Macro name to call when pooping filament. Using the default AFC_POOP macro
 #    will call the macro defined in `Poop.cfg`. You can replace this with a 
 #    custom macro name if you have a different pooping method or tool.
+#    Please note that the only valid parameter for the AFC_POOP macro is
+#    `purge_length`, which defines the length of filament to purge.
 
 # Kick Settings
 kick: True                      
