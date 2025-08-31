@@ -26,8 +26,8 @@ A table of common values is provided [here](../../boxturtle/initial_startup/06-h
 
 !!!note 
     It may be easier to temporarily disable the `AFC_POOP` macro while you are adjusting the `tool_stn` value, as this
-    will provide an easier way to observe the filament extruding from the hotend. Run `AFC_TOGGLE_MACRO TOOL_CUT=0` to 
-    disable the macro, and `AFC_TOGGLE_MACRO TOOL_CUT=1` to re-enable it after you have finished adjusting the value.
+    will provide an easier way to observe the filament extruding from the hotend. Run `AFC_TOGGLE_MACRO POOP=0` to 
+    disable the macro, and `AFC_TOGGLE_MACRO POOP=1` to re-enable it after you have finished adjusting the value.
 
 Once you have a recommended value, fine-tune it by performing the following steps:
 
@@ -51,7 +51,7 @@ SAVE_EXTRUDER_VALUES EXTRUDER=<extruder>
 ```
 
 !!!note
-    Don't forget to re-enable the `AFC_POOP` macro by running `AFC_TOGGLE_MACRO TOOL_CUT=1` after you have finished
+    Don't forget to re-enable the `AFC_POOP` macro by running `AFC_TOGGLE_MACRO POOP=1` after you have finished
     adjusting the `tool_stn` value if you disabled it earlier. 
 
 ### `tool_stn_unload` Calculation

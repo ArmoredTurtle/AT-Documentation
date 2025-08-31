@@ -5,8 +5,14 @@ Title: Armored Turtle Documentation
 Welcome to the consolidated documentation site for Armored Turtle projects! This site is a work in progress and will 
 be updated as we continue to develop and improve our projects.
 
+The latest release of our software along with all release notes / CHANGELOG can be found:
+
+ - [Releases](https://github.com/ArmoredTurtle/AFC-Klipper-Add-On/releases)
+ - [CHANGELOG](https://github.com/ArmoredTurtle/AFC-Klipper-Add-On/blob/main/CHANGELOG.md)
+
 Along with our guided assembly manuals available [here](https://www.armoredturtle.xyz), we also have a wealth of 
 information available on this site to help you get started with your Armored Turtle projects.
+
 
 !!!note "Initial Startup Guide"
     This documentation site is intended to be used in conjunction with the [Armored Turtle Assembly Manuals](https://www.armoredturtle.xyz).

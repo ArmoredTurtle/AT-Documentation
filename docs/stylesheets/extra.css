@@ -25,6 +25,14 @@
   src: url("../../assets/fonts/ApexMk2-Regular.woff2");
 }
 
+.md-footer__inner {
+  justify-content: center; /* optional: center-align buttons */
+  gap: 0.5rem;              /* reduce spacing between buttons */
+}
+
+.md-footer__link {
+  margin: 0 !important;     /* remove default margins */
+}
 
 .md-grid {
   max-width: 1440px;

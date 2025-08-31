@@ -24,10 +24,13 @@ nav:
               - Main Menu: afc-klipper-add-on/installation/main-menu.md
               - Install Menu: afc-klipper-add-on/installation/install-menu.md
               - Utilities Menu: afc-klipper-add-on/installation/utilities-menu.md
+              - Update Menu: afc-klipper-add-on/installation/update-menu.md
           - Uninstall Process: afc-klipper-add-on/installation/uninstall-process.md
           - Buffer Overview: afc-klipper-add-on/installation/buffer-overview.md
           - Buffer Ram Sensor: afc-klipper-add-on/installation/buffer-ram-sensor.md
           - Slicer / PRINT_START Setup: afc-klipper-add-on/installation/slicer-setup.md
+      - Updating:
+          - Updating AFC-Klipper-Add-On: afc-klipper-add-on/updates/updates.md
       - Configuration:
           - Configuration Overview: afc-klipper-add-on/configuration/configuration_overview.md
           - Configuration Files:
@@ -75,7 +78,7 @@ nav:
       - Troubleshooting: troubleshooting/troubleshooting.md
       - FAQ: troubleshooting/faq.md
   - Assembly Manual: https://armoredturtle.xyz
-
+  - Latest Release: https://github.com/ArmoredTurtle/AFC-Klipper-Add-On/releases
 draft_docs: |
   _unpublished.md 
 

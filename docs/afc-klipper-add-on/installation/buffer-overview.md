@@ -158,7 +158,7 @@ _For TurtleNeck Style Buffers_
 
 `SET_BUFFER_MULTIPLIER` used to live adjust the high and low multipliers for the buffer
 - To change `multiplier_high`: `SET_BUFFER_MULTIPLIER BUFFER=TN MULTIPLIER=HIGH FACTOR=1.2`
-- To change `multiplier_low`: `SET_BUFFER_MULTIPLIER BUFFER=TN MULTIPLIER=HIGH FACTOR=0.8`
+- To change `multiplier_low`: `SET_BUFFER_MULTIPLIER BUFFER=TN MULTIPLIER=LOW FACTOR=0.8`
     
 !!! note
     Buffer config section must be updated for values to be saved

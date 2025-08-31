@@ -73,7 +73,7 @@ to help with this. Update and uncomment the following values in `~/printer_data/
 
 ## General Unreliability
 
-### Timer Too Close
+### Timer Too Close (TTC) errors
 AFC can require more resources than some SBCs are able to support with the stock settings. If you are encountering 
 Timer Too Close (TTC) errors, the following may help resolve it:
 
@@ -83,12 +83,15 @@ Timer Too Close (TTC) errors, the following may help resolve it:
 - Try disabling unnecessary services on the SBC, such as Crowsnest or KlipperScreen and see if that resolves the 
   problem.
 
-### Timer too close (TTC) error
-
 If you keep getting TTC errors start by adding the following to `~/printer_data/config/AFC/AFC.cfg` file under the 
 [AFC] section.
 
 `trsync_update: True`
+
+
+Another potential solution that people have found successful is to reformat the SD card on your SBC and reflash the
+AFC-Lite firmware. This can help resolve issues with the filesystem that may be causing the
+TTC errors. Ensure you back up your configuration files before reformatting the SD card and reinstalling all software.
 
 ### Lost communication with MCU
 This usually indicates some sort of cabling or power delivery problem. First, double check that all crimps for the 
