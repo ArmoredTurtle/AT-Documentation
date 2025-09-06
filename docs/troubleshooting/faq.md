@@ -71,5 +71,5 @@
 
 ??? Answer
 
-    One of our Discord members, @Mib | HTLF-011, put together the following PDF file to assist.
+    Two of our Discord members, `@Mib | HTLF-011` and `james1979 | HTLF-010`, put together the following PDF file to assist.
     [HTLF Wiring Guide](../assets/docs/HTLF_Wiring_help.pdf)
