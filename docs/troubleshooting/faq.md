@@ -64,3 +64,12 @@
         
         - Running Cartographer or AFC-Lite on USB instead of CAN
         - If you can not switch one to USB, run the devices on separate CAN networks
+
+!!! Question
+
+    Is there any wiring help for HTLF?
+
+??? Answer
+
+    One of our Discord members, @Mib | HTLF-011, put together the following PDF file to assist.
+    [HTLF Wiring Guide](../assets/docs/HTLF_Wiring_help.pdf)

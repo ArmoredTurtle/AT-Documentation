@@ -22,7 +22,9 @@ gcode:
 
   G28 # Home Printer
   # Do any other leveling such as QGL here
-
+  # Z_TILT_ADJUST
+  # QUAD_GANTRY_LEVEL
+  # G28 Z
   AFC_PARK
 
   M140 S{BED_TEMP} # Set bed temp
