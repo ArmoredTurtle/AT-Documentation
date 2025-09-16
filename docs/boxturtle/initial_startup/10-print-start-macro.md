@@ -62,3 +62,12 @@ If you are modifying an existing macro:
 - Move to park position with `AFC_PARK`
 - Lower the hotend to standby temperature with `M104 S{S_EXTRUDER_TEMP}`
 - Perform any other necessary pre-flight tasks (e.g., heat soak, re-homing Z, bed meshing, prime/purge line, etc)
+
+## Cura Slicer Specific Instructions for PRINT_START
+
+``` g-code
+  {% set BED_TEMP = params.BED|default(60)|float %}
+  {% set EXTRUDER_TEMP = params.EXTRUDER|default(195)|float %}
+  {% set S_EXTRUDER_TEMP = params.STANDBY|default(150)|float %}
+  {% set initial_tool = params.TOOL|default("0")|int %}
+```

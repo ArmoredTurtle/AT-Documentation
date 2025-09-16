@@ -44,14 +44,6 @@ goes into a `trailing` state.
 
 ## Configuration
 
-### Required AFC Configuration Options
-
-In `AFC_Hardware.cfg`, `buffer` must be defined. 
-
-Example under `AFC_extruder`:
-```cfg
-buffer: TN
-```
 
 ### Required AFC Hardware Configuration Options
 
@@ -93,7 +85,7 @@ led_buffer_disable: 0,0,0,0.25
 ### Example Configs
 
 ```cfg
-[AFC_buffer TN]
+[AFC_buffer Turtle_1]
 advance_pin:     # set advance pin
 trailing_pin:    # set trailing pin
 multiplier_high: 1.05   # default 1.05, factor to feed more filament
@@ -118,13 +110,13 @@ config then this will override whatever is set at the Unit level.
 Setting buffer for a single unit
 ```cfg
 [AFC_BoxTurtle Turtle_1]
-buffer: TN
+buffer: Turtle_1
 ```
 Overriding buffer at stepper:
 ```cfg
 [AFC_Stepper lane1]
 unit: Turtle_1:1
-buffer: TN2
+buffer: Turtle_1
 <rest of config>
 ```
 
@@ -136,12 +128,12 @@ The `QUERY_BUFFER` command reports the current state of the buffer and, if appli
 of the AFC stepper motor. 
 
 Example usage:
-`QUERY_BUFFER BUFFER=Turtleneck`
+`QUERY_BUFFER BUFFER=Turtle_1`
 
 Example outputs:
 
-- `Turtleneck: Trailing` - buffer is moving from the Advance trigger to the Trailing.
-- `Turtleneck: Advancing` - buffer is moving from the Trailing trigger to the Advance. 
+- `Turtle_1: Trailing` - buffer is moving from the Advance trigger to the Trailing.
+- `Turtle_1: Advancing` - buffer is moving from the Trailing trigger to the Advance. 
 
 ### SET_ROTATION_FACTOR
 _For TurtleNeck Style Buffers_
@@ -151,14 +143,14 @@ greater than 1 will increase the rate filament is fed to the primary extruder, f
 will decrease the rate filament to the primary extruder.
 
 Example Usage:
-`SET_ROTATION_FACTOR BUFFER=TN FACTOR=1.1`
+`SET_ROTATION_FACTOR BUFFER=Turtle_1 FACTOR=1.1`
 
 ### SET_BUFFER_MULTIPLIER
 _For TurtleNeck Style Buffers_
 
 `SET_BUFFER_MULTIPLIER` used to live adjust the high and low multipliers for the buffer
-- To change `multiplier_high`: `SET_BUFFER_MULTIPLIER BUFFER=TN MULTIPLIER=HIGH FACTOR=1.2`
-- To change `multiplier_low`: `SET_BUFFER_MULTIPLIER BUFFER=TN MULTIPLIER=LOW FACTOR=0.8`
+- To change `multiplier_high`: `SET_BUFFER_MULTIPLIER BUFFER=Turtle_1 MULTIPLIER=HIGH FACTOR=1.2`
+- To change `multiplier_low`: `SET_BUFFER_MULTIPLIER BUFFER=Turtle_1 MULTIPLIER=LOW FACTOR=0.8`
     
 !!! note
     Buffer config section must be updated for values to be saved
