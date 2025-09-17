@@ -69,8 +69,6 @@ betas/release candidates) you will need to make the following additional changes
 ;Filament type = {material_type}
 ;Filament weight = {filament_weight}
 ;Nozzle diameter = {machine_nozzle_size}
-SET_MATERIAL lane=lane1 MATERIAL={material_type, 0}
-SET_MATERIAL lane=lane2 MATERIAL={material_type, 1}
 PRINT_START STANDBY={material_standby_temperature} BED={material_bed_temperature_layer_0} EXTRUDER={material_print_temperature_layer_0} TOOL={initial_extruder_nr}
 ```
 
