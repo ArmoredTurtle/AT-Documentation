@@ -12,7 +12,7 @@ Run the ``TEST`` command against each lane (one at a time) to verify proper resp
 Verify that each respooler works properly by moving in reverse like respooling a spool before proceeding.
 
 If your respoolers are operating in reverse (typically seen in a Formbot kit), you can simply reverse the pin assignments
-for the respoolers.
+for the respoolers in AFC_Turtle_1.cfg file.
 
 e.g.
 
