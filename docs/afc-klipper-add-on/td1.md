@@ -2,7 +2,12 @@
 AFC has the ability to grab data from multiple TD-1 devices that are connected to your printer. TD-1 devices can be connected inline with your PTFE tubes to capture data from all lanes, or multiple TD-1's can be added to capture data from specific units. AFC can also be setup to capture TD-1 data once filament is inserted into a lane and/or during startup PREP routine. Once this data is captured it will be sent to moonraker database to allow third-parties (like orca once support is added) to read what color, TD, mapping, material filament, etc. is in each lane, learn more about this feature [here](features.md#exposing-lane-data-for-third-parties)
 
 ## Prerequisite
-TD-1 firmware version on at least version 2.0.0
+- TD-1 firmware version on at least version 2.0.0, updating requires Hueforge v0.9.0 or newer.
+- After updating, run through lux and RBG calibration in Hueforge under TD-1 dropdown.
+- For TD-1 users, with version 2.0.0 firmware your ball bearing can be removed to reduce filament friction, but make sure to check `Optical Button` in Hueforge under TD-1 -> TD-1 Settings.
+![td1_optical_setting](../assets/images/td1_optical_setting.png)
+## PTFE Case
+- TD-1 PTFE case so that PTFE tubes can be connected to either side : [makerworld link](https://makerworld.com/en/models/1414761-td-1-ptfe-case#profileId-1469128)
 
 ## Moonraker Setup
 To communicate correctly with TD-1 devices, moonraker needs to be updated to at least **v0.9.3-116-gb11a7915** and the following need's to be added to moonraker.conf file
