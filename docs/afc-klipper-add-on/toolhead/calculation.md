@@ -57,7 +57,8 @@ SAVE_EXTRUDER_VALUES EXTRUDER=<extruder>
 ### `tool_stn_unload` Calculation
 
 The `tool_stn_unload` variable is the distance that the filament moves when the toolhead is unloaded, after the cut macro
-is executed and any pushback and retract operations have been performed.
+is executed and any pushback and retract operations have been performed. If you have a toolhead with the cutter
+above the extruder gears, you should set this value to 0.
 
 Like adjusting the `tool_stn` value, start with a recommended value based on your toolhead/extruder combination 
 and use the following steps to fine-tune it:
