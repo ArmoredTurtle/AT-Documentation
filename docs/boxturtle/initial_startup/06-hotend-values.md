@@ -187,3 +187,13 @@ Below is an example diagram of a Revo Voron hotend on FilamATrix/Clockwork 2:
     - `tool_stn_unload`: 96.8
     - `variable_retract_length`: 21
     - `variable_pushback_length`: 12.45
+
+------
+
+#### A4T
+=== "WWBMG, CrossBow Cutter, Rapido 2HF"
+
+    - `tool_stn`: 40
+    - `tool_stn_unload`: 65
+    - `variable_retract_length`: 32
+    - `variable_pushback_length`: 27
