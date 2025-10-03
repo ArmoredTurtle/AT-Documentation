@@ -197,3 +197,10 @@ Below is an example diagram of a Revo Voron hotend on FilamATrix/Clockwork 2:
     - `tool_stn_unload`: 65
     - `variable_retract_length`: 32
     - `variable_pushback_length`: 27
+
+=== "WWBMG (dual sensor), CrossBow Cutter, Chube compact"
+
+    - `tool_stn`: 28
+    - `tool_stn_unload`: 60
+    - `variable_retract_length`: 25
+    - `variable_pushback_length`: 23
