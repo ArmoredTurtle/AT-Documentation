@@ -191,7 +191,7 @@ Below is an example diagram of a Revo Voron hotend on FilamATrix/Clockwork 2:
 ------
 
 #### A4T
-=== "WWBMG, CrossBow Cutter, Rapido 2HF"
+=== "WWBMG (dual sensor), CrossBow Cutter, Rapido 2HF"
 
     - `tool_stn`: 40
     - `tool_stn_unload`: 65
