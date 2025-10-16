@@ -188,6 +188,10 @@ auto_home: False
 #    Default: False
 #    Enable to turn on auto homing if printer is not already homed when
 #    loading/unloading a lane.
+auto_level_macro: <none>
+#    Default: <none>
+#    Macro name to call to auto level the bed if auto_home is enabled.
+#    If set, this should be a macro such as Z_TILT_ADJUST or QUAD_GANTRY_LEVEL.
 enable_assist: True
 #    Default: True
 #    Enables espooler print assist.
