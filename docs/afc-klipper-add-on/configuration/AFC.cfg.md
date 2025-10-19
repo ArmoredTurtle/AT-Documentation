@@ -222,6 +222,11 @@ capture_td1_when_loaded: False
 #
 #    This is a global setting and can be overridden in unit specific sections
 #    eg. [AFC_Boxturtle ], [AFC_NightOwl ] etc.
+disable_weight_check: False
+#    Default: False
+#    When set to True, weight checks will be disabled when assigning spoolsIDs from
+#    Spoolman. *Warning*: This may lead to issues if the spool weights are set to 0
+#    in Spoolman or if the weight readings are inaccurate.
 ```
 
 The next part of the `[AFC]` section contains the configuration for the AFC macros. These macros are used to control the
