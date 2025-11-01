@@ -33,8 +33,12 @@ reports no errors, move on to the next step.
 ### TurtleNeck buffer
 
 Test that TurtleNeck buffer is configured correctly by extending the slide all the way out, then run
-`QUERY_BUFFER BUFFER=Turtle_1`. This should return `Trailing (Expanded)`. Collapse the slide all the way so it 
+`QUERY_BUFFER BUFFER=Turtle_1`. This should return `Trailing (buffer is compressing)`. Collapse the slide all the way so it 
 triggers the
-switch at the rear, then rerun the QUERY_BUFFER command. It should then report `Advancing (Compressed)`.
+switch at the rear, then rerun the QUERY_BUFFER command. It should then report `Advancing (buffer is expanding)`.
+
+To help understand the terminology:
+- Once the buffer fully expands, BoxTurtle will reduce the speed of its stepper and the buffer will begin to compress.
+- Once the buffer fully compresses, BoxTurtle will increase the speed of its stepper and the buffer will begin to expand.
 
 Confirm proper operation of your TurtleNeck before proceeding.

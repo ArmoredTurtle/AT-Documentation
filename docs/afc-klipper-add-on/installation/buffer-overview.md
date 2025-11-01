@@ -25,11 +25,11 @@ The buffer's expansion or compression increases or decreases the rotation distan
 
 * If the `trailing` sensor is triggered, this means that the buffer is compressed, the AFC will decrease rotation 
 distance in order to move the filament quicker to the primary extruder. When this `trailing` sensor is triggered, the system
-goes into an `advancing` state.
+goes into an `advancing` state and the buffer starts to expand.
 
 * If the `advance` sensor is triggered, this means that the buffer is expanded, the AFC will increase rotation 
 distance in order to slow the filament moving to the primary extruder. When this `advanced` sensor is triggered, the system
-goes into a `trailing` state.
+goes into a `trailing` state and the buffer starts to compress.
 
 ### Turtleneck 1.0
 
@@ -140,8 +140,8 @@ Example usage:
 
 Example outputs:
 
-- `Turtleneck: Trailing` - buffer is moving from the Advance trigger to the Trailing.
-- `Turtleneck: Advancing` - buffer is moving from the Trailing trigger to the Advance. 
+- `Turtleneck: Trailing (buffer is compressing)` - buffer is moving from the Advance trigger to the Trailing.
+- `Turtleneck: Advancing (buffer is expanding)` - buffer is moving from the Trailing trigger to the Advance. 
 
 ### SET_ROTATION_FACTOR
 _For TurtleNeck Style Buffers_
