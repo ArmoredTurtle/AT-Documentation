@@ -188,6 +188,10 @@ auto_home: False
 #    Default: False
 #    Enable to turn on auto homing if printer is not already homed when
 #    loading/unloading a lane.
+auto_level_macro: <none>
+#    Default: <none>
+#    Macro name to call to auto level the bed if auto_home is enabled.
+#    If set, this should be a macro such as Z_TILT_ADJUST or QUAD_GANTRY_LEVEL.
 enable_assist: True
 #    Default: True
 #    Enables espooler print assist.
@@ -210,6 +214,19 @@ test_extrude_amt: 10
 #    Amount in mm to extrude when use the `AFC_TEST_LANES` calibration
 #    command. This is typically sufficient when using the `POOP` macro;
 #    however, it may need to be adjusted otherwise.
+capture_td1_when_loaded: False
+#    Default: False
+#    When set to True and TD-1 device is correctly configured in moonraker, 
+#    when filament is loaded into a lane AFC will move filament to TD-1 device
+#    to capture TD and color.
+#
+#    This is a global setting and can be overridden in unit specific sections
+#    eg. [AFC_Boxturtle ], [AFC_NightOwl ] etc.
+disable_weight_check: False
+#    Default: False
+#    When set to True, weight checks will be disabled when assigning spoolsIDs from
+#    Spoolman. *Warning*: This may lead to issues if the spool weights are set to 0
+#    in Spoolman or if the weight readings are inaccurate.
 ```
 
 The next part of the `[AFC]` section contains the configuration for the AFC macros. These macros are used to control the
@@ -305,6 +322,11 @@ disable_unload_filament_remapping: False
 #    Default: False
 #    Set to true to disable remapping UNLOAD_FILAMENT macro to TOOL_UNLOAD 
 #    macro.
+capture_td1_data: False
+#    Default: False
+#    When set to True TD-1 device is correctly configured in moonraker, AFC will 
+#    capture TD and color per lane upon first boot if hub is clear and a lane
+#    is not loaded to toolhead.
 ```
 
 ## [delayed_gcode welcome] Section

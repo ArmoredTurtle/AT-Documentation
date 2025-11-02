@@ -590,6 +590,10 @@ variable_brush_depth              : 10
 variable_y_brush                  : True     
 variable_brush_count              : 4        
 variable_z_move                   : -1
+variable_tool_servo_enable        : False
+variable_tool_servo_name          : "tool_brush"
+variable_tool_servo_angle_out     : 115
+variable_tool_servo_angle_in      : 0
 ```
 
 -----
@@ -637,6 +641,26 @@ variable_z_move                   : -1
 === "variable_z_move"
     Default: `-1`  
     Move in Z after brush to avoid bed if brush is at Z0 (Set z to -1 if you don't want a z move)
+
+-----
+=== "variable_tool_servo_enable"
+    Default: False
+    Enable to run servo macros to move brush in/out
+
+-----
+=== "variable_tool_servo_name"
+    Default: "tool_brush"
+    Name of servo defined in config files that move brush
+
+-----
+=== "variable_tool_servo_angle_out"
+    Default: 115
+    Angle to move servo when moving to "out" position
+
+-----
+=== "variable_tool_servo_angle_in"
+    Default: 0
+    Angle to move servo when moving to "in" position
 
 ## [_AFC_PARK_VARS]
 The `_AFC_PARK_VARS` section is used to define the variables for the AFC-Klipper-Add-On for the `PARK` macro. These

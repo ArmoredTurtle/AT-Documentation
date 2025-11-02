@@ -47,12 +47,14 @@ nav:
               - Buffer Commands: afc-klipper-add-on/klipper/internal/buffer.md
               - Lane / Movement Commands: afc-klipper-add-on/klipper/internal/lane.md
               - Misc. Commands: afc-klipper-add-on/klipper/internal/misc.md
+              - TD-1 Commands: afc-klipper-add-on/klipper/internal/td1.md
           - External Macros: afc-klipper-add-on/klipper/external/macros.md
       - Configuration Examples: afc-klipper-add-on/configuration/configuration_examples.md
       - Calibration Process: afc-klipper-add-on/installation/calibration.md
       - Tuning Guide:
           - Toolhead Variable Calculation: afc-klipper-add-on/toolhead/calculation.md
           - Purge Setup: afc-klipper-add-on/toolhead/purge_setup.md
+      - TD-1: afc-klipper-add-on/td1.md
   - BoxTurtle:
       - Overview: boxturtle/index.md
       - Printed Parts: boxturtle/printed-parts.md

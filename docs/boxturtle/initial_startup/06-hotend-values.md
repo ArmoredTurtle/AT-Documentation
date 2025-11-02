@@ -204,3 +204,13 @@ Below is an example diagram of a Revo Voron hotend on FilamATrix/Clockwork 2:
     - `tool_stn_unload`: 60
     - `variable_retract_length`: 25
     - `variable_pushback_length`: 23
+
+------
+#### Custom / Other
+
+=== "Hemera XS with Revo"
+    
+    - `tool_stn`: 22
+    - `tool_stn_unload`: 0
+    - `variable_retract_length`: 20
+    - `variable_pushback_length`: 0

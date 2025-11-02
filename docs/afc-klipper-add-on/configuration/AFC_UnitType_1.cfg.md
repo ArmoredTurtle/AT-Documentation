@@ -103,7 +103,11 @@ park_dist: 10
 led_index: AFC_Indicator:1
 #    Default: None
 #    LED index of lane in chain of lane LEDs. This should reference
-#    a defined LED in the `[AFC_Indicator]` section. 
+#    a defined LED in the `[AFC_Indicator]` section.
+#
+#    Index can have multiple entries in a comma separated list and range values
+#    also are allowed
+#    eg. AFC_Indicator_4:1,2,3,4, 6-9, 11-14, 16-18
 afc_motor_rwd: Turtle_1:MOT1_RWD
 #    Reverse pin on MCU for spoolers (N20 motors).
 afc_motor_fwd: Turtle_1:MOT1_FWD
@@ -325,6 +329,17 @@ debounce_delay: 0
 #    the entire switch event is ignored.
 #
 #    This value overrides value set in AFC config section
+capture_td1_when_loaded: False
+#    Default: False
+#    When set to True and TD-1 device is correctly configured in moonraker, 
+#    when filament is loaded into a lane AFC will move filament to TD-1 device
+#    to capture TD and color.
+#
+#    Setting value here overrides values set in unit config(AFC_BoxTurtle/NightOwl/etc).
+td1_device_id: None
+#    Default: None
+#    Set this value to TD-1 device ID to use for a lane, this is only needed if
+#    using multiple TD-1 devices.
 ```
 
 ## [AFC_stepper lane_name] Section
@@ -399,12 +414,20 @@ afc_bowden_length:  900
 #    Default: 900
 #    Length of the bowden tube in mm from the hub to the toolhead 
 #    sensor.
+#    Run AFC_CALIBRATION to automatically calibrate this length.
 afc_unload_bowden_length: 900
 #    Default: <afc_bowden_length>
 #    Length to unload when retracting back from toolhead to hub in 
 #    mm. This defaults to the value of `afc_bowden_length` if not
 #    specified. With normal installations, this value should not
 #    need to be changed or specified explicitly.
+td1_bowden_length: <afc_bowden_length> - 50
+#    Default: <afc_bowden_length> - 50
+#    Length of the bowden tube in mm from the hub to TD-1 device.
+#
+#    Run AFC_CALIBRATION to automatically calibrate this length,
+#    option to calibrate will only show up if TD-1 has been setup
+#    correctly in moonraker.
 assisted_retract: False
 #    Default: False
 #    If true, retracts are assisted to prevent loose windings on the
@@ -658,6 +681,21 @@ unload_on_runout: False
 #    When True, AFC will unload lane and then pause when runout is 
 #    triggered and spool to swap is not set (infinite spool). Setting
 #    value here overrides values set in AFC.cfg file.
+capture_td1_when_loaded: False
+#    Default: False
+#    When set to True and TD-1 device is correctly configured in moonraker, 
+#    when filament is loaded into a lane AFC will move filament to TD-1 device
+#    to capture TD and color.
+#
+#    Setting value here overrides values set in AFC.cfg file. This value can
+#    also be overridden per AFC_lane/AFC_stepper.
+td1_device_id: None
+#    Default: None
+#    Set this value to TD-1 device ID to use for a unit, this is only needed if
+#    using multiple TD-1 devices.
+#
+#    If using separate TD-1 devices per lanes this value should be set in 
+#    AFC_lane/AFC_stepper sections.
 ```
 
 ## [AFC_NightOwl unit_name] Section
