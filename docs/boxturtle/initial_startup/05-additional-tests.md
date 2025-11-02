@@ -11,6 +11,22 @@ Run the ``TEST`` command against each lane (one at a time) to verify proper resp
 
 Verify that each respooler works properly by moving in reverse like respooling a spool before proceeding.
 
+If your respoolers are operating in reverse (typically seen in a Formbot kit), you can simply reverse the pin assignments
+for the respoolers in AFC_Turtle_1.cfg file.
+
+e.g.
+
+```cfg 
+afc_motor_rwd: Turtle_1:MOT1_RWD
+afc_motor_fwd: Turtle_1:MOT1_FWD
+```
+
+to 
+```cfg
+afc_motor_rwd: Turtle_1:MOT1_FWD
+afc_motor_fwd: Turtle_1:MOT1_RWD
+```
+
 ### Trigger switches
 
 Actuating the trigger switch should begin pulsing that lane's extruder motor to load filament. Verify that the switch

@@ -62,6 +62,16 @@ Configuring per-material filament ramming is no longer required as of the offici
 PR [#6934](https://github.com/SoftFever/OrcaSlicer/pull/6934)). If you are on an earlier version than that (including
 betas/release candidates) you will need to make the following additional changes to your slicer configurations.
 
+### Cura Slicer Setup (User reported settings)
+
+``` g-code
+;Filament name = {material_brand} {material_name}
+;Filament type = {material_type}
+;Filament weight = {filament_weight}
+;Nozzle diameter = {machine_nozzle_size}
+PRINT_START STANDBY={material_standby_temperature} BED={material_bed_temperature_layer_0} EXTRUDER={material_print_temperature_layer_0} TOOL={initial_extruder_nr}
+```
+
 #### Material Settings
 
 ![Orca_Material_Settings](../../assets/images/orca-filament-material-settings.png)

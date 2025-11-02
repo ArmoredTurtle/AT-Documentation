@@ -2,6 +2,12 @@
 
 Updating the AFC-Klipper-Add-On is a simple process that can be done through the `install-afc.sh` script.
 
+!!!warning
+
+    Do **NOT** use the Moonraker update functionality to update the `AFC-Klipper-Add-On` software. It will
+    not run the necessary update scripts and may cause issues with your installation.
+
+
 !!!note 
 
     If your AFC-Klipper-Add-On is < 1.0.20 (Any version prior to 15 Jun 2025), you should run a `git pull` in the 
@@ -29,6 +35,9 @@ cd ~/AFC-Klipper-Add-On
     You will be prompted if you would like the update the AFC provided macros during the update process.
     If you select `Yes`, the macros will be updated to the latest version available. If you select `No`, the macros will not be updated, and
     you will need to manually update them if you want to use the latest versions.
+
+5.  After the update is complete, Moonraker may still show an old version. Use the refresh button in the Mainsail/Fluidd
+    interface to update the version information.
 
 !!!warning
 

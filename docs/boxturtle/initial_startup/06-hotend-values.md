@@ -41,13 +41,6 @@ Below is an example diagram of a Revo Voron hotend on FilamATrix/Clockwork 2:
     - `variable_retract_length`: 20
     - `variable_pushback_length`: 10
 
-=== "Jabberwocky"
-
-    - `tool_stn`: 27.23
-    - `tool_stn_unload`: 96.8
-    - `variable_retract_length`: 21
-    - `variable_pushback_length`: 12.45
-
 === "Dragon ACE with UHF <br>mini holder / 3mm spacer"
 
     - `tool_stn`: 60
@@ -81,7 +74,7 @@ Below is an example diagram of a Revo Voron hotend on FilamATrix/Clockwork 2:
 
 === "G2E and Revo"
 
-    - `tool_stn`: 71
+    - `tool_stn`: 71 (if `pin_tool_end` is NOT defined) / 41 (if `pin_tool_end` is defined)
     - `tool_stn_unload`: 105.5
     - `variable_retract_length`: 21
     - `variable_pushback_length`: 22.5
@@ -185,6 +178,32 @@ Below is an example diagram of a Revo Voron hotend on FilamATrix/Clockwork 2:
     - `tool_stn_unload`: 60
     - `variable_retract_length`: 12
     - `variable_pushback_length`: 5
+------
+
+#### Jabberwocky
+=== "Phaetus Conch"
+
+    - `tool_stn`: 27.23
+    - `tool_stn_unload`: 96.8
+    - `variable_retract_length`: 21
+    - `variable_pushback_length`: 12.45
+
+------
+
+#### A4T
+=== "WWBMG (dual sensor), CrossBow Cutter, Rapido 2HF"
+
+    - `tool_stn`: 40
+    - `tool_stn_unload`: 65
+    - `variable_retract_length`: 32
+    - `variable_pushback_length`: 27
+
+=== "WWBMG (dual sensor), CrossBow Cutter, Chube compact"
+
+    - `tool_stn`: 28
+    - `tool_stn_unload`: 60
+    - `variable_retract_length`: 25
+    - `variable_pushback_length`: 23
 
 ------
 #### Custom / Other
