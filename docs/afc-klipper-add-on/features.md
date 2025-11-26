@@ -323,7 +323,8 @@ Endpoint returns all lanes in system in a json format like the following:
             "bed_temp": 105,
             "nozzle_temp":245,
             "scan_time": "2025-09-14T03:13:27.189383Z",
-            "lane": "1"
+            "lane": "1",
+            "spool_id": 12345
         },
         "lane2": {
             "color": "#122B44",
@@ -332,7 +333,17 @@ Endpoint returns all lanes in system in a json format like the following:
             "bed_temp": 105,
             "nozzle_temp":245,
             "scan_time": "2025-09-14T03:13:27.189383Z",
-            "lane": "0"
+            "lane": "0",
+            "spool_id": 54321
+        },
+        "lane3": {
+            "color": "",
+            "material": "",
+            "bed_temp": "",
+            "nozzle_temp": "",
+            "scan_time": "",
+            "lane": "2",
+            "spool_id": null
         }
     }
 }
@@ -345,3 +356,4 @@ Endpoint returns all lanes in system in a json format like the following:
 - Nozzle Temp: Nozzle temperature pulled from spoolman data  
 - Scan Temp: Only is populated if TD-1 is connected and enabled in system and filament was scanned  
 - Lane: Current tool mapping for lane/slot. eg. T0/T1/T2/etc.  
+- Spool ID: Spool ID assigned to this lane via [SET_SPOOL_ID](klipper/internal/spool.md#SET_SPOOL_ID) or [SET_NEXT_SPOOL_ID](klipper/internal/spool.md#SET_NEXT_SPOOL_ID). Value is an integer when a spool is assigned, or `null` when the lane is empty/ejected
