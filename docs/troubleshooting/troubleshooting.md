@@ -78,11 +78,11 @@ make
 Once the new katapult firmware is built, you can flash it to the AFC-Lite, and then proceed with flashing Klipper as normal.
 
 
-## Mainsail Fork 
+## Mainsail
 
 ### AFC sections not showing up correctly
 
-If you have the AFC Mainsail fork installed and the AFC sections are not showing up correctly, you may need to force 
+If you have Mainsail installed and the AFC sections are not showing up correctly, you may need to force 
 reload your browser with one of the following commands depending on your browser / OS:
 
 | Operating System | Browser | Key Combination  |

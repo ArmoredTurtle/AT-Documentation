@@ -1,7 +1,8 @@
 # GUI support
 
 ## Mainsail
-AFC integrates with [mainsail](https://www.mainsail.xyz), currently via [an open-source fork](https://github.com/ArmoredTurtle/mainsail-AFC/). As shown below, it can integrate with multiple 
+AFC integrates with [Mainsail](https://www.mainsail.xyz). Installation instructions are available 
+[here](https://docs.mainsail.xyz/setup/getting-started). As shown below, it can integrate with multiple 
 units including different types (in this case, BoxTurtle and [HTLF](https://www.printables.com/model/1249234-happyturtlelettucefeeder-htlf-by-armoredturtle-an)).
 
 ![mainsail-AFC integration screenshot](../assets/images/mainsail-bt-htlf.png)
