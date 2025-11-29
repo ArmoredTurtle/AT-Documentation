@@ -1,6 +1,7 @@
 # GUI support
 
 ## Mainsail
+
 AFC integrates with [Mainsail](https://www.mainsail.xyz) >= 2.15.0. Installation instructions are available 
 [here](https://docs.mainsail.xyz/setup/getting-started). 
 
