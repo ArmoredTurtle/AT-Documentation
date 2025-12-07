@@ -8,6 +8,8 @@ AFC allows the use of using the TurtleNeck Buffers as a ram sensor for detecting
 extruder. This can be used inplace of a toolhead filament sensor. To learn more about this feature please
 see [Buffer Ram Sensor](installation/buffer-ram-sensor.md) document.
 
+TurtleNeck Buffer can also detect clogs, jams and feeding issues before they result in a failed print. See [buffer fault detection](installation/buffer-overview.md#buffer-fault-detection) section in buffer overview for more information.
+
 ## Bypass
 
 By default, if a hardware sensor is not setup for a bypass AFC will create a virtual bypass filament sensor. 
@@ -340,7 +342,7 @@ Endpoint returns all lanes in system in a json format like the following:
 
 - Color: Current color filament loaded in lane, if filament was scanned with TD-1 then TD-1 scanned color is returned  
 - TD : Transmission distance if TD-1 is connected and enabled in system  
-- Material: Material from spoolman or when manually entered with [SET_MATERIAL](klipper/internal/spool.md#SET_MATERIAL) macro  
+- Material: Material from spoolman or when manually entered with [SET_MATERIAL](klipper/internal/spool.md#AFC_spool.AFCSpool.cmd_SET_MATERIAL) macro  
 - Bed Temp: Bed temperature pulled from spoolman data  
 - Nozzle Temp: Nozzle temperature pulled from spoolman data  
 - Scan Temp: Only is populated if TD-1 is connected and enabled in system and filament was scanned  

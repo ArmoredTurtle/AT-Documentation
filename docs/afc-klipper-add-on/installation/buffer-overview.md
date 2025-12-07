@@ -100,6 +100,38 @@ led_index: Buffer_Indicator:1
 
 ```
 
+## Buffer Fault Detection
+AFC can detect filament faults during printing by monitoring extruder position and buffer state changes.
+This feature helps identify clogs, jams, and feeding issues before they result in failed prints.
+
+The fault detection system monitors how far the extruder has moved relative to buffer switch activations.
+If the extruder travels beyond a configured threshold distance and the buffer fails to respond appropriately, 
+AFC will pause the print and provide diagnostic information about the issue.
+
+Fault detection uses a configurable sensitivity scale from 0-10, where:
+
+- `0`disables fault detection completely
+- `1` is the least sensitive (allows 100mm of movement before triggering)
+- `10` is the most sensitive (triggers after only 10mm of movement)
+The formula used is: `fault_distance = (11 - sensitivity) × 10`
+
+When a fault is detected, AFC provides contextual error messages based on the buffer state:
+
+- If the buffer is in the Advancing state (expanding), the message indicates a potential CLOG DETECTED
+- If the buffer is in the Trailing state (compressing), the message indicates AFC NOT FEEDING
+
+To enable fault detection, add the `filament_error_sensitivity` parameter to your `[AFC_buffer <buffer_name>]` section:
+```
+[AFC_buffer TN]
+advance_pin: <pin>
+trailing_pin: <pin>
+filament_error_sensitivity: 5.0  # 0-10 scale, 0 disables
+multiplier_high: 1.1
+multiplier_low: 0.9
+```
+The sensitivity can be adjusted during runtime without restarting Klipper using the `AFC_SET_ERROR_SENSITIVITY` command:
+`AFC_SET_ERROR_SENSITIVITY BUFFER=TN SENSITIVITY=7.0`
+
 ## Off-Nominal Buffer Configurations
 Buffers can also be set per Unit/Stepper. If multiple lanes use the same buffer for one Unit then the buffer can just 
 be added to Unit config (`AFC_BoxTurtle`, `AFC_NightOwl`, etc.). If a buffer is inputted into the `AFC_Stepper` 
