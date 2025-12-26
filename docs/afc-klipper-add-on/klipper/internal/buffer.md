@@ -36,3 +36,10 @@ These commands are used to manage the buffer and its properties.
     options:
       docstring_style: numpy
       heading_level: 3
+
+-----
+[AFC_SET_ERROR_SENSITIVITY]
+::: AFC_buffer.AFCTrigger.cmd_AFC_SET_ERROR_SENSITIVITY
+    options:
+      docstring_style: numpy
+      heading_level: 3
