@@ -74,10 +74,10 @@ Below is an example diagram of a Revo Voron hotend on FilamATrix/Clockwork 2:
 
 === "G2E and Revo"
 
-    - `tool_stn`: 71 (if `pin_tool_end` is NOT defined) / 41 (if `pin_tool_end` is defined)
-    - `tool_stn_unload`: 105.5
-    - `variable_retract_length`: 21
-    - `variable_pushback_length`: 22.5
+    - `tool_stn`: 73 (if `pin_tool_end` is NOT defined) / 40 (if `pin_tool_end` is defined)
+    - `tool_stn_unload`: 119
+    - `variable_retract_length`: 22
+    - `variable_pushback_length`: 21
 
 === "G2SA and Revo"
 
