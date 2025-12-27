@@ -170,7 +170,7 @@ walking around and riding up wheels when they get low. This feature is enabled b
 gets below 500 grams.  
 
 The goal of this is to enable the spooler for a small amount of time so that filament on the spool is loosened up some,
-then by the time your printer extrudes `mm_movement` amount(defaults to 150) the filament on your spool should just be 
+then by the time your printer extrudes `delta_movement` amount(defaults to 150) the filament on your spool should just be 
 getting taught before print assist activates again.  
 
 This feature can be turned off by adding `enable_assist: False` to your `[AFC_BoxTurtle Turtle_(n)]` or `[AFC]` or per `[AFC_Stepper]` config sections.
@@ -178,53 +178,31 @@ If you would like to change the weight value where print assist is activated, th
 to your configuration, this value can be added to the same sections as `enable_assist` variable. 
 
 The following variables described in [AFC_lane](configuration/AFC_UnitType_1.cfg.md#afc_lane-lane_name-section) section are all
-the values that go into the print assist logic: `enable_assist`, `enable_assist_weight`, `timer_delay`, `delta_movement`, `mm_movement`,
-`cycles_per_rotation`, `pwm_value`, `spoolrate`. The values can be configured per lane (`AFC_Stepper`) or per Unit (`AFC_BoxTurtle`).
+the values that go into the print assist logic: `enable_assist`, `enable_assist_weight`, `timer_delay`, `delta_movement`, `spoolrate`, `spool_ratio`,
+`full_weight`, `spool_outer_diameter`, `spool_inner_diameter`, `espool_rot_dist`, `max_motor_rpm`.
+These values can be configured per lane (`AFC_Stepper`) or per Unit (`AFC_BoxTurtle`).
 
 With this functionality the following macros allow you to enable/disable and tweak the settings for
-print assist. 
+print assist: 
 
 - [SET_ESPOOLER_VALUES](klipper/internal/lane.md#AFC_assist.Espooler.cmd_SET_ESPOOLER_VALUES)  
 - [ENABLE_ESPOOLER_ASSIST](klipper/internal/lane.md#AFC_assist.Espooler.cmd_ENABLE_ESPOOLER_ASSIST)  
 - [DISABLE_ESPOOLER_ASSIST](klipper/internal/lane.md#AFC_assist.Espooler.cmd_DISABLE_ESPOOLER_ASSIST)  
 - [TEST_ESPOOLER_ASSIST](klipper/internal/lane.md#AFC_assist.Espooler.cmd_DISABLE_ESPOOLER_ASSIST)    
 
-If the default values for print assist is unspooling too much you can start off by changing either `spoolrate` or 
-`cycles_per_rotation` to decrease the time that the N20 motors are active( aka cruise_time ). Spoolrate scales all 
-variables by that amount and cycles_per_rotation controls how long in milliseconds it takes to spin the spool a full rotation.  
+If the default values for print assist is unspooling too much you can start off by changing either `max motor rpm` or 
+`spool ratio` to decrease the time that the N20 motors are active( aka cruise_time ). 
 
-Below is a chart with calculations that shows what `cruise_time` will end up being if either `spoolrate` or `cycles_per_rotation` is changed  
-<table class="espooler" style="font-size: medium">
-<style>
-td, th{
-    padding: .1em 1em;
-    border: 1px solid grey;
-}
-</style>
-<thead>
-<tr><th colspan=2>Cruise time when ONLY changing spoolrate</th><th colspan=2>Cruise time when ONLY changing cycles_per_rotation</th></tr></thead>
-<tbody>
-<tr><th>spoolrate</th><th>cruise_time</th><th>cycles_per_rotation</th><th>cruise_time</th></tr>
-<tr><td>1  </td><td>0.4593</td><td>1275</td><td>0.4593</td></tr>
-<tr><td>0.9</td><td>0.4134</td><td>1100</td><td>0.3963</td></tr>
-<tr><td>0.8</td><td>0.3307</td><td>1000</td><td>0.3603</td></tr>
-<tr><td>0.7</td><td>0.2315</td><td>900 </td><td>0.3242</td></tr>
-<tr><td>0.6</td><td>0.1389</td><td>800 </td><td>0.2882</td></tr>
-<tr><td>0.5</td><td>0.0694</td><td>700 </td><td>0.2522</td></tr>
-<tr><td>0.4</td><td>0.0277</td><td>600 </td><td>0.2161</td></tr>
-<tr><td>0.3</td><td>0.0083</td><td>500 </td><td>0.1801</td></tr>
-<tr><td>0.2</td><td>0.0016</td><td>400 </td><td>0.1441</td></tr>
-<tr><td>0.1</td><td>0.0001</td><td>300 </td><td>0.1080</td></tr>
-</tbody>
-</table>
+Below is the default cruise time dependent on weight when using default variables:
+![image](../assets/images/print_assist_cruise_time_vs_weight.png)
 
 Formula to calculate `cruise_time`:
+```python
+rps = max motor rpm / 60
+spool_rot_s = (espool rot dist * (rps / spool ratio)) / (spool outer diameter * PI)
+w_r = ((weight / full weight) + 1) * ((spool outer diameter - spool inner diameter) * PI)
+cruise_time = delta movement / w_r / spool_rot_s
 ```
-rotation = mm movement / spool circumference
-correction_factor = 1.0 +  ( 1.68 * -rotations^5)
-cruise_time = rotations * cycles_per_rotation * correction_factor
-```
-Note: Spool circumference is automatically calculated from `spool_outer_diameter` variable
 
 ## Quiet Mode
 
@@ -358,4 +336,4 @@ Endpoint returns all lanes in system in a json format like the following:
 - Nozzle Temp: Nozzle temperature pulled from spoolman data  
 - Scan Temp: Only is populated if TD-1 is connected and enabled in system and filament was scanned  
 - Lane: Current tool mapping for lane/slot. eg. T0/T1/T2/etc.  
-- Spool ID: Spool ID assigned to this lane via [SET_SPOOL_ID](klipper/internal/spool.md#SET_SPOOL_ID) or [SET_NEXT_SPOOL_ID](klipper/internal/spool.md#SET_NEXT_SPOOL_ID). Value is an integer when a spool is assigned, or `null` when the lane is empty/ejected
+- Spool ID: Spool ID assigned to this lane via [SET_SPOOL_ID](klipper/internal/spool.md#AFC_spool.AFCSpool.cmd_SET_SPOOL_ID) or [SET_NEXT_SPOOL_ID](klipper/internal/spool.md#AFC_spool.AFCSpool.cmd_SET_NEXT_SPOOL_ID). Value is an integer when a spool is assigned, or `null` when the lane is empty/ejected

@@ -201,6 +201,14 @@ enable_assist_weight: 500
 #    Number in grams to activate espooler print assist once spool weight is 
 #    less than this number.
 #    Can be overridden in the [AFC_Boxturtle/AFC_NightOwl etc] sections.
+spool_ratio: 2
+#    Default: 2
+#    Gear ratio for printed gearbox between N20 and spooler wheels, can be overridden in
+#    [AFC_Boxturtle/AFC_NightOwl etc] sections and [AFC_Stepper/AFC_Lane] sections.
+full_weight: 1000
+#    Default: 1000
+#    Full starting weight of filament spool (not including spool),  can be overridden in
+#    [AFC_Boxturtle/AFC_NightOwl etc] sections and [AFC_Stepper/AFC_Lane] sections.
 debounce_delay: 0
 #    Default: 0
 #    Global value for a period of time in seconds to debounce switches prior

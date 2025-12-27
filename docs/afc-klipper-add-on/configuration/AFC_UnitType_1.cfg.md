@@ -245,27 +245,25 @@ delta_movement: 150
 #    Affects espooler assist, delta amount in mm to move from last assist
 #    to trigger another assist move. Setting value here overrides values 
 #    set in unit (AFC_BoxTurtle/NightOwl/etc) section.
-mm_movement: 150
-#    Default: 150
-#    Affects espooler assist, amount to move during the assist in mm once 
-#    filament has moved by `delta_movement` amount. Setting value here 
-#    overrides values set in unit (AFC_BoxTurtle/NightOwl/etc) section.
-cycles_per_rotation: 800
-#    Default: 800
-#    Affects espooler assist, time it takes to in milliseconds to turn 
-#    a spool a full rotation. Setting value here overrides values set 
-#    in unit (AFC_BoxTurtle/NightOwl/etc) section.
-pwm_value: 0.6706
-#    Default: 0.6706
-#    Affects espooler assist, PWM cycle time. Setting value 
-#    here overrides values set in unit (AFC_BoxTurtle/NightOwl/etc) section.
 spoolrate: 1.0
 #    Default: 1.0
 #    Scaling factor for the following variables: 
-#      kick_start_time, spool_outer_diameter, cycles_per_rotation, 
-#      pwm_value, delta_movement, mm_movement
-#    Setting value here overrides values set in unit(AFC_BoxTurtle/NightOwl/etc)
+#      kick_start_time, spool_outer_diameter, delta_movement
+#    Setting value here overrides values set in unit(AFC_BoxTurtle/NightOwl/etc).
 #    section.
+espool_rot_dist: 132.9
+#    Default: 132.9
+#    Rotation distance estimation of espooler wheels, setting value
+#    here will override value in AFC.cfg. Setting value here
+#    overrides values set in unit(AFC_BoxTurtle/NightOwl/etc).
+spool_ratio: 2
+#    Default: 2
+#    Gear ratio for printed gearbox between N20 and spooler wheels, setting value here
+#    overrides values set in unit(AFC_BoxTurtle/NightOwl/etc).
+full_weight: 1000
+#    Default: 1000
+#    Full starting weight of filament spool (not including spool), setting value here
+#    overrides values set in unit(AFC_BoxTurtle/NightOwl/etc).
 load_to_hub: True
 #    Default: True
 #    Fast loads filament to hub when inserted, set to False to disable. 
@@ -305,8 +303,8 @@ spool_weight: 1000
 #    Default: 1000
 #    Remaining filament weight in grams on spools.  This value is pulled automatically
 #    if using spoolman.
-assist_max_motor_rpm: 500
-#    Default: 500
+max_motor_rpm: 465
+#    Default: 465
 #    Maximum motor RPM for the assist motor (N20).
 hub: 
 #    Default: <none>
@@ -585,26 +583,26 @@ delta_movement: 150
 #    Affects espooler assist, delta amount in mm to move from last 
 #    assist to trigger another assist move
 #    Can be overridden in the [AFC_stepper] section.
-mm_movement: 150
-#    Default: 150
-#    Affects espooler assist, amount to move during the assist in mm 
-#    once filament has moved by `delta_movement` amount
-#    Can be overridden in the [AFC_stepper] section.
-cycles_per_rotation: 800
-#    Default: 800
-#    Affects espooler assist, time it takes to in milliseconds to turn 
-#    a spool a full rotation
-#    Can be overridden in the [AFC_stepper] section.
-pwm_value: 0.6706
-#    Default: 0.6706
-#    Affects espooler assist, PWM cycle time
-#    Can be overridden in the [AFC_stepper] section.
 spoolrate: 1.0
 #    Default: 1.0
 #    Scaling factor for the following variables: 
-#      kick_start_time, spool_outer_diameter, cycles_per_rotation, 
-#      pwm_value, delta_movement, mm_movement
+#      kick_start_time, spool_outer_diameter, delta_movement
 #    Can be overridden in the [AFC_stepper] section.
+spool_ratio: 2
+#    Default: 2
+#    Gear ratio for printed gearbox between N20 and spooler wheels, setting value
+#    here will override value in AFC.cfg. The value also can be overridden in
+#    [AFC_Stepper/AFC_Lane] sections.
+full_weight: 1000
+#    Default: 1000
+#    Full starting weight of filament spool (not including spool), setting value
+#    here will override value in AFC.cfg. The value also can be overridden in
+#    [AFC_Stepper/AFC_Lane] sections.
+espool_rot_dist: 132.9
+#    Default: 132.9
+#    Rotation distance estimation of espooler wheels, setting value
+#    here will override value in AFC.cfg. The value also can be overridden in
+#    [AFC_Stepper/AFC_Lane] sections.
 led_fault: 1,0,0,0
 #    Default: 1,0,0,0
 #    LED color to set when faults occur in lane        
