@@ -190,18 +190,18 @@ print assist:
 - [DISABLE_ESPOOLER_ASSIST](klipper/internal/lane.md#AFC_assist.Espooler.cmd_DISABLE_ESPOOLER_ASSIST)  
 - [TEST_ESPOOLER_ASSIST](klipper/internal/lane.md#AFC_assist.Espooler.cmd_DISABLE_ESPOOLER_ASSIST)    
 
-If the default values for print assist is unspooling too much you can start off by changing either `max motor rpm` or 
-`spool ratio` to decrease the time that the N20 motors are active( aka cruise_time ). 
+If the default values for print assist is unspooling too much you can start off by changing either `max_motor_rpm` or 
+`spool_ratio` to decrease the time that the N20 motors are active( aka cruise_time ). 
 
 Below is the default cruise time dependent on weight when using default variables:
 ![image](../assets/images/print_assist_cruise_time_vs_weight.png)
 
 Formula to calculate `cruise_time`:
 ```python
-rps = max motor rpm / 60
-spool_rot_s = (espool rot dist * (rps / spool ratio)) / (spool outer diameter * PI)
-w_r = ((weight / full weight) + 1) * ((spool outer diameter - spool inner diameter) * PI)
-cruise_time = delta movement / w_r / spool_rot_s
+rps = max_motor_rpm / 60
+spool_rot_s = (espool_rot_dist * (rps / spool_ratio)) / (spool_outer_diameter * PI)
+w_r = ((weight / full_weight) + 1) * ((spool_outer_diameter - spool_inner_diameter) * PI)
+cruise_time = delta_movement / w_r / spool_rot_s
 ```
 
 ## Quiet Mode
