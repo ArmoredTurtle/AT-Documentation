@@ -17,6 +17,12 @@ Below is an example diagram of a Revo Voron hotend on FilamATrix/Clockwork 2:
     These values are derived from community based feedback and are not guaranteed to work for your specific setup.
     You may need to adjust them based on your specific hotend and extruder setup. Always test with caution.
 
+!!!note
+
+     Generally speaking, it is ideal to keep the `variable_pushback_length` within 5mm of the `variable_retract_length` 
+     to lessen the chance of molten filament causing a clog inside the toolhead assembly.
+
+
 ### Hotend specific values
 
 #### Stealthburner & CW2
