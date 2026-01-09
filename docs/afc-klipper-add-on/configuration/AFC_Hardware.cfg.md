@@ -51,6 +51,10 @@ enable_sensors_in_gui: False
 #    Default: False
 #    Set to True toolhead sensors switches as filament sensors in 
 #    Mainsail/Fluidd gui, overrides value set in AFC.cfg.
+enable_tool_runout: True
+#    Default: True
+#    If enabled and toolhead sensor(s) detect filament not present while printing AFC
+#    will pause printing. Inputting value here overrides global value in AFC.cfg file
 debounce_delay: 0
 #    Default: 0
 #    A period of time in seconds to debounce switches prior to detecting

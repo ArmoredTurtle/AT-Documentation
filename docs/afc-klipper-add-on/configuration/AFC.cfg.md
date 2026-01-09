@@ -100,7 +100,7 @@ assisted_unload: True
 #    especially on full spools. This can prevent loops from slipping off the 
 #    spool. This is a global setting and can be overridden at the unit and 
 #    stepper level.
-pause_when_bypass_active: True
+pause_when_bypass_active: False
 #    Default: False
 #    When True AFC pauses print when change tool is called and bypass is loaded
 debug: False
@@ -217,6 +217,14 @@ debounce_delay: 0
 #
 #    This value can be overridden in AFC_extruder, AFC_hub, AFC_lane, AFC_stepper
 #    config sections.
+enable_hub_runout: True
+#    Default: True
+#    If enabled and hub sensor(s) detect filament not present while printing AFC will
+#    pause printing. This value can be overridden per toolhead in AFC_hub config sections.
+enable_tool_runout: True
+#    Default: True
+#    If enabled and toolhead sensor(s) detect filament not present while printing AFC
+#    will pause printing. The value can be overridden per toolhead in AFC_extruder config sections.
 test_extrude_amt: 10
 #    Default: 10
 #    Amount in mm to extrude when use the `AFC_TEST_LANES` calibration

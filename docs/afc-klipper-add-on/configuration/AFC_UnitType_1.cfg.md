@@ -266,7 +266,8 @@ full_weight: 1000
 #    overrides values set in unit(AFC_BoxTurtle/NightOwl/etc).
 load_to_hub: True
 #    Default: True
-#    Fast loads filament to hub when inserted, set to False to disable. 
+#    Fast loads filament to hub when inserted, set to False to disable. This value is not
+#    used in HTLF units.
 #    Setting here overrides global setting in AFC.cfg.
 enable_sensors_in_gui: False
 #    Default: False
@@ -489,6 +490,10 @@ debounce_delay: 0
 #    the entire switch event is ignored.
 #
 #    This value overrides value set in AFC config section
+enable_hub_runout: True
+#    Default: True
+#    If enabled and hub sensor(s) detect filament not present while printing AFC will
+#    pause printing. Inputting value here overrides global value in AFC.cfg file
 ```
 
 ## [AFC_led led_name] Section
