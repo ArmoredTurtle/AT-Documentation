@@ -59,7 +59,7 @@ Below is an example diagram of a Revo Voron hotend on FilamATrix/Clockwork 2:
     - `tool_stn`: 55
     - `tool_stn_unload`: 62
     - `variable_retract_length`: 25
-    - `variable_pushback_length`: 23
+    - `variable_pushback_length`: 23`
 ------
 
 #### Stealthburner / Other extruders
@@ -91,6 +91,13 @@ Below is an example diagram of a Revo Voron hotend on FilamATrix/Clockwork 2:
     - `tool_stn_unload`: 62
     - `variable_retract_length`: 35
     - `variable_pushback_length`: 30
+
+=== "LGX and Dragon UHF"
+
+    - `tool_stn`: 74.5
+    - `tool_stn_unload`: 45.0
+    - `variable_retract_length`: 33
+    - `variable_pushback_length`: 24
 
 ------
 
