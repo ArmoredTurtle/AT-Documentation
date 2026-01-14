@@ -35,6 +35,9 @@ Timer Too Close (TTC) errors, the following may help resolve it:
 - Reduce your `long_moves_speed` or `long_moves_accel` values in `AFC/AFC.cfg` from the defaults.
 - Try disabling unnecessary services on the SBC, such as Crowsnest or KlipperScreen and see if that resolves the 
   problem.
+- Ensure you are using a current Operating System (Debian 12+ recommended).
+- Look into adjusting the `niceness` setting. More info available [here](https://canbus.esoterical.online/troubleshooting/timeout_during_homing_probing.html).
+- Ensure you are using a high quality USB cable. 
 
 If you keep getting TTC errors start by adding the following to `~/printer_data/config/AFC/AFC.cfg` file under the 
 [AFC] section.
@@ -75,11 +78,11 @@ make
 Once the new katapult firmware is built, you can flash it to the AFC-Lite, and then proceed with flashing Klipper as normal.
 
 
-## Mainsail Fork 
+## Mainsail
 
 ### AFC sections not showing up correctly
 
-If you have the AFC Mainsail fork installed and the AFC sections are not showing up correctly, you may need to force 
+If you have Mainsail (>= 2.15.0) installed and the AFC sections are not showing up correctly, you may need to force 
 reload your browser with one of the following commands depending on your browser / OS:
 
 | Operating System | Browser | Key Combination  |

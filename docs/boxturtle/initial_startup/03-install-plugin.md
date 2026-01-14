@@ -22,13 +22,14 @@ using the default name). If you do not see these files, or if you see duplicate 
 this may be a caching issue with your web UI (mainsail/fluidd). Force a refresh with shift-reload or Ctrl+F5 and the
 problem should resolve itself.
 
+### Post-Installation Configuration
 After installation, please ensure sure you update the following settings:
 
 - In `AFC/AFC_Turtle_1.cfg`:
     - `canbus_uuid` if using CAN bus
     - `serial` if using USB
 - In `AFC/AFC_Hardware.cfg`
-    - `pin_tool_start` and/or ``pin_tool_end`
+    - `pin_tool_start` and/or `pin_tool_end`
 
 In your `printer.cfg`'s `[extruder]` section, update the setting `max_extrude_only_distance` to the value 400. If
 the setting is not there, add it:
@@ -42,6 +43,8 @@ Depending on your configuration, you may also need to add the following line to 
 However, this should only be added if a warning appears in the logs about the extruder cross-section being too small.
 If you do not see this warning, you can skip this step.
 
+Review all x,y,z positions in the `AFC/AFC_Macro_Vars.cfg` file to ensure they are correct for your printer for any macros
+you have enabled. 
 
 
 For best results, reboot your printer after installing the Add-On and including it in your printer.cfg. This will ensure

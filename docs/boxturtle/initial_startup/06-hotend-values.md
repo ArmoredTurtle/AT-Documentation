@@ -17,6 +17,12 @@ Below is an example diagram of a Revo Voron hotend on FilamATrix/Clockwork 2:
     These values are derived from community based feedback and are not guaranteed to work for your specific setup.
     You may need to adjust them based on your specific hotend and extruder setup. Always test with caution.
 
+!!!note
+
+     Generally speaking, it is ideal to keep the `variable_pushback_length` within 5mm of the `variable_retract_length` 
+     to lessen the chance of molten filament causing a clog inside the toolhead assembly.
+
+
 ### Hotend specific values
 
 #### Stealthburner & CW2
@@ -74,10 +80,10 @@ Below is an example diagram of a Revo Voron hotend on FilamATrix/Clockwork 2:
 
 === "G2E and Revo"
 
-    - `tool_stn`: 71 (if `pin_tool_end` is NOT defined) / 41 (if `pin_tool_end` is defined)
-    - `tool_stn_unload`: 105.5
-    - `variable_retract_length`: 21
-    - `variable_pushback_length`: 22.5
+    - `tool_stn`: 73 (if `pin_tool_end` is NOT defined) / 40 (if `pin_tool_end` is defined)
+    - `tool_stn_unload`: 119
+    - `variable_retract_length`: 22
+    - `variable_pushback_length`: 21
 
 === "G2SA and Revo"
 
@@ -85,6 +91,13 @@ Below is an example diagram of a Revo Voron hotend on FilamATrix/Clockwork 2:
     - `tool_stn_unload`: 62
     - `variable_retract_length`: 35
     - `variable_pushback_length`: 30
+
+=== "LGX and Dragon UHF"
+
+    - `tool_stn`: 74.5
+    - `tool_stn_unload`: 45.0
+    - `variable_retract_length`: 33
+    - `variable_pushback_length`: 24
 
 ------
 
