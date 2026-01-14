@@ -115,6 +115,13 @@ These commands are used for various purposes, including error handling, tool cha
       heading_level: 3
 
 -----
+[AFC_RESET_STATS]
+::: AFC.afc.cmd_AFC_RESET_STATS
+    options:
+      docstring_style: numpy
+      heading_level: 3
+
+-----
 [AFC_CLEAR_MESSAGE]
 ::: AFC.afc.cmd_AFC_CLEAR_MESSAGE
     options:

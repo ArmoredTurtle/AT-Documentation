@@ -8,6 +8,8 @@ AFC allows the use of using the TurtleNeck Buffers as a ram sensor for detecting
 extruder. This can be used inplace of a toolhead filament sensor. To learn more about this feature please
 see [Buffer Ram Sensor](installation/buffer-ram-sensor.md) document.
 
+TurtleNeck Buffer can also detect clogs, jams and feeding issues before they result in a failed print. See [buffer fault detection](installation/buffer-overview.md#buffer-fault-detection) section in buffer overview for more information.
+
 ## Bypass
 
 By default, if a hardware sensor is not setup for a bypass AFC will create a virtual bypass filament sensor. 
@@ -168,7 +170,7 @@ walking around and riding up wheels when they get low. This feature is enabled b
 gets below 500 grams.  
 
 The goal of this is to enable the spooler for a small amount of time so that filament on the spool is loosened up some,
-then by the time your printer extrudes `mm_movement` amount(defaults to 150) the filament on your spool should just be 
+then by the time your printer extrudes `delta_movement` amount(defaults to 150) the filament on your spool should just be 
 getting taught before print assist activates again.  
 
 This feature can be turned off by adding `enable_assist: False` to your `[AFC_BoxTurtle Turtle_(n)]` or `[AFC]` or per `[AFC_Stepper]` config sections.
@@ -176,53 +178,31 @@ If you would like to change the weight value where print assist is activated, th
 to your configuration, this value can be added to the same sections as `enable_assist` variable. 
 
 The following variables described in [AFC_lane](configuration/AFC_UnitType_1.cfg.md#afc_lane-lane_name-section) section are all
-the values that go into the print assist logic: `enable_assist`, `enable_assist_weight`, `timer_delay`, `delta_movement`, `mm_movement`,
-`cycles_per_rotation`, `pwm_value`, `spoolrate`. The values can be configured per lane (`AFC_Stepper`) or per Unit (`AFC_BoxTurtle`).
+the values that go into the print assist logic: `enable_assist`, `enable_assist_weight`, `timer_delay`, `delta_movement`, `spoolrate`, `spool_ratio`,
+`full_weight`, `spool_outer_diameter`, `spool_inner_diameter`, `espool_rot_dist`, `max_motor_rpm`.
+These values can be configured per lane (`AFC_Stepper`) or per Unit (`AFC_BoxTurtle`).
 
 With this functionality the following macros allow you to enable/disable and tweak the settings for
-print assist. 
+print assist: 
 
 - [SET_ESPOOLER_VALUES](klipper/internal/lane.md#AFC_assist.Espooler.cmd_SET_ESPOOLER_VALUES)  
 - [ENABLE_ESPOOLER_ASSIST](klipper/internal/lane.md#AFC_assist.Espooler.cmd_ENABLE_ESPOOLER_ASSIST)  
 - [DISABLE_ESPOOLER_ASSIST](klipper/internal/lane.md#AFC_assist.Espooler.cmd_DISABLE_ESPOOLER_ASSIST)  
 - [TEST_ESPOOLER_ASSIST](klipper/internal/lane.md#AFC_assist.Espooler.cmd_DISABLE_ESPOOLER_ASSIST)    
 
-If the default values for print assist is unspooling too much you can start off by changing either `spoolrate` or 
-`cycles_per_rotation` to decrease the time that the N20 motors are active( aka cruise_time ). Spoolrate scales all 
-variables by that amount and cycles_per_rotation controls how long in milliseconds it takes to spin the spool a full rotation.  
+If the default values for print assist is unspooling too much you can start off by changing either `max_motor_rpm` or 
+`spool_ratio` to decrease the time that the N20 motors are active( aka cruise_time ). 
 
-Below is a chart with calculations that shows what `cruise_time` will end up being if either `spoolrate` or `cycles_per_rotation` is changed  
-<table class="espooler" style="font-size: medium">
-<style>
-td, th{
-    padding: .1em 1em;
-    border: 1px solid grey;
-}
-</style>
-<thead>
-<tr><th colspan=2>Cruise time when ONLY changing spoolrate</th><th colspan=2>Cruise time when ONLY changing cycles_per_rotation</th></tr></thead>
-<tbody>
-<tr><th>spoolrate</th><th>cruise_time</th><th>cycles_per_rotation</th><th>cruise_time</th></tr>
-<tr><td>1  </td><td>0.4593</td><td>1275</td><td>0.4593</td></tr>
-<tr><td>0.9</td><td>0.4134</td><td>1100</td><td>0.3963</td></tr>
-<tr><td>0.8</td><td>0.3307</td><td>1000</td><td>0.3603</td></tr>
-<tr><td>0.7</td><td>0.2315</td><td>900 </td><td>0.3242</td></tr>
-<tr><td>0.6</td><td>0.1389</td><td>800 </td><td>0.2882</td></tr>
-<tr><td>0.5</td><td>0.0694</td><td>700 </td><td>0.2522</td></tr>
-<tr><td>0.4</td><td>0.0277</td><td>600 </td><td>0.2161</td></tr>
-<tr><td>0.3</td><td>0.0083</td><td>500 </td><td>0.1801</td></tr>
-<tr><td>0.2</td><td>0.0016</td><td>400 </td><td>0.1441</td></tr>
-<tr><td>0.1</td><td>0.0001</td><td>300 </td><td>0.1080</td></tr>
-</tbody>
-</table>
+Below is the default cruise time dependent on weight when using default variables:
+![image](../assets/images/print_assist_cruise_time_vs_weight.png)
 
 Formula to calculate `cruise_time`:
+```python
+rps = max_motor_rpm / 60
+spool_rot_s = (espool_rot_dist * (rps / spool_ratio)) / (spool_outer_diameter * PI)
+w_r = ((weight / full_weight) + 1) * ((spool_outer_diameter - spool_inner_diameter) * PI)
+cruise_time = delta_movement / w_r / spool_rot_s
 ```
-rotation = mm movement / spool circumference
-correction_factor = 1.0 +  ( 1.68 * -rotations^5)
-cruise_time = rotations * cycles_per_rotation * correction_factor
-```
-Note: Spool circumference is automatically calculated from `spool_outer_diameter` variable
 
 ## Quiet Mode
 
@@ -248,11 +228,19 @@ Use the following macros to print out statistics in console, update when blade h
 N20 active time:  
 - [AFC_STATS](klipper/internal/misc.md#AFC.afc.cmd_AFC_STATS) - prints statistics to console  
 - [AFC_CHANGE_BLADE](klipper/internal/misc.md#AFC.afc.cmd_AFC_CHANGE_BLADE) - run macro when blade is changed, sets date that blade was changes and resets `Total since changed` count  
-- [AFC_RESET_MOTOR_TIME](klipper/internal/lane.md#AFC_assist.Espooler.cmd_AFC_RESET_MOTOR_TIME) - run macro when N20 motor has been swapped out in a lane
+- [AFC_RESET_MOTOR_TIME](klipper/internal/lane.md#AFC_assist.Espooler.cmd_AFC_RESET_MOTOR_TIME) - run macro when N20 motor has been swapped out in a lane  
+- [AFC_RESET_STATS](klipper/internal/misc.md#AFC.afc.cmd_AFC_RESET_STATS) - run macro to reset extruder and lane counts
+
 
 Both variables can be added/updated in `[AFC]` [section](configuration/AFC.cfg.md#afc-section) :  
 - `print_short_stats`: Add/uncomment to have the statistics printout to be skinner. Useful for those that have consoles that are skinner( eg. Klipperscreen )  
 - `tool_cut_threshold`: Defaults to 10000 cuts, update to if you want threshold to be larger. This controls when AFC prints out warning/errors when number of cuts since changed reaches/exceeds this number.
+
+!!!note
+    As of AFC-Klipper-Add-On version 1.0.34 new averaging for load times was introduced. Before AFC would not keep track of the total time when averaging, now AFC has the ability to keep track of total time and average with load counts. For AFC to calculate the new, the [AFC_RESET_STATS](klipper/internal/misc.md#AFC.afc.cmd_AFC_RESET_STATS) macro needs to be ran like the following(this will reset your current extruder counts and load times):  
+    `AFC_RESET_STATS EXTRUDER=all`.
+
+    Once this macro is ran, moonrakers database will first be backed up just incase someone would like to restore previous stats before resetting values. This reset needs to happen for AFC to average load times correctly based of load counts.
 
 Examples of what statistics printout looks like:  
 ![stats_normal](../assets/images/afc_stats_wide.png)
@@ -323,7 +311,8 @@ Endpoint returns all lanes in system in a json format like the following:
             "bed_temp": 105,
             "nozzle_temp":245,
             "scan_time": "2025-09-14T03:13:27.189383Z",
-            "lane": "1"
+            "lane": "1",
+            "spool_id": 12345
         },
         "lane2": {
             "color": "#122B44",
@@ -332,7 +321,17 @@ Endpoint returns all lanes in system in a json format like the following:
             "bed_temp": 105,
             "nozzle_temp":245,
             "scan_time": "2025-09-14T03:13:27.189383Z",
-            "lane": "0"
+            "lane": "0",
+            "spool_id": 54321
+        },
+        "lane3": {
+            "color": "",
+            "material": "",
+            "bed_temp": "",
+            "nozzle_temp": "",
+            "scan_time": "",
+            "lane": "2",
+            "spool_id": null
         }
     }
 }
@@ -340,8 +339,9 @@ Endpoint returns all lanes in system in a json format like the following:
 
 - Color: Current color filament loaded in lane, if filament was scanned with TD-1 then TD-1 scanned color is returned  
 - TD : Transmission distance if TD-1 is connected and enabled in system  
-- Material: Material from spoolman or when manually entered with [SET_MATERIAL](klipper/internal/spool.md#SET_MATERIAL) macro  
+- Material: Material from spoolman or when manually entered with [SET_MATERIAL](klipper/internal/spool.md#AFC_spool.AFCSpool.cmd_SET_MATERIAL) macro  
 - Bed Temp: Bed temperature pulled from spoolman data  
 - Nozzle Temp: Nozzle temperature pulled from spoolman data  
 - Scan Temp: Only is populated if TD-1 is connected and enabled in system and filament was scanned  
 - Lane: Current tool mapping for lane/slot. eg. T0/T1/T2/etc.  
+- Spool ID: Spool ID assigned to this lane via [SET_SPOOL_ID](klipper/internal/spool.md#AFC_spool.AFCSpool.cmd_SET_SPOOL_ID) or [SET_NEXT_SPOOL_ID](klipper/internal/spool.md#AFC_spool.AFCSpool.cmd_SET_NEXT_SPOOL_ID). Value is an integer when a spool is assigned, or `null` when the lane is empty/ejected

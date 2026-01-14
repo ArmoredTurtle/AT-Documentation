@@ -14,6 +14,13 @@ Once installed, you may need to force reload your browser with ++ctrl+f5++ (Chro
 to ensure that the new features are displayed correctly. See [here](../troubleshooting/troubleshooting.md#afc-sections-not-showing-up-correctly) 
 for more information on browser cache issues.
 
+
+## Fluidd
+
+AFC integrates with [Fluidd](https://docs.fluidd.xyz/) >= 1.36.0. 
+
+This functions in a similar fashion to Mainsail and is feature compatible. 
+
 ## KlipperScreen
 A KlipperScreen integration is available, which allows you to control AFC features directly from the KlipperScreen interface. 
 This includes loading and unloading filament, as well as monitoring the status of the AFC system.
