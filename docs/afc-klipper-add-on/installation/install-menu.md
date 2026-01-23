@@ -176,5 +176,5 @@ You may now quit the script or return to the main menu.
 
     Prior to restarting Klipper, ensure you check the files indicated above and modify them as necessary.
 
-    Mandatory configuration changes are located [here](../../boxturtle/initial_startup/03-install-plugin.md#Post-Installation-Configuration)
+    Mandatory configuration changes are located [here](../../boxturtle/initial_startup/03-install-plugin.md#post-installation-configuration)
     and must be changed / checked. You *WILL* experience Klipper warnings if you do not modify these settings. 

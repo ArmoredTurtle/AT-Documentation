@@ -101,6 +101,11 @@ led_index: Buffer_Indicator:1
 ```
 
 ## Buffer Fault Detection
+!!! warning "Experimental"
+
+    This feature is still experimental and you still may run into false detections during initial purging/first layer
+    when starting a print.
+
 AFC can detect filament faults during printing by monitoring extruder position and buffer state changes.
 This feature helps identify clogs, jams, and feeding issues before they result in failed prints.
 
@@ -131,6 +136,8 @@ multiplier_low: 0.9
 ```
 The sensitivity can be adjusted during runtime without restarting Klipper using the `AFC_SET_ERROR_SENSITIVITY` command:
 `AFC_SET_ERROR_SENSITIVITY BUFFER=TN SENSITIVITY=7.0`
+
+
 
 ## Off-Nominal Buffer Configurations
 Buffers can also be set per Unit/Stepper. If multiple lanes use the same buffer for one Unit then the buffer can just 
