@@ -21,6 +21,7 @@ learn more about this feature [here](features.md#exposing-lane-data-for-third-pa
 </p>
 ## PTFE Case
 - TD-1 PTFE case so that PTFE tubes can be connected to either side : [makerworld link](https://makerworld.com/en/models/1414761-td-1-ptfe-case#profileId-1469128)
+- TD1s PTFE case : [makerworld link](https://makerworld.com/en/models/1997060-td1s-ptfe-case#profileId-2149835)
 
 ## Moonraker Setup
 To communicate correctly with TD-1 devices, moonraker needs to be updated to at least **v0.9.3-116-gb11a7915** and the 

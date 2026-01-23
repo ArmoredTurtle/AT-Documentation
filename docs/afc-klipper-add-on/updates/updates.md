@@ -1,6 +1,6 @@
 # Updating the AFC-Klipper-Add-On
 
-Updating the AFC-Klipper-Add-On is a simple process that can be done through the `install-afc.sh` script.
+Updating the AFC-Klipper-Add-On is a simple process that can be done through the `update-afc.sh` script.
 
 !!!warning
 
@@ -10,9 +10,9 @@ Updating the AFC-Klipper-Add-On is a simple process that can be done through the
 
 !!!note 
 
-    If your AFC-Klipper-Add-On is < 1.0.20 (Any version prior to 15 Jun 2025), you should run a `git pull` in the 
-    `~/AFC-Klipper-Add-On` directory before running the `install-afc.sh` script. This is NOT necessary if your 
-    AFC-Klipper-Add-On is >= 1.0.20. 
+    If your AFC-Klipper-Add-On is < 1.0.35 (Any version prior to 24 Jan 2026), you should run a `git pull` in the 
+    `~/AFC-Klipper-Add-On` directory before running the `update-afc.sh` script. This is NOT necessary if your 
+    AFC-Klipper-Add-On is >= 1.0.35. 
 
 1. Connect to your printer via SSH and navigate to the AFC-Klipper-Add-On directory:  
    
@@ -20,10 +20,10 @@ Updating the AFC-Klipper-Add-On is a simple process that can be done through the
 cd ~/AFC-Klipper-Add-On
 ```
    
-2. Run the `install-afc.sh` script:  
+2. Run the `update-afc.sh` script:  
 
 ```bash
-./install-afc.sh
+./update-afc.sh
 ```
    
 3. Select the `Update AFC Klipper Add-on` option from the menu that appears. This option will only
