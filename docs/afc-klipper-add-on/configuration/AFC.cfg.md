@@ -173,6 +173,10 @@ unload_on_runout: False
 #    Default: False
 #    When True AFC will unload lane and then pause when runout is triggered 
 #    and spool to swap to is not set(infinite spool).
+eject_on_infinite_swap: True
+#    Default: True
+#    When False and using infinite spool, AFC will not eject the now-empty
+#    lane after the swap is complete.
 print_short_stats: False
 #    Default: False
 #    When True AFC_STATS macro will print out in a skinnier format to better
