@@ -699,6 +699,11 @@ td1_device_id: None
 #
 #    If using separate TD-1 devices per lanes this value should be set in 
 #    AFC_lane/AFC_stepper sections.
+remember_spool: False
+#    Default: False
+#    If true, AFC will retain values (spoolID, weight, color, material) of the last spool that was ejected
+#    from a lane and will reuse those values the next time the given lane is loaded.
+#    Can be overridden in the [AFC_stepper] section.
 ```
 
 ## [AFC_NightOwl unit_name] Section
