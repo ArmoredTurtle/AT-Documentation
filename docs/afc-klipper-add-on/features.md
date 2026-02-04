@@ -93,6 +93,13 @@ If spoolman extruder temperature or material type is not defined AFC default's t
 default_material_temps: PLA:210, ABS:235, ASA:235 # Default temperature to set extruder when loading/unloading lanes.
 ```
 
+If spoolman extruder temperature is defined but you wish to stick to the values in the `default_material_temps` variable
+then you can set the `ignore_spoolman_material_temps` option to `true` in `AFC.cfg`
+
+```cfg
+ignore_spoolman_material_temps: True  # When True, AFC will ignore temperatures set in Spoolman and use default_material_temps instead.
+```
+
 ## Loading filament to hub
 
 For users that have a hub not located in their Box Turtle, AFC has the ability to load filament to their hub once its

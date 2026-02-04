@@ -69,6 +69,10 @@ default_material_temps: default: 235, PLA:210, PETG:235, ABS:235, ASA:235
 #    Material needs to be either manually set or uses material from spoolman 
 #    if extruder temp is not set in spoolman. Follow current format to 
 #    add more filament types.
+ignore_spoolman_material_temps: False  
+#    Default: False
+#    When True, AFC will ignore temperatures set in Spoolman and use 
+#    default_material_temps instead.
 default_material_type: PLA      
 #    Default material type to assign to a spool once loaded into a lane.
 common_density_values: PLA:1.24, PETG:1.23, ABS:1.04, ASA:1.07
