@@ -128,3 +128,10 @@ the toolhead / extruder.
     options:
       docstring_style: numpy
       heading_level: 3
+
+-----
+[AFC_SET_REMEMBER_SPOOL]
+::: AFC_lane.AFCLane.cmd_AFC_SET_REMEMBER_SPOOL
+    options:
+      docstring_style: numpy
+      heading_level: 3
