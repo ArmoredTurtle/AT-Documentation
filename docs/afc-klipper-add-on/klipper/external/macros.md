@@ -67,3 +67,6 @@ Run the AFC PREP sequence.
     ```plaintext
     BT_PREP
     ```
+
+### [AFC_POST_PREP]
+This macro is optional. Any commands in the AFC_POST_PREP macro will be run immediately after a spool is successfully loaded into the MMU.
