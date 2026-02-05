@@ -67,3 +67,6 @@ Run the AFC PREP sequence.
     ```plaintext
     BT_PREP
     ```
+
+### [AFC_POST_PREP]
+This macro is optional. If it exists, it will run immediately after a lane is loaded. A LANE= parameter is passed to the macro with the name of the lane just loaded (e.g. "lane1").
