@@ -247,6 +247,19 @@ disable_weight_check: False
 #    When set to True, weight checks will be disabled when assigning spoolsIDs from
 #    Spoolman. *Warning*: This may lead to issues if the spool weights are set to 0
 #    in Spoolman or if the weight readings are inaccurate.
+homing_enabled: True
+#    Default: True
+#    Enables filament homing, set to False to not use filament homing when moving
+#    loading/unloading/ejecting spools.
+home_to_hub: True
+#    Default: True
+#    Turns off homing when moving to hub switch. When set to False, AFC will move
+#    move_dist and then short distance move until hub sensor is triggered.
+home_to_tool: True
+#    Default: True
+#    Turns off homing when moving to toolhead switch/buffer advance switch.
+#    When set to False, AFC will move afc_bowden_length and then short distance move(s)
+#    until toolhead/buffer advance switch is triggered.
 ```
 
 The next part of the `[AFC]` section contains the configuration for the AFC macros. These macros are used to control the
