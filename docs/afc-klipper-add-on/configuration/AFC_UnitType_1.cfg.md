@@ -433,8 +433,8 @@ hubs may be defined in the configuration file.
 switch_pin: mcu:pin
 #    Default: <none>
 #    MCU pin for the hub switch.
-hub_clear_move_dis: 25
-#    Default: 25
+hub_clear_move_dis: 55
+#    Default: 55
 #    How far to move filament so that it doesn't block the hub exit.
 afc_bowden_length:  900
 #    Default: 900
@@ -458,8 +458,8 @@ assisted_retract: False
 #    Default: False
 #    If true, retracts are assisted to prevent loose windings on the
 #    spool.
-move_dis: 50
-#    Default: 50
+move_dis: 65
+#    Default: 65
 #    Distance to move the filament within the hub in mm.
 cut: False
 #    Default: False
