@@ -347,14 +347,14 @@ remember_spool: False
 #    Overrides variable that is set in unit(AFC_BoxTurtle/NightOwl/etc) sections.
 homing_overshoot: 50
 #    Default: 50
-#    Additional amount to all to all homing moves to guarantee the move will hit
+#    Additional amount to add to all homing moves to guarantee the move will hit
 #    endstops when homing.
 #    Overrides variable that is set in unit(AFC_BoxTurtle/NightOwl/etc) sections.
 extruder_clear_dis: 50
 #    Default: 50
 #    This variable affects additional move distance when ejecting filament and filament
 #    has passed load sensor. AFC will move this additional amount to make sure filament
-#    is not longer in extruder gears.
+#    is no longer in extruder gears.
 #    Overrides variable that is set in unit(AFC_BoxTurtle/NightOwl/etc) sections.
 ```
 
@@ -379,13 +379,14 @@ print_current: 0.6
 default_homing_endstop: load
 #    Default: load
 #    Endstop to default to when running AFC_STEPPER_HOME macro.
-hub_endstop: endstop found in AFC_hub config
-#    Default: endstop found in AFC_hub config
-#    Override default AFC_hub endstop lookup with custom hub endstop
+hub_endstop: <hub_endstop_pin>
+#    Default: endstop defined in AFC_hub config
+#    Override default AFC_hub endstop lookup with custom hub endstop pin
+#    (endstop must be defined in the AFC_hub config).
 extra_homing_pins: ""
 #    Default: ""
-#    Extra homing pins to add to lookup, can be used as a endstop selection
-#    AFC_STEPPER_HOME macro
+#    Extra homing pins to add to the lookup; can be used as an
+#    endstop selection for the `AFC_STEPPER_HOME` macro.
 ```
 
 

@@ -253,13 +253,14 @@ homing_enabled: True
 #    loading/unloading/ejecting spools.
 home_to_hub: True
 #    Default: True
-#    Turns off homing when moving to hub switch. When set to False, AFC will move
-#    move_dist and then short distance move until hub sensor is triggered.
+#    When set to True, use filament homing to move to the hub switch.
+#    When set to False, skip homing: AFC will move move_dist and then perform
+#    short-distance moves until the hub sensor is triggered.
 home_to_tool: True
 #    Default: True
-#    Turns off homing when moving to toolhead switch/buffer advance switch.
-#    When set to False, AFC will move afc_bowden_length and then short distance move(s)
-#    until toolhead/buffer advance switch is triggered.
+#    When set to True, use filament homing to move to the toolhead/buffer advance switch.
+#    When set to False, skip homing: AFC will move afc_bowden_length and then perform
+#    short-distance moves until the toolhead/buffer advance switch is triggered.
 ```
 
 The next part of the `[AFC]` section contains the configuration for the AFC macros. These macros are used to control the
