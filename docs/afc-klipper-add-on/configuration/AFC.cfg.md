@@ -97,7 +97,7 @@ moonraker_timeout: 30
 #    Max time in seconds to keep checking if a valid response is returned
 #    from moonraker. During PREP routine AFC will keep checking every second
 #    until timeout is hit or a valid response is returned from moonraker before
-#    moving on and preforming the rest of PREP.
+#    moving on and performing the rest of PREP.
 assisted_unload: True
 #    Default: <none> 
 #    If True, the unload retract is assisted to prevent loose windings, 
@@ -154,8 +154,8 @@ led_spool_illuminate: 1,1,1,0
 #    and can be overridden in AFC_QuattroBox section
 n20_break_delay_time: 0.200
 #    Default: 0.200
-#    Time to wait between breaking n20 motors(nSleep/FWD/RWD all 1) and then 
-#    releasing the break to allow coasting.
+#    Time to wait between braking N20 motors(nSleep/FWD/RWD all 1) and then 
+#    releasing the brake to allow coasting.
 tool_max_unload_attempts: 2
 #    Default: 2
 #    Max number of attempts to unload filament from toolhead when using 
@@ -277,7 +277,7 @@ tool_cut_threshold: 10000
 
 # Park Settings
 park: True                      
-#    Boolean, when set to true, the the park functionality will be enabled.
+#    Boolean, when set to true, the park functionality will be enabled.
 park_cmd: AFC_PARK              
 #    Default: AFC_PARK
 #    Macro name to call when parking the toolhead. Using the default AFC_PARK
@@ -298,7 +298,7 @@ poop_cmd: AFC_POOP
 
 # Kick Settings
 kick: True                      
-#    Boolean, when set to true, the system will use enable the `kick` 
+#    Boolean, when set to true, the system will enable the `kick` 
 #    functionality to clear purged filament from the bed.
 kick_cmd: AFC_KICK              
 #    Default: AFC_Kick
@@ -344,7 +344,7 @@ disable_unload_filament_remapping: False
 #    macro.
 capture_td1_data: False
 #    Default: False
-#    When set to True TD-1 device is correctly configured in moonraker, AFC will 
+#    When set to True and a TD-1 device is correctly configured in moonraker, AFC will 
 #    capture TD and color per lane upon first boot if hub is clear and a lane
 #    is not loaded to toolhead.
 ```
@@ -391,7 +391,7 @@ unloading_speed_start: 40
 unloading_speed: 15             
 #    Speed in mm/s (cooling tube move).
 # This stage moves the filament back and forth in the cooling tube section 
-# of the hotend.It helps keep the tip shape uniform with the filament path 
+# of the hotend. It helps keep the tip shape uniform with the filament path 
 # to prevent clogs.
 cooling_tube_position: 35       
 #    Start of the cooling tube in mm.

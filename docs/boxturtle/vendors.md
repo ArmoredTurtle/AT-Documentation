@@ -4,11 +4,11 @@ While BoxTurtle can be mostly self-sourced, some vendors offer partial or full B
 dedicated vendor channels on the Armored Turtle Discord.
 
 If you purchase a kit from a vendor not on this list, it has not been validated in any way by the ArmoredTurtle team for
-either quality or completeness. For best results we recommend using a trusted vendor from the list below whenever
+either quality or completeness. For best results, we recommend using a trusted vendor from the list below whenever
 possible. If you are a vendor and would like to be added to this list, please open a ticket on our Discord to request
 being added.
 
-If you have questions about the legitimacy of a kit, we highly suggest you *research/ask before purchasing it*
+If you have questions about the legitimacy of a kit, we highly suggest you *research/ask before purchasing it*.
 
 **[Caveat emptor](https://en.wikipedia.org/wiki/Caveat_emptor)!**
 

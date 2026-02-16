@@ -21,9 +21,9 @@
 ### Uncommon variables
 
 AFC has many variables that you can tweak for macros, including definition of complete custom macros to replace the
-stock ones. Most users will never need to touch these, and they will not be covered in this section. A full 
-listing of all configuration options is available [here](../../afc-klipper-add-on/configuration/configuration_overview.md). Below are the 
-most common variables that will need adjusting for a stock BoxTurtle configuration with a Stealthburner/FilamATrix 
+stock ones. Most users will never need to touch these, and they will not be covered in this section. A full
+listing of all configuration options is available [here](../afc-klipper-add-on/configuration/configuration_overview.md). Below are the
+most common variables that will need adjusting for a typical AFC configuration with a Stealthburner/FilamATrix
 toolhead.
 
 For more details, please refer to the AFC-Klipper-Add-On GitHub docs or the comments in the `AFC/AFC.cfg` and
@@ -107,7 +107,7 @@ printer.
     While a toolhead cutter is recommended for best results, if you do not have one you will need to configure tip
     forming. The full process for this is outside the scope of this document and will be very hotend and perhaps even
     filament dependent. If using a 'Hub Cutter' (e.g., BT-Snappy or EREC) you will still likely need to do tip forming to
-    prevent stringy tips from getting jammed in the toolhead, hub or BoxTurtle extruder gears.
+    prevent stringy tips from getting jammed in the toolhead, hub or your unit's extruder gears.
 
 Tip forming is enabled or disabled by setting the `form_tip` variable in `AFC/AFC.cfg` (this is prompted for during
 the installation script, but you can change it at any time and do a firmware restart to enact the change.)

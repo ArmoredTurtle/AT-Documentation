@@ -32,7 +32,7 @@ cd ~/AFC-Klipper-Add-On
 4. Once in the `Update AFC Klipper Add-on` menu, select the `Update AFC-Klipper-Add-On` option. This will
    update the add-on to the latest version available in the repository.
  
-    You will be prompted if you would like the update the AFC provided macros during the update process.
+    You will be prompted if you would like to update the AFC-provided macros during the update process.
     If you select `Yes`, the macros will be updated to the latest version available. If you select `No`, the macros will not be updated, and
     you will need to manually update them if you want to use the latest versions.
 

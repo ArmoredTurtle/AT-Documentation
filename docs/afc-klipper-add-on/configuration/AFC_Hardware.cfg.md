@@ -37,7 +37,7 @@ tool_sensor_after_extruder: 0
 #    Default: 0
 #    Extra distance to move in mm once pre/post sensors are clear. 
 #    Useful for when only using post sensor, so this distance can 
-#    be the amout to move to clear extruder gears.
+#    be the amount to move to clear extruder gears.
 tool_unload_speed: 25
 #    Default: 25      
 #    Unload speed in mm/s when unloading toolhead.

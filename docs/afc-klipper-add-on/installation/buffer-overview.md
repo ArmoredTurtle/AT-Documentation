@@ -115,7 +115,7 @@ AFC will pause the print and provide diagnostic information about the issue.
 
 Fault detection uses a configurable sensitivity scale from 0-10, where:
 
-- `0`disables fault detection completely
+- `0` disables fault detection completely
 - `1` is the least sensitive (allows 100mm of movement before triggering)
 - `10` is the most sensitive (triggers after only 10mm of movement)
 The formula used is: `fault_distance = (11 - sensitivity) × 10`

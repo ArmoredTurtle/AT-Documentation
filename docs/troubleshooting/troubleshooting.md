@@ -54,8 +54,7 @@ This usually indicates some sort of cabling or power delivery problem. First, do
 connectors for power and data are secure, even if it "looks" ok it may have a weak connection. Don't spend days 
 troubleshooting problems when you can re-crimp the connectors and test in a half hour.
 
-Powering the SBC via your MCU (e.g., on a Leviathan) may also not provide sufficient power to the device. Rule out
-this as a cause by running separate power to the device.  If you are sharing multiple AC to DC PSUs, 
+Powering the SBC via your MCU (e.g., on a Leviathan) may also not provide sufficient power to the device. Rule this out as a cause by running separate power to the device. If you are sharing multiple AC to DC PSUs, 
 ensure that the V- wires are connected together for a common reference voltage.
 
 ## Flashing Issues or Errors
@@ -97,7 +96,7 @@ reload your browser with one of the following commands depending on your browser
 
 ### Extruder doesn't seem to be extruding properly after using BT
 
-We recommend ensuring you are on at least Klipper version v0.13.0 (or Kalico 2026) or later. This is required on all MCUs to be effective.
+We recommend ensuring you are on at least Klipper version v0.13.0 (or Kalico 2026). This is required on all MCUs to be effective.
 An example of this can be seen below:
 
 - Pre-Klipper v0.13.0
@@ -123,10 +122,10 @@ ground pin on the AFC-Lite board (e.g., the GND pin on RGB2).
 
 ### LEDs not displaying correct colors
 
-If your leds are not displaying the correct color update the following value under your AFC_led section in 
+If your LEDs are not displaying the correct color, update the following value under your AFC_led section in 
 `~/printer_data/config/AFC/AFC_Turtle_(n).cfg` file.
 
-- color_order: change to match the color order for you leds. Different color orders are: RGB, RGBW, GRB, GRBW
+- color_order: change to match the color order for your LEDs. Different color orders are: RGB, RGBW, GRB, GRBW
 
 ### Layer shift when using the cut macro
 
@@ -147,6 +146,6 @@ To solve this issue, use `variable_disable_skew_correction` but make sure you re
 
 ### Filament pulling past extruder during unloads
 
-During unloads if your filament retracts too much and goes past the lanes extruder then decrease your 
+During unloads, if your filament retracts too much and goes past the lane's extruder then decrease your 
 `afc_bowden_length` value in the `[AFC_hub <hub_name>]` portion of the `~/printer_data/config/AFC/AFC_Turtle_(n).cfg` 
 file. 

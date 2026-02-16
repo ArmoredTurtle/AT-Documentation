@@ -37,7 +37,7 @@ for the Trailing switch.
 ### Missing wheel heat set/screws (Batch 1, 2)
 
 Changes were made to the wheel design late in the beta process after hardware kits had been created/bagged/labeled. As
-such, the extra hardware required for the wheels (heat sets and M3x6 screws) are in a separate 'Hardware for Wheel' bag
+such, the extra hardware required for the wheels (heat sets and M3x6 screws) is in a separate 'Hardware for Wheel' bag
 included in your kit.
 
 ### 3mm ID PTFE tubing (Batch 1, 2)
@@ -50,7 +50,7 @@ Starting with Batch 3, 1.3m of 3mmID PTFE are included which is more than double
 
 ### No cable included to connect BoxTurtle to the printer (Batch 1, 2, 3)
 
-As each printer connection is different, cable was not included in batch 1 kits to connect the BoxTurtle to your
+As each printer connection is different, cable was not included in Batch 1 kits to connect the BoxTurtle to your
 printer. A 2x2 pin Molex connector is included in the kits for you to create your own cable to connect the AFC lite for
 power and (optionally) CAN bus data.
 
@@ -62,5 +62,5 @@ conducting analysis on any failures.
 ### M3 heat set count for FilamATrix (Batch 1, 2)
 
 If you are doing a new build of Clockwork2 there will not be sufficient heat sets in the bag - the kits were designed
-with an upgrade to an existing CW2 extruder in mind. Additionally, the kits may be a 1-2 heat sets short for all
+with an upgrade to an existing CW2 extruder in mind. Additionally, the kits may be 1-2 heat sets short for all
 components even after accounting for spares in the FilamATrix bag, this will be corrected in a future batch.

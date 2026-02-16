@@ -10,7 +10,9 @@ nav:
   - Home:
       - index.md
       - AFC-Klipper-Add-On: afc-klipper-add-on/index.md
-      - BoxTurtle: boxturtle/index.md
+      - Initial Startup Guide: initial-startup/01-overview.md
+      - Armored Turtle Designs:
+          - BoxTurtle: boxturtle/index.md
       - AFC-Accessories: afc-accessories/index.md
       - Troubleshooting: troubleshooting/troubleshooting.md
   - AFC-Klipper-Add-On:
@@ -55,25 +57,26 @@ nav:
           - Toolhead Variable Calculation: afc-klipper-add-on/toolhead/calculation.md
           - Purge Setup: afc-klipper-add-on/toolhead/purge_setup.md
       - TD-1: afc-klipper-add-on/td1.md
-  - BoxTurtle:
-      - Overview: boxturtle/index.md
-      - Printed Parts: boxturtle/printed-parts.md
-      - Wiring Guide: boxturtle/wiring-guide.md
-      - LDO Kit Errata: boxturtle/errata.md
-      - BOM: boxturtle/bom.md
-      - Initial Startup:
-          - Overview: boxturtle/initial_startup/01-overview.md
-          - Flashing: boxturtle/initial_startup/02-flashing.md
-          - Plugin Install: boxturtle/initial_startup/03-install-plugin.md
-          - Self Test: boxturtle/initial_startup/04-self-test.md
-          - Additional Tests: boxturtle/initial_startup/05-additional-tests.md
-          - Hotend Values: boxturtle/initial_startup/06-hotend-values.md
-          - Macro Variables: boxturtle/initial_startup/07-macro-variables.md
-          - Calibration: boxturtle/initial_startup/08-calibration.md
-          - Slicer Config: boxturtle/initial_startup/09-slicer-config.md
-          - Print Start Macro: boxturtle/initial_startup/10-print-start-macro.md
-          - Troubleshooting: boxturtle/initial_startup/11-troubleshooting.md
-      - Vendors: boxturtle/vendors.md
+  - Initial Startup:
+      - Overview: initial-startup/01-overview.md
+      - Flashing: initial-startup/02-flashing.md
+      - Plugin Install: initial-startup/03-install-plugin.md
+      - Self Test: initial-startup/04-self-test.md
+      - Additional Tests: initial-startup/05-additional-tests.md
+      - Hotend Values: initial-startup/06-hotend-values.md
+      - Macro Variables: initial-startup/07-macro-variables.md
+      - Calibration: initial-startup/08-calibration.md
+      - Slicer Config: initial-startup/09-slicer-config.md
+      - Print Start Macro: initial-startup/10-print-start-macro.md
+      - Troubleshooting: initial-startup/11-troubleshooting.md
+  - Armored Turtle Designs:
+      - BoxTurtle:
+        - Overview: boxturtle/index.md
+        - Printed Parts: boxturtle/printed-parts.md
+        - Wiring Guide: boxturtle/wiring-guide.md
+        - LDO Kit Errata: boxturtle/errata.md
+        - BOM: boxturtle/bom.md
+        - Vendors: boxturtle/vendors.md
   - AFC-Accessories:
       - Overview: afc-accessories/index.md
   - Troubleshooting:
@@ -218,5 +221,5 @@ extra:
       make our documentation better.
 
 copyright: >
-  Copyright &copy; 2024 - 2025 Armored Turtle –
+  Copyright &copy; 2024 - 2026 Armored Turtle –
   <a href="#__consent">Change cookie settings</a>

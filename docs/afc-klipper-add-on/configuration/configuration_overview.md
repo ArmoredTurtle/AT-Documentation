@@ -39,7 +39,7 @@ installation directory structure for a BoxTurtle is shown below.
 
 
 Each of these configuration files serves a specific purpose and can be customized to suit your needs. Each file is 
-covered in more detail in their respective section of the documentation with all available configuration options 
+covered in more detail in their respective sections of the documentation with all available configuration options 
 explained.
 
 The naming convention for the `AFC_Turtle_1.cfg` file is covered in the `AFC_UnitType_1.cfg` section of the documentation.

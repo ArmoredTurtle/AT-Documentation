@@ -42,7 +42,7 @@
 
 ??? Answer 
     
-    If you are printing parts for an LDO Box Turtle or Isik's Tech kit , you will want to use the D2HW option 
+    If you are printing parts for an LDO Box Turtle or Isik's Tech kit, you will want to use the D2HW option 
     when selecting STL files for extruders and hub. For any other kit, please refer to the vendor's BOM.
 
 !!! Question
@@ -59,11 +59,11 @@
 !!! warning
 
     ❗Potential CAN issues with Cartographer and AFC-Lite ❗
-    There have been reports of issues with Cartographer and AFC-Lite running on the same CAN Network
+    There have been reports of issues with Cartographer and AFC-Lite running on the same CAN network
     This ultimately could result in damage to the Cartographer Probe. Suggestions from the cartographer community include:
         
         - Running Cartographer or AFC-Lite on USB instead of CAN
-        - If you can not switch one to USB, run the devices on separate CAN networks
+        - If you cannot switch one to USB, run the devices on separate CAN networks
 
 !!! Question
 

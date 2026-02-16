@@ -41,7 +41,7 @@ Lane parameter is an integer and defaults to 1. ex.
 ### [BT_LANE_MOVE]
 Move the specified lane the specified amount. 
 Lane parameter is an integer and defaults to 1. 
-Distance parameter is and integer and defaults to 20. This value can also be negative.
+Distance parameter is an integer and defaults to 20. This value can also be negative.
 Distance over 200 uses long load speeds. 
 
 !!! Usage 

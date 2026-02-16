@@ -58,7 +58,7 @@ Currently, AFC_lane sections are only valid for HTLF unit.
 unit: MCU:<lane>
 #    This is the unit name of the stepper motor. This would typically be 
 #    formatted as `MCU:<lane>` where `<lane>` is the lane number. The
-#    MCU being being referenced is relative to the `[mcu <mcu_name>]`
+#    MCU being referenced is relative to the `[mcu <mcu_name>]`
 #    in this file. For example: `unit: Turtle_1:1` would set this as
 #    the first lane for the hardware connected to the `Turtle_1` MCU.
 step_pin: mcu:pin
@@ -82,7 +82,7 @@ rotation_distance: 4.65
 gear_ratio:
 #    Default: <none>
 #    For a standard BoxTurtle, this parameter should not need to be
-#    set. This parameter is only used if a different gear set it used.
+#    set. This parameter is only used if a different gear set is used.
 #    The gear ratio if the stepper motor is connected to the axis via a
 #    gearbox. For example, one may specify "5:1" if a 5 to 1 gearbox is
 #    in use. If the axis has multiple gearboxes one may specify a comma
@@ -212,8 +212,8 @@ max_move_dis: 99999
 #    unit(AFC_BoxTurtle/NightOwl/etc) section
 n20_break_delay_time: 0.200
 #    Default: 0.200
-#    Time to wait between breaking n20 motors(nSleep/FWD/RWD all 1) 
-#    and then releasing the break to allow coasting. Setting value 
+#    Time to wait between braking N20 motors(nSleep/FWD/RWD all 1) 
+#    and then releasing the brake to allow coasting. Setting value 
 #    here overrides values set in unit (AFC_BoxTurtle/NightOwl/etc) section.
 enable_assist: True
 #    Default: True
@@ -277,7 +277,7 @@ sensor_to_show:
 #    Default: <none>
 #    Set to prep to only show prep sensor, set to load to only show load 
 #    sensor. Do not add if you want both prep and load sensors to show in 
-#    web gui.
+#    web GUI.
 assisted_unload: False
 #    Default: False
 #    If True, the unload retract is assisted to prevent loose windings, 
@@ -671,8 +671,8 @@ max_move_dis: 99999
 #    Setting value here overrides values set in AFC.cfg file.
 n20_break_delay_time: 0.200
 #    Default: 0.200
-#    Time to wait between breaking n20 motors(nSleep/FWD/RWD all 1)
-#    and then releasing the break to allow coasting. Setting value
+#    Time to wait between braking N20 motors(nSleep/FWD/RWD all 1)
+#    and then releasing the brake to allow coasting. Setting value
 #    here overrides values set in AFC.cfg file.
 assisted_unload: False
 #    Default: False
@@ -726,7 +726,7 @@ The following options are available in the `[AFC_QuattroBox unit_name]` section 
 options control the configuration of the AFC system when interfacing with the AFC_QuattroBox unit type. This section is
 typically used to define the unit name and other options that are specific to the AFC_QuattroBox unit type.  
 
-AFC_QuattroBox inherits configuration options from AFC_BoxTurtle configuration section,, below are additional configuration values
+AFC_QuattroBox inherits configuration options from AFC_BoxTurtle configuration section, below are additional configuration values
 for a QuattroBox unit.  
 ``` cfg
 [AFC_QuattroBox QuattroBox_1]
@@ -769,7 +769,7 @@ The following options are available in the `[AFC_HTLF unit_name]` section of the
 options control the configuration of the AFC system when interfacing with the AFC_HTLF unit type. This section is
 typically used to define the unit name and other options that are specific to the AFC_HTLF unit type.  
 
-AFC_QuattroBox inherits configuration options from AFC_BoxTurtle configuration section,, below are additional configuration values
+AFC_QuattroBox inherits configuration options from AFC_BoxTurtle configuration section, below are additional configuration values
 for a QuattroBox unit.  
 ``` cfg
 
@@ -787,7 +787,7 @@ home_pin:
 #    Pin for homing sensor.
 MAX_ANGLE_MOVEMENT: 215
 #    Default: 215
-#    Max angle to move lobes, this is when lobe 1 is fully engaged with it lane,
+#    Max angle to move lobes, this is when lobe 1 is fully engaged with its lane.
 enable_sensors_in_gui: True
 #    Default: True
 #    Set to True to show prep and load sensors switches as filament sensors 

@@ -4,19 +4,19 @@ This section goes over the features that can be found in Armored Turtle Automate
 
 ## TurtleNeck Buffer Ram Sensor
 
-AFC allows the use of using the TurtleNeck Buffers as a ram sensor for detecting when filament is loaded to the toolhead
-extruder. This can be used inplace of a toolhead filament sensor. To learn more about this feature please
+AFC allows the use of the TurtleNeck Buffers as a ram sensor for detecting when filament is loaded to the toolhead
+extruder. This can be used in place of a toolhead filament sensor. To learn more about this feature please
 see [Buffer Ram Sensor](installation/buffer-ram-sensor.md) document.
 
 TurtleNeck Buffer can also detect clogs, jams and feeding issues before they result in a failed print. See [buffer fault detection](installation/buffer-overview.md#buffer-fault-detection) section in buffer overview for more information.
 
 ## Bypass
 
-By default, if a hardware sensor is not setup for a bypass AFC will create a virtual bypass filament sensor. 
-Enabling the virtual filament sensor disables AFC functionality and enabled state persists across reboots.
+By default, if a hardware sensor is not set up for a bypass, AFC will create a virtual bypass filament sensor. 
+Enabling the virtual filament sensor disables AFC functionality, and the enabled state persists across reboots.
 
 You can also enable AFC bypass with a hardware sensor by printing out a [bypass](https://github.com/ArmoredTurtle/AFC-Accessories/tree/main/AFC_Bypass) 
-accessory, connecting inline it after your buffer and adding a bypass filament sensor to klipper config like below. 
+accessory, connecting it inline after your buffer and adding a bypass filament sensor to klipper config like below. 
 Once filament is inserted into the bypass side, the switch disables AFC functionality so you can print like normal.
 
 ```
@@ -26,7 +26,7 @@ pause_on_runout: False
 ```
 
 When either bypass is enabled/filament detect all AFC functionality with loading to the toolhead is disabled. Calling
-the `TOOL_UNLOAD` macro will call the `UNLOAD_FILAMENT` macro if it exists so that filament can still be manually unload
+the `TOOL_UNLOAD` macro will call the `UNLOAD_FILAMENT` macro if it exists so that filament can still be manually unloaded
 from the toolhead.
 
 ## Lower stepper current when printing
@@ -39,12 +39,12 @@ Enabling lower current during printing can be enabled two ways:
 1. Set `global_print_current` in AFC.cfg file
 2. Set `print_current` for each AFC_stepper, this will override `global_print_current` in AFC.cfg
 
-During testing, it was found that 0.6A worked well during printing and kept the steppers warms to the touch. We 
+During testing, it was found that 0.6A worked well during printing and kept the steppers warm to the touch. We 
 would not suggest going lower than this or the TurtleNeck buffers may not work as intended when using BOM spec steppers.
 
 ## Enabling switches to show up in Mainsail/Fluidd GUIs
 
-AFC has the ability to add sensors as filament switches so they show up in Mainsail/Fluidd web gui. This can either be
+AFC has the ability to add sensors as filament switches so they show up in Mainsail/Fluidd web GUI. This can either be
 enabled globally by adding/uncommenting `enable_sensors_in_gui: True` in AFC.cfg file or enabled/disabled in individual
 sections in your config file. Enabling this globally is useful for debugging purposes, but setting in individual
 sections will override the global setting.
@@ -79,14 +79,14 @@ once print is done/canceled.
 
 ## Setting extruder temp
 
-AFC has the ability to automatically set extruder temperature based off filament material type loaded or spoolman
-extruder temperature if its set.
+AFC has the ability to automatically set extruder temperature based on filament material type loaded or spoolman
+extruder temperature if it's set.
 
 If not using spoolman make sure the material is set for your lanes and the temperature values will be pulled from
 `default_material_temps` variable in `AFC.cfg` file. This list can also be updated/added to, just make sure new entries
-have a comma inbetween and follow current format when adding new variable.
+have a comma in between and follow current format when adding new variables.
 
-If spoolman extruder temperature or material type is not defined AFC default's to `min_extrude_temp` variable defined in
+If spoolman extruder temperature or material type is not defined AFC defaults to `min_extrude_temp` variable defined in
 `[extruder]` section in `printer.cfg`
 
 ```cfg
@@ -104,12 +104,12 @@ ignore_spoolman_material_temps: True  # When True, AFC will ignore temperatures 
 
 For users that have a hub not located in their Box Turtle, AFC has the ability to load filament to their hub once its
 inserted. This is turned on by default and this will happen even if your hub is located in your Box Turtle. This can be
-disabled by setting `load_to_hub: False` in your `AFC.cfg` file. Also individual lanes can be turn on/off by setting
+disabled by setting `load_to_hub: False` in your `AFC.cfg` file. Also individual lanes can be turned on/off by setting
 `load_to_hub: True/False` under `[AFC_stepper <lane_name>]` section in your config.
 
 ## Variable purge length on filament change
 
-AFC has the ability to purge different lengths with orcas flush volumes when doing filament changes with T(n) macros. To
+AFC has the ability to purge different lengths with Orca's flush volumes when doing filament changes with T(n) macros. To
 use this feature update your Change Filament G-Code section in your orca slicer to the following:
 
 `T[next_extruder] PURGE_LENGTH=[flush_length]`
@@ -172,13 +172,13 @@ hub: direct
 
 ## Espooler Print Assist
 
-AFC has the ability to activate espooler forward movement when printing to help aid in spools from
+AFC has the ability to activate espooler forward movement when printing to help prevent spools from
 walking around and riding up wheels when they get low. This feature is enabled by default once your filament weight 
 gets below 500 grams.  
 
 The goal of this is to enable the spooler for a small amount of time so that filament on the spool is loosened up some,
 then by the time your printer extrudes `delta_movement` amount(defaults to 150) the filament on your spool should just be 
-getting taught before print assist activates again.  
+getting taut before print assist activates again.  
 
 This feature can be turned off by adding `enable_assist: False` to your `[AFC_BoxTurtle Turtle_(n)]` or `[AFC]` or per `[AFC_Stepper]` config sections.
 If you would like to change the weight value where print assist is activated, then add `enable_assist_weight: <new_number>` 
@@ -197,8 +197,8 @@ print assist:
 - [DISABLE_ESPOOLER_ASSIST](klipper/internal/lane.md#AFC_assist.Espooler.cmd_DISABLE_ESPOOLER_ASSIST)  
 - [TEST_ESPOOLER_ASSIST](klipper/internal/lane.md#AFC_assist.Espooler.cmd_DISABLE_ESPOOLER_ASSIST)    
 
-If the default values for print assist is unspooling too much you can start off by changing either `max_motor_rpm` or 
-`spool_ratio` to decrease the time that the N20 motors are active( aka cruise_time ). 
+If the default values for print assist are unspooling too much you can start off by changing either `max_motor_rpm` or 
+`spool_ratio` to decrease the time that the N20 motors are active (aka cruise_time). 
 
 Below is the default cruise time dependent on weight when using default variables:
 ![image](../assets/images/print_assist_cruise_time_vs_weight.png)
@@ -214,7 +214,7 @@ cruise_time = delta_movement / w_r / spool_rot_s
 ## Quiet Mode
 
 AFC has the ability to run motors at slower speed when doing loads to reduce motor noise. This is helpful for
-those that may have a printer in their bedroom and would like to run multicolor prints overnight. To enabled
+those that may have a printer in their bedroom and would like to run multicolor prints overnight. To enable
 quiet mode there is a filament switch under your filament sensor called `Quiet Mode`, once this is enabled AFC will do long moves at
 a slower speed(default: 50mm/s). Quiet mode speed does not apply to PTFE calibrations and lane resets.  
 
@@ -231,23 +231,23 @@ AFC will also start warning in console when your number of blade cuts is 1k less
 know that it's getting close to change blade. Once number of cuts exceed threshold AFC starts printing out error messages 
 in the console. If blade is changed use `AFC_CHANGE_BLADE` macro to reset count and date blade was changed.  
 
-Use the following macros to print out statistics in console, update when blade has been changes and reset
+Use the following macros to print out statistics in console, update when blade has been changed and reset
 N20 active time:  
 - [AFC_STATS](klipper/internal/misc.md#AFC.afc.cmd_AFC_STATS) - prints statistics to console  
-- [AFC_CHANGE_BLADE](klipper/internal/misc.md#AFC.afc.cmd_AFC_CHANGE_BLADE) - run macro when blade is changed, sets date that blade was changes and resets `Total since changed` count  
+- [AFC_CHANGE_BLADE](klipper/internal/misc.md#AFC.afc.cmd_AFC_CHANGE_BLADE) - run macro when blade is changed, sets date that blade was changed and resets `Total since changed` count  
 - [AFC_RESET_MOTOR_TIME](klipper/internal/lane.md#AFC_assist.Espooler.cmd_AFC_RESET_MOTOR_TIME) - run macro when N20 motor has been swapped out in a lane  
 - [AFC_RESET_STATS](klipper/internal/misc.md#AFC.afc.cmd_AFC_RESET_STATS) - run macro to reset extruder and lane counts
 
 
 Both variables can be added/updated in `[AFC]` [section](configuration/AFC.cfg.md#afc-section) :  
-- `print_short_stats`: Add/uncomment to have the statistics printout to be skinner. Useful for those that have consoles that are skinner( eg. Klipperscreen )  
+- `print_short_stats`: Add/uncomment to have the statistics printout to be skinnier. Useful for those that have consoles that are skinnier (eg. Klipperscreen )  
 - `tool_cut_threshold`: Defaults to 10000 cuts, update to if you want threshold to be larger. This controls when AFC prints out warning/errors when number of cuts since changed reaches/exceeds this number.
 
 !!!note
-    As of AFC-Klipper-Add-On version 1.0.34 new averaging for load times was introduced. Before AFC would not keep track of the total time when averaging, now AFC has the ability to keep track of total time and average with load counts. For AFC to calculate the new, the [AFC_RESET_STATS](klipper/internal/misc.md#AFC.afc.cmd_AFC_RESET_STATS) macro needs to be ran like the following(this will reset your current extruder counts and load times):  
+    As of AFC-Klipper-Add-On version 1.0.34 new averaging for load times was introduced. Before AFC would not keep track of the total time when averaging, now AFC has the ability to keep track of total time and average with load counts. For AFC to calculate the new averages, the [AFC_RESET_STATS](klipper/internal/misc.md#AFC.afc.cmd_AFC_RESET_STATS) macro needs to be run like the following(this will reset your current extruder counts and load times):  
     `AFC_RESET_STATS EXTRUDER=all`.
 
-    Once this macro is ran, moonrakers database will first be backed up just incase someone would like to restore previous stats before resetting values. This reset needs to happen for AFC to average load times correctly based of load counts.
+    Once this macro is run, Moonraker's database will first be backed up just in case someone would like to restore previous stats before resetting values. This reset needs to happen for AFC to average load times correctly based on load counts.
 
 Examples of what statistics printout looks like:  
 ![stats_normal](../assets/images/afc_stats_wide.png)
@@ -271,7 +271,7 @@ Press <1.2 (short-press) seconds commands as follows:
 
 - If no lane is loaded to tool head it will load commanded lane.
 - If lane loaded to tool head is other than commanded lane it will unload other lane and load commanded lane.
-- If commanded; lane is loaded to tool head it will automatically unload lane
+- If the commanded lane is loaded to the tool head, it will automatically unload the lane.
 
 Press >1.2 (long-press) seconds commands as follows:
 
@@ -285,16 +285,16 @@ BOM:
 - 3 Meters of 24awg or 28awg wire (your choice)
 
 ## Detecting runouts
-AFC has the ability to detect runouts or filament breakage while printing. If filament is not detected at the toolhead or hub sensors while printing then a pause command is issued with an error message stating what happened so the error can be fixed before resuming the print.  
+AFC has the ability to detect runouts or filament breakage while printing. If filament is not detected at the toolhead or hub sensors while printing, then a pause command is issued with an error message stating what happened so the error can be fixed before resuming the print.  
 
 During printing if the PREP sensor goes low, one of two things can happen.  
 
-- If infinite spool is not set for the lane that the PREP sensor went low on, AFC will issue a pause command so issue can be fixed before resuming print. Note: If `unload_on_runout: True` is set in AFC config section, lane will be unloaded from toolhead after pausing.
+- If infinite spool is not set for the lane that the PREP sensor went low on, AFC will issue a pause command so the issue can be fixed before resuming print. Note: If `unload_on_runout: True` is set in AFC config section, lane will be unloaded from toolhead after pausing.
 - If infinite spool is set with [SET_MAP](klipper/internal/spool.md#AFC_spool.AFCSpool.cmd_SET_MAP) macro, then AFC will unload filament from runout lane and then load lane as specified when running SET_MAP macro. If tool loading was successful print will continue. If tool load was unsuccessful AFC will issue pause command and an error will be displayed.  
 
 A debounce delay can also be added so that the sensor(s) need to be low for a period of time before triggering the runout logic. By default this is set to zero but can be changed by adding `debounce_delay: <delay_value>` to your AFC config which is a global value. Debounce delay can also be added in AFC_extruder, AFC_hub, AFC_stepper, and AFC_lane configs which override the global AFC setting. See configuration sections for each config for more information.
 
-Runout detection can be turned off while printing by disabling sensor in web gui. If PREP sensor is disabled this also disables infinite spool. The state of the switches is not persistent and will reset to enabled when klipper is restarted.
+Runout detection can be turned off while printing by disabling sensor in web GUI. If PREP sensor is disabled this also disables infinite spool. The state of the switches is not persistent and will reset to enabled when Klipper is restarted.
 
 Example of runout enabled/disabled:
 ![runout_enabled_disabled](../assets/images/runout_switch.png)
@@ -303,7 +303,7 @@ Example of runout enabled/disabled:
 AFC has the ability to grab data from TD-1 devices that are connected to your printer. More information about this and setting it up can be found under [TD-1](td1.md) section.
 
 ## Exposing Lane Data for Third-Parties
-AFC will store lane data in moonrakers database at `<ip_address>/server/database/item?namespace=lane_data` so that third-parties (like orca once support is added) can read this data and know what color, TD(if enabled), mapping, material filament, etc. is in each lane.
+AFC will store lane data in Moonraker's database at `<ip_address>/server/database/item?namespace=lane_data` so that third-parties (like orca once support is added) can read this data and know what color, TD(if enabled), mapping, material filament, etc. is in each lane.
 
 Endpoint returns all lanes in system in a json format like the following:
 ```

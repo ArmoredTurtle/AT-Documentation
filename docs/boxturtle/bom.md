@@ -17,7 +17,7 @@ RGBW LED PCB (WS2812) | 4 | | [AliExpress](https://www.aliexpress.us/item/325680
 N20 6v / 500RPM motors | 4 | | [AliExpress](https://www.aliexpress.us/item/2251832836005412.html) <br/> [AliExpress](https://www.aliexpress.us/item/3256805684127036.html) <br/> [IsiksTech](https://store.isiks.tech/products/bt-n20-motors)
 D2F-L (with Lever) | 4 | |
 D2HW-C201H | 5 | | 
-3010 Axial Fan 5v | 1 | Optional | On the AFC-Lite, the fan is always on .. choose a quiet one.
+3010 Axial Fan 5v | 1 | Optional | On the AFC-Lite, the fan is always on — choose a quiet one.
 
 ## Bearings
 | Item | Quantity | Notes | Links |
@@ -45,7 +45,7 @@ D2HW-C201H | 5 | |
 |------|----------|-------|-------|
 | 8mm diameter / 80 mm long shaft | 4 | | [AliExpress](https://www.aliexpress.us/item/2255800287548941.html)
 | BMG Gear kit | 4 | | [AliExpress](https://www.aliexpress.us/item/3256805442986544.html)
-| 6mm x 3mm magnet | 8 | N35 These do not need to be strong | [IsiksTech](https://store.isiks.tech/products/n52-6mm-diameter-3mm-thick-neodymium-magnet)
+| 6mm x 3mm magnet | 8 | N35. These do not need to be strong | [IsiksTech](https://store.isiks.tech/products/n52-6mm-diameter-3mm-thick-neodymium-magnet)
 | ECAS04 Bowden coupler | 17-20 | 17 for hub, 20 for passthrough | [AliExpress](https://www.aliexpress.us/item/3256806432021232.html)
 | PG7 Cable Strain relief | 1 | Optional |
 | M3 roll-in nuts | 2 | |

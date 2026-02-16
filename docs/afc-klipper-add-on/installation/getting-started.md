@@ -2,7 +2,7 @@
 
 This Klipper plugin is for use with modern filament control systems such as BoxTurtle, NightOwl etc.
 
-More information about BoxTurtle can be found [here](https://github.com/ArmoredTurtle/BoxTurtle)
+More information about BoxTurtle can be found [here](https://github.com/ArmoredTurtle/BoxTurtle).
 
 !!! note
 
@@ -23,7 +23,7 @@ The `AFC-Klipper-Add-On` has the following pre-requisites:
 
 !!!warning "SBC Hardware Recommendations"
     
-    Your choice of SBC will impact your ability to complete multicolor prints. Users with SBCs such as a BTT CB1 and similiar
+    Your choice of SBC will impact your ability to complete multicolor prints. Users with SBCs such as a BTT CB1 and similar
     may find that they are unable to complete multicolor prints due to the limited resources available on these SBCs. We 
     recommend using a Raspberry Pi 4 or similar SBC with at least 2GB of RAM for the best experience.
 

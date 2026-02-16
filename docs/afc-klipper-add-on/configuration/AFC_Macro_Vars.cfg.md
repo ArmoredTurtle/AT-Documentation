@@ -9,7 +9,7 @@ Each section contains a set of variables that are used to control the behavior o
 
 !!! info
 
-    As a reminder, when a macro is preceeded by a `_` (underscore), it is a `hidden` macro. This means that it will not be
+    As a reminder, when a macro is preceded by a `_` (underscore), it is a `hidden` macro. This means that it will not be
     listed in the `Gcode Macro` menu in Fluidd or Mainsail. This is useful for macros that are used internally by the
     AFC-Klipper-Add-On and should not be called directly.
 
@@ -94,7 +94,7 @@ variable_verbose                         : '1'
 
 === "Example"
     Your `print_start` macro might set a skew profile correction. In such case the travel of the toolhead may get limited and not reach your filament cutter or brush, etc.
-    You may also run into issues with `Move out of range` errors because the requested kinematic moves are out of the defined limits after the correction. A last scenerio is that you may not have had the `skew_profile` loaded when taking the measurements so they are offset to what they would be at print time.
+    You may also run into issues with `Move out of range` errors because the requested kinematic moves are out of the defined limits after the correction. A last scenario is that you may not have had the `skew_profile` loaded when taking the measurements so they are offset to what they would be at print time.
 
     This feature solves these issues by disabling skew_correction before any kinematic move and re-enabling it after the kinematic move.
     
@@ -276,7 +276,7 @@ the steppers can lose steps. Therefore, for a cut:
     Distance in mm to push back the remaining tip from the cold end into the hotend.
 
 !!! note
-    This must be less then the `retract_length`.
+    This must be less than the `retract_length`.
 
 -----
 === "variable_pushback_dwell_time"
@@ -499,7 +499,7 @@ variable_purge_length_addition    : 0
 -----
 === "variable_purge_length_addition"
     Default: `0`  
-    Length of filament to add after the purge volume. Purge volumes don't always take cutters into account and therefor 
+    Length of filament to add after the purge volume. Purge volumes don't always take cutters into account and therefore 
     a swap from red to white might be long enough, but from white to red can be far too short. 
     When should you alter this value:
 

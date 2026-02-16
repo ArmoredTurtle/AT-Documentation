@@ -1,6 +1,6 @@
 # Toolhead Variable Calculation
 
-This document describes how to calculate the toolhead variable in the AFC Klipper add-on. These variables are
+This document describes how to calculate the toolhead variables in the AFC Klipper add-on. These variables are
 crucial for ensuring that the toolhead operates correctly with the AFC system.
 
 
@@ -17,12 +17,12 @@ These primarily consist of 2 variables:
 
 ### `tool_stn` Calculation
 
-The `tool_stn` variable is the distance from the toolhead sensor/top of extruder gears(ramming) to the top of any filament remaining in the hotend.
+The `tool_stn` variable is the distance from the toolhead sensor/top of extruder gears (ramming) to the top of any filament remaining in the hotend.
 This takes into account the amount of filament that is left in the hotend after the pushback and retract operations of
 the cut macro have been performed. 
 
 The easiest way to calculate this value is to start with a recommended value based on your toolhead/extruder combination.
-A table of common values is provided [here](../../boxturtle/initial_startup/06-hotend-values.md).
+A table of common values is provided [here](../../initial-startup/06-hotend-values.md).
 
 !!!note 
     It may be easier to temporarily disable the `AFC_POOP` macro while you are adjusting the `tool_stn` value, as this
@@ -64,13 +64,13 @@ Like adjusting the `tool_stn` value, start with a recommended value based on you
 and use the following steps to fine-tune it:
 
 1. Completely load the filament into the toolhead using a toolchange command, such as `T1`. 
-2. Manually extrude filament until observe it coming out of the hotend. This will help reduce the changes of a
+2. Manually extrude filament until observe it coming out of the hotend. This will help reduce the chances of a
    jam occurring during the unload operation.
 3. Manually execute the `AFC_CUT` macro to perform a cut operation.
 4. Using a manual extrude command, retract the filament by a set amount, until the toolhead sensor is no longer triggered.
 
     For example, if your estimated `tool_stn_unload` value is `62mm`, start by issuing a manual retraction for 55mm
-    and then manually retracting 1mm at a time until the toolhead sensor is no longer triggered. If using ramming retract until filament is out of toolhead extruders gears.
+    and then manually retracting 1mm at a time until the toolhead sensor is no longer triggered. If using ramming, retract until filament is out of the toolhead extruder gears.
 
 5. Once you have found the value that works, save it to the configuration with the following command:
 

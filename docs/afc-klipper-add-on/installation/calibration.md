@@ -46,7 +46,7 @@ To calibrate just the bowden length:
 
 Once all other calibration is complete, an automated lane test can be run to verify all lanes are calibrated correctly.
 
-Simple run `AFC_TEST_LANES` in the console to start the test. This will prompt you to select either a single lane,
+Simply run `AFC_TEST_LANES` in the console to start the test. This will prompt you to select either a single lane,
 or all lanes to be tested. The test will run through the selected lane(s) with a configurable amount of iterations.
 
 For example, if you select all lanes with 3 iterations, it will randomly choose lanes and load / unload each lane 3 times.

@@ -21,11 +21,11 @@ information available on this site to help you get started with your Armored Tur
     
     If you have not yet assembled your Armored Turtle project, please refer to the assembly manuals first.
 
-Generally speaking, most ==BoxTurtle== users will want to start with the [Initial Startup Guide](boxturtle/initial_startup/01-overview.md)
+Generally speaking, most ==BoxTurtle== users will want to start with the [Initial Startup Guide](initial-startup/01-overview.md)
 once the physical assembly is complete. You may have to refer to the [AFC-Klipper Add-On](afc-klipper-add-on/index.md) 
 for additional configuration information, or additional tuning instructions.
 
-This website is organization into multiple sections, each with its own focus. The main sections are:
+This website is organized into multiple sections, each with its own focus. The main sections are:
 
 - [AFC-Klipper Add-On](afc-klipper-add-on/index.md): This section contains information about the AFC-Klipper add-on; 
   including installation 

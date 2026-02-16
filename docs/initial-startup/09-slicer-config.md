@@ -5,9 +5,9 @@ configuration of options within them is similar but naming or options may be sli
 
 #### Updating printer settings in Orca
 
-For the printer you are adding BoxTurtle to, first go to the Printer settings, Multimaterial tab and ensure settings are
+For the printer you are adding your AFC unit to, first go to the Printer settings, Multimaterial tab and ensure settings are
 configured as per the below screenshot.
-![Orca_Printer_Settings](../../assets/images/orca-multimaterialtab.png)
+![Orca_Printer_Settings](../assets/images/orca-multimaterialtab.png)
 
 !!! note
 
@@ -18,8 +18,8 @@ Also, on the Extruder 1 setting page - reduce `Retraction while switching materi
 
 #### Adding additional filaments/extruders
 
-Increase the number of filaments to match your BoxTurtle's lane count.
-![Orca_Add_Filament_Settings](../../assets/images/orca-filamentcount.png)
+Increase the number of filaments to match your unit's lane count.
+![Orca_Add_Filament_Settings](../assets/images/orca-filamentcount.png)
 
 #### Updating the Machine G-code settings
 
@@ -78,13 +78,13 @@ PRINT_START STANDBY={material_standby_temperature} BED={material_bed_temperature
 
 #### Material Settings
 
-![Orca_Material_Settings](../../assets/images/orca-filament-material-settings.png)
+![Orca_Material_Settings](../assets/images/orca-filament-material-settings.png)
 
 ##### Ramming Settings
 
 Because the AFC-Klipper-Add-On handles any tip forming in the extension, we need to disable these specific settings in
 the slicer software. Below is a screenshot for OrcaSlicer, but most Slic3r-based slicers have a similar dialog/setting.
-![Orca_Ramming_Settings](../../assets/images/orca-ramming-settings.png)
+![Orca_Ramming_Settings](../assets/images/orca-ramming-settings.png)
 
 
 ### Other slicers

@@ -1,8 +1,8 @@
 ## Overview 
 AFC has the ability to grab data from multiple TD-1 devices that are connected to your printer. TD-1 devices can be 
 connected inline with your PTFE tubes to capture data from all lanes, or multiple TD-1's can be added to capture data 
-from specific units. AFC can also be setup to capture TD-1 data once filament is inserted into a lane and/or during 
-startup PREP routine. Once this data is captured it will be sent to moonraker database to allow third-parties 
+from specific units. AFC can also be set up to capture TD-1 data once filament is inserted into a lane and/or during 
+startup PREP routine. Once this data is captured it will be sent to the Moonraker database to allow third-parties 
 (like OrcaSlicer once support is added) to read what color, TD, mapping, material filament, etc. is in each lane, 
 learn more about this feature [here](features.md#exposing-lane-data-for-third-parties).
 
@@ -12,7 +12,7 @@ learn more about this feature [here](features.md#exposing-lane-data-for-third-pa
 
 ## Prerequisite
 - TD-1 firmware version on at least version 2.0.0, updating requires Hueforge v0.9.1.2 or newer.
-- After updating, run through lux and RBG calibration in Hueforge under TD-1 dropdown.
+- After updating, run through lux and RGB calibration in Hueforge under TD-1 dropdown.
 - For TD-1 users, with version 2.0.0 firmware your ball bearing can be removed to reduce filament friction, but make sure 
   to check `Optical Button` in Hueforge under TD-1 -> TD-1 Settings.
 
@@ -20,21 +20,21 @@ learn more about this feature [here](features.md#exposing-lane-data-for-third-pa
   <img src="../assets/images/td1_optical_setting.png" alt="td1_optical_setting" />
 </p>
 ## PTFE Case
-- TD-1 PTFE case so that PTFE tubes can be connected to either side : [makerworld link](https://makerworld.com/en/models/1414761-td-1-ptfe-case#profileId-1469128)
+- TD-1 PTFE case so that PTFE tubes can be connected to either side: [makerworld link](https://makerworld.com/en/models/1414761-td-1-ptfe-case#profileId-1469128)
 - TD1s PTFE case : [makerworld link](https://makerworld.com/en/models/1997060-td1s-ptfe-case#profileId-2149835)
 
 ## Moonraker Setup
-To communicate correctly with TD-1 devices, moonraker needs to be updated to at least **v0.9.3-116-gb11a7915** and the 
+To communicate correctly with TD-1 devices, Moonraker needs to be updated to at least **v0.9.3-116-gb11a7915** and the 
 following needs to be added to `moonraker.conf` file.
 
 ```
 [td1]
 ```
-Once added, restart the printer. Once restarted and TD-1 device is connected you will see 
+Once added, restart the printer. Once restarted, and a TD-1 device is connected, you will see 
 `Found TD-1 device connected to printer` printed out in your console if everything is working correctly.
 
 ## Calibration
-To calibrate bowden length to TD-1 device run `AFC_CALIBRATION` and in the calibration section select 
+To calibrate bowden length to a TD-1 device, run `AFC_CALIBRATION` and in the calibration section select 
 `Calibrate TD-1 Length` then choose when lane to use for calibration. This calibration only needs to be done with one 
 lane per TD-1 device. Once calibration starts, it will be slow as it takes time for TD-1 to update once filament is detected. 
 Once calibration is done the `afc_unload_bowden_length` variable will automatically be updated. If it's not already in your 
@@ -60,7 +60,7 @@ reset TD-1. AFC will wait up to 30 seconds for reset to happen and will display 
 
 ## Troubleshooting
 - If you think that your TD-1 is connected but AFC still cannot see your device, 
-navigate to `http://<printter_ip>/machine/td1/data` to verify that you TD-1 device shows up here or not.
+navigate to `http://<printer_ip>/machine/td1/data` to verify that your TD-1 device shows up here or not.
 
 Example of moonraker detecting TD-1:
 ```

@@ -2,7 +2,7 @@
 
 ![Utilities Menu](../../assets/images/utilities_menu.png){ loading=lazy }
 
-The `Utilities` menu is to change certain aspects of your system. It currently has one function available to use.
+The `Utilities` menu allows you to change certain aspects of your system. It currently has one function available to use.
 
 ### Menu Options
 
@@ -25,7 +25,7 @@ A validation check will be performed to ensure that the name meets specific requ
 
         Specifically, the name must meet the following regex:
         
-        `^[a-zA-Z0-9_]+$`. It also must be less than 24 chars in length.
+        `^[a-zA-Z0-9_]+$`. It also must be less than 24 characters in length.
 
 Once the name is validated, the system will rename the unit and update the configuration files accordingly. 
 

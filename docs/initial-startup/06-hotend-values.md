@@ -2,16 +2,16 @@
 
 Some of the values with AFC are extremely dependent on your hotend.
 
-Suggested starting values for hotend types (more to be added later) are below.  `tool_stn` and `tool_stn_unload` 
+Suggested starting values for hotend types (more to be added later) are below.  `tool_stn` and `tool_stn_unload`
 are in `AFC/AFC_Hardware.cfg`, `variable_retract_length` and `variable_pushback_length` are in
 `AFC/AFC_Macro_Vars.cfg`. For `tool_stn`, if you have `pin_tool_end` defined, use the second value; otherwise, use
 the first value. You may need to increase this value if you are using a ram buffer as the toolhead sensor.
 
-Additional instructions on tuning some of these values can be [here](../../afc-klipper-add-on/toolhead/calculation.md).  
+Additional instructions on tuning some of these values can be [here](../afc-klipper-add-on/toolhead/calculation.md).
 
 Below is an example diagram of a Revo Voron hotend on FilamATrix/Clockwork 2:
 
-![type:video](../../assets/videos/AFC_CUT_Explainer.mp4)
+![type:video](../assets/videos/AFC_CUT_Explainer.mp4)
 !!!warning
 
     These values are derived from community based feedback and are not guaranteed to work for your specific setup.
@@ -19,7 +19,7 @@ Below is an example diagram of a Revo Voron hotend on FilamATrix/Clockwork 2:
 
 !!!note
 
-     Generally speaking, it is ideal to keep the `variable_pushback_length` within 5mm of the `variable_retract_length` 
+     Generally speaking, it is ideal to keep the `variable_pushback_length` within 5mm of the `variable_retract_length`
      to lessen the chance of molten filament causing a clog inside the toolhead assembly.
 
 
@@ -41,7 +41,7 @@ Below is an example diagram of a Revo Voron hotend on FilamATrix/Clockwork 2:
     - `variable_pushback_length`: 10
 
 === "Rapido V2 HF"
-    
+
     - `tool_stn`: 74 (if `pin_tool_end` is NOT defined) / 52 (if `pin_tool_end` is defined)
     - `tool_stn_unload`: 71
     - `variable_retract_length`: 20
@@ -101,7 +101,7 @@ Below is an example diagram of a Revo Voron hotend on FilamATrix/Clockwork 2:
 
 ------
 
-#### Xol-Metrix 
+#### Xol-Metrix
 === "WWG2 and Rapido HF"
 
     - `tool_stn`: 75 (without post extruder sensor)
@@ -111,7 +111,7 @@ Below is an example diagram of a Revo Voron hotend on FilamATrix/Clockwork 2:
 
 === "LXG Lite and Rapido V2 HF"
 
-    - `tool_stn`: 72 
+    - `tool_stn`: 72
     - `tool_stn_unload`: 54
     - `variable_retract_length`: 2
     - `variable_pushback_length`: 0.4
@@ -124,7 +124,7 @@ Below is an example diagram of a Revo Voron hotend on FilamATrix/Clockwork 2:
     - `variable_pushback_length`: 15
 
 === "Orbiter 2 and Revo"
-    
+
     - `tool_stn`: 70
     - `tool_stn_unload`: 110
     - `variable_retract_length`: 20
@@ -163,21 +163,21 @@ Below is an example diagram of a Revo Voron hotend on FilamATrix/Clockwork 2:
 #### Dragonburner
 === "Orbiter with Phaetus Next G"
 
-    - `tool_stn`: 75 
+    - `tool_stn`: 75
     - `tool_stn_unload`: 75
     - `variable_retract_length`: 15
     - `variable_pushback_length`: 15
 
 === "Orbiter with Dragon HF"
 
-    - `tool_stn`: 55 
+    - `tool_stn`: 55
     - `tool_stn_unload`: 65
     - `variable_retract_length`: 20
     - `variable_pushback_length`: 25
 
 === "Orbiter 2 with Phaetus Conch"
 
-    - `tool_stn`: 55 
+    - `tool_stn`: 55
     - `tool_stn_unload`: 100
     - `variable_retract_length`: 20
     - `variable_pushback_length`: 15
@@ -186,7 +186,7 @@ Below is an example diagram of a Revo Voron hotend on FilamATrix/Clockwork 2:
 #### VZBot Goliath
 
 === "Vz-Hextrudort with Goliath"
-    
+
     - `tool_stn`: 40
     - `tool_stn_unload`: 60
     - `variable_retract_length`: 12
@@ -222,7 +222,7 @@ Below is an example diagram of a Revo Voron hotend on FilamATrix/Clockwork 2:
 #### Custom / Other
 
 === "Hemera XS with Revo"
-    
+
     - `tool_stn`: 22
     - `tool_stn_unload`: 0
     - `variable_retract_length`: 20

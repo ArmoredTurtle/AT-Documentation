@@ -1,9 +1,9 @@
 ## Install the AFC Klipper Add-On
 
-BoxTurtle works best with the [AFC Klipper Add-On](https://github.com/ArmoredTurtle/AFC-Klipper-Add-On). The rest of
-this guide will focus on configuring AFC for use with BoxTurtle.
+Your AFC unit works with the [AFC Klipper Add-On](https://github.com/ArmoredTurtle/AFC-Klipper-Add-On). The rest of
+this guide will focus on configuring AFC for use with your unit.
 
-Follow the instructions on that GitHub for latest details on installation and configuration, but at the time of writing
+Follow the instructions on that GitHub for the latest details on installation and configuration, but at the time of writing
 this is the easy button:
 
 ```
@@ -17,15 +17,16 @@ The default options for the park, cut, kick, wipe, and tip forming macros can be
 These can all be changed later by editing `AFC/AFC.cfg` and doing a firmware restart.
 
 After the installation completes, you should now see an AFC folder in your printer configuration directory, along with
-several files in there named `AFC.cfg`, `AFC_Hardware.cfg`, `AFC_Macro_Vars.cfg`, and `AFC_Turtle_1.cfg` (if
-using the default name). If you do not see these files, or if you see duplicate files (e.g., your `printer.cfg`) -
-this may be a caching issue with your web UI (mainsail/fluidd). Force a refresh with shift-reload or Ctrl+F5 and the
+several files in there named `AFC.cfg`, `AFC_Hardware.cfg`, `AFC_Macro_Vars.cfg`, and a unit-specific configuration
+file (e.g., `AFC_Turtle_1.cfg` for BoxTurtle). The exact filename depends on the unit type you chose during
+installation. If you do not see these files, or if you see duplicate files (e.g., your `printer.cfg`) -
+this may be a caching issue with your web UI (Mainsail/Fluidd). Force a refresh with shift-reload or Ctrl+F5 and the
 problem should resolve itself.
 
 ### Post-Installation Configuration
-After installation, please ensure sure you update the following settings:
+After installation, please ensure you update the following settings:
 
-- In `AFC/AFC_Turtle_1.cfg`:
+- In your unit-specific config file (e.g., `AFC/AFC_Turtle_1.cfg` for BoxTurtle):
     - `canbus_uuid` if using CAN bus
     - `serial` if using USB
 - In `AFC/AFC_Hardware.cfg`
@@ -44,7 +45,7 @@ However, this should only be added if a warning appears in the logs about the ex
 If you do not see this warning, you can skip this step.
 
 Review all x,y,z positions in the `AFC/AFC_Macro_Vars.cfg` file to ensure they are correct for your printer for any macros
-you have enabled. 
+you have enabled.
 
 
 For best results, reboot your printer after installing the Add-On and including it in your printer.cfg. This will ensure

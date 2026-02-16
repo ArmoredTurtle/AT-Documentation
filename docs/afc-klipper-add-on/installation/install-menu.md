@@ -22,8 +22,8 @@ have selected.
 
 #### `T. Installation Type`
 
-This option will allow you to select the type of installation you wish to perform. The currently available options 
-available are:
+This option will allow you to select the type of installation you wish to perform. The currently available options
+are:
 
 - BoxTurtle (4-Lane)
 - BoxTurtle (8-Lane)
@@ -148,7 +148,7 @@ per the wiring diagrams for the BoxTurtle system.
     If you are using a different system, ensure that you have the proper wiring diagrams for your system and adjust 
     these settings accordingly.
 
-    If you are connected to a AFC-Lite board, ensure you use a pull-up `^` in front of the pin for the buffer.
+    If you are connected to an AFC-Lite board, ensure you use a pull-up `^` in front of the pin for the buffer.
 
 #### `M. Return to Main Menu`
 
@@ -176,5 +176,5 @@ You may now quit the script or return to the main menu.
 
     Prior to restarting Klipper, ensure you check the files indicated above and modify them as necessary.
 
-    Mandatory configuration changes are located [here](../../boxturtle/initial_startup/03-install-plugin.md#post-installation-configuration)
+    Mandatory configuration changes are located [here](../../initial-startup/03-install-plugin.md#post-installation-configuration)
     and must be changed / checked. You *WILL* experience Klipper warnings if you do not modify these settings. 

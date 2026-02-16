@@ -6,3 +6,5 @@ site/
 __pycache__/
 site.tar.gz
 uv.lock
+.direnv
+.claude

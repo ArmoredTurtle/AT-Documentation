@@ -5,7 +5,7 @@
 While looking at the BoxTurtle from the front, the lanes are numbered from left to right.  
 
 Lane 1 = left most filament lane  
-Lane 4  = right most filament lane
+Lane 4 = rightmost filament lane
 
 ## AFC-Lite Wiring guide
 
@@ -27,7 +27,7 @@ Load = Extruder Filament Sensor Switches
 | Lane 3 | 420mm | Dependent on motor | JST-XH-4 |
 | Lane 4 | 520mm | Dependent on motor | JST-XH-4 |
 
-##  Indicator LEDs
+## Indicator LEDs
 The default configuration of the LED indicators is to create a neopixel chain of 4 LEDs, using DOUT on one LED to go to 
 DIN of the next LED. JST-SM connectors are spec'd to provide easy disconnect for lane service, but any wire-to-wire 
 connector can be used in their place (e.g. Molex Microfit 3).
@@ -40,7 +40,7 @@ connector can be used in their place (e.g. Molex Microfit 3).
 | Lane 4 | [WS2812 PCB](../assets/images/WS2812_PCB.png)                  | 130mm/130mm tail | 26-30ga | [JST-SM-M](../assets/images/JST-XH_JST-SM.png)/JST-SM-F                  |
 | Jumper |                                               |  80mm | 26-30ga | JST-XH-3/JST-SM-F                                       |
 
-##  N20 motors for Respoolers
+## N20 motors for Respoolers
 | Lane | Component                                           | Recommended Wire Length | Recommended Wire Gauge | Connector |
 | ---- |-----------------------------------------------------| --------- | ------------| --------- |
 | Lane 1 | [N20 6V 500RPM](../assets/images/N20_6V_500RPM.png) | 205mm | 26ga | JST-XH-2 |

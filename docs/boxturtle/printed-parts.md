@@ -16,7 +16,7 @@ repository. There is also a [web-based configurator](https://armoredturtle.xyz/s
 identification and download of what STLs to print outside a base kit build.
 
 All parts are pre-oriented for printing and have all required support pre-built into the STLs. OrcaSlicer/BambuStudio (
-and possible others) may give warnings about certain parts having 'floating cantilevers', these are breakaway support
+and possibly others) may give warnings about certain parts having 'floating cantilevers', these are breakaway support
 structures and these errors can safely be ignored.
 
 If you have an LDO BoxTurtle kit, these are the options to pick on the web-based configurator:
