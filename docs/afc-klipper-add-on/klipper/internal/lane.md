@@ -138,7 +138,7 @@ the toolhead / extruder.
 
 -----
 [AFC_STEPPER_HOME]
-::: AFC_Stepper.AFCExtruderStepper.cmd_AFC_STEPPER_HOME
+::: AFC_stepper.AFCExtruderStepper.cmd_AFC_STEPPER_HOME
     options:
       docstring_style: numpy
       heading_level: 3
