@@ -339,6 +339,23 @@ td1_device_id: None
 #    Default: None
 #    Set this value to TD-1 device ID to use for a lane, this is only needed if
 #    using multiple TD-1 devices.
+remember_spool: False
+#    Default: False
+#    If true, AFC will retain values (spoolID, weight, color, material) of the last spool
+#    that was ejected from a lane and will reuse those values the next time the given
+#    lane is loaded.
+#    Overrides variable that is set in unit(AFC_BoxTurtle/NightOwl/etc) sections.
+homing_overshoot: 50
+#    Default: 50
+#    Additional amount to add to all homing moves to guarantee the move will hit
+#    endstops when homing.
+#    Overrides variable that is set in unit(AFC_BoxTurtle/NightOwl/etc) sections.
+extruder_clear_dis: 50
+#    Default: 50
+#    This variable affects additional move distance when ejecting filament and filament
+#    has passed load sensor. AFC will move this additional amount to make sure filament
+#    is no longer in extruder gears.
+#    Overrides variable that is set in unit(AFC_BoxTurtle/NightOwl/etc) sections.
 ```
 
 ## [AFC_stepper lane_name] Section
@@ -359,6 +376,17 @@ print_current: 0.6
 #    Current to use while printing, set to a lower current to reduce stepper 
 #    heat when printing. Defaults to global_print_current, if not specified 
 #    current is not changed.
+default_homing_endstop: load
+#    Default: load
+#    Endstop to default to when running AFC_STEPPER_HOME macro.
+hub_endstop: <hub_endstop_pin>
+#    Default: endstop defined in AFC_hub config
+#    Override default AFC_hub endstop lookup with custom hub endstop pin
+#    (endstop must be defined in the AFC_hub config).
+extra_homing_pins: ""
+#    Default: ""
+#    Extra homing pins to add to the lookup; can be used as an
+#    endstop selection for the `AFC_STEPPER_HOME` macro.
 ```
 
 
@@ -406,8 +434,8 @@ hubs may be defined in the configuration file.
 switch_pin: mcu:pin
 #    Default: <none>
 #    MCU pin for the hub switch.
-hub_clear_move_dis: 25
-#    Default: 25
+hub_clear_move_dis: 55
+#    Default: 55
 #    How far to move filament so that it doesn't block the hub exit.
 afc_bowden_length:  900
 #    Default: 900
@@ -431,8 +459,8 @@ assisted_retract: False
 #    Default: False
 #    If true, retracts are assisted to prevent loose windings on the
 #    spool.
-move_dis: 50
-#    Default: 50
+move_dis: 65
+#    Default: 65
 #    Distance to move the filament within the hub in mm.
 cut: False
 #    Default: False
@@ -701,9 +729,21 @@ td1_device_id: None
 #    AFC_lane/AFC_stepper sections.
 remember_spool: False
 #    Default: False
-#    If true, AFC will retain values (spoolID, weight, color, material) of the last spool that was ejected
-#    from a lane and will reuse those values the next time the given lane is loaded.
-#    Can be overridden in the [AFC_stepper] section.
+#    If true, AFC will retain values (spoolID, weight, color, material) of the last
+#    spool that was ejected from a lane and will reuse those values the next time
+#    the given lane is loaded.
+#    Can be overridden in the AFC_lane/AFC_stepper sections.
+homing_overshoot: 50
+#    Default: 50
+#    Additional amount to add to all homing moves to guarantee the move will hit
+#    endstops when homing.
+#    This variable can be overridden per AFC_lane/AFC_Stepper config sections.
+extruder_clear_dis: 50
+#    Default: 50
+#    This variable affects additional move distance when ejecting filament and
+#    filament has passed load sensor. AFC will move this additional amount to
+#    make sure filament is not longer in extruder gears.
+#    This variable can be overridden per AFC_lane/AFC_Stepper config sections.
 ```
 
 ## [AFC_NightOwl unit_name] Section
