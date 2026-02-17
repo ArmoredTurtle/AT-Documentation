@@ -735,7 +735,7 @@ remember_spool: False
 #    Can be overridden in the AFC_lane/AFC_stepper sections.
 homing_overshoot: 50
 #    Default: 50
-#    Additional amount to all to all homing moves to guarantee the move will hit
+#    Additional amount to add to all homing moves to guarantee the move will hit
 #    endstops when homing.
 #    This variable can be overridden per AFC_lane/AFC_Stepper config sections.
 extruder_clear_dis: 50
