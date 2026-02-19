@@ -350,12 +350,23 @@ homing_overshoot: 50
 #    Additional amount to add to all homing moves to guarantee the move will hit
 #    endstops when homing.
 #    Overrides variable that is set in unit(AFC_BoxTurtle/NightOwl/etc) sections.
+homing_delta: 300
+#    Default: 300
+#    This value is only valid when homing is enabled and is used as another verifier
+#    to make sure filament is within this range from commanded homing movement. If
+#    homing move is not within this delta of commanded movement then AFC will try 
+#    to home again to verify that filament is at correct position.
+#    Overrides variable that is set in unit(AFC_BoxTurtle/NightOwl/etc) sections.
 extruder_clear_dis: 50
 #    Default: 50
 #    This variable affects additional move distance when ejecting filament and filament
 #    has passed load sensor. AFC will move this additional amount to make sure filament
 #    is no longer in extruder gears.
 #    Overrides variable that is set in unit(AFC_BoxTurtle/NightOwl/etc) sections.
+calibrated_lane: False
+#    Default: False
+#    Currently used in AFC_vivid units so AFC know if lane needs to calibrate dist_hub
+#    distance when inserting filament for the first time.
 ```
 
 ## [AFC_stepper lane_name] Section
@@ -434,6 +445,10 @@ hubs may be defined in the configuration file.
 switch_pin: mcu:pin
 #    Default: <none>
 #    MCU pin for the hub switch.
+#
+#    This can also be setup as a virtual sensor if all lanes have 
+#    a load sensor close to the hub. Add `virtual` to set switch_pin up
+#    as a virtual switch.
 hub_clear_move_dis: 55
 #    Default: 55
 #    How far to move filament so that it doesn't block the hub exit.
@@ -738,6 +753,13 @@ homing_overshoot: 50
 #    Additional amount to add to all homing moves to guarantee the move will hit
 #    endstops when homing.
 #    This variable can be overridden per AFC_lane/AFC_Stepper config sections.
+homing_delta: 300
+#    Default: 300
+#    This value is only valid when homing is enabled and is used as another verifier
+#    to make sure filament is within this range from commanded homing movement. If
+#    homing move is not within this delta of commanded movement then AFC will try 
+#    to home again to verify that filament is at correct position.
+#    This variable can be overridden per AFC_lane/AFC_Stepper config sections.
 extruder_clear_dis: 50
 #    Default: 50
 #    This variable affects additional move distance when ejecting filament and
@@ -807,10 +829,14 @@ led_spool_illuminate: 1,1,1,0
 
 The following options are available in the `[AFC_HTLF unit_name]` section of the `AFC_UnitType_1.cfg` file. These
 options control the configuration of the AFC system when interfacing with the AFC_HTLF unit type. This section is
-typically used to define the unit name and other options that are specific to the AFC_HTLF unit type.  
+typically used to define the unit name and other options that are specific to the AFC_HTLF unit type. 
 
-AFC_QuattroBox inherits configuration options from AFC_BoxTurtle configuration section, below are additional configuration values
-for a QuattroBox unit.  
+The following macro's are specific to HTLF:  
+- [AFC_HOME_UNIT](../klipper/internal/misc.md#AFC_HTLF.AFC_HTLF.cmd_AFC_HOME_UNIT)  
+- [AFC_SELECT_LANE](../klipper/internal/misc.md#AFC_HTLF.AFC_HTLF.cmd_AFC_SELECT_LANE)
+
+AFC_HTLF inherits configuration options from AFC_BoxTurtle configuration section, below are additional configuration values
+for a HTLF unit.  
 ``` cfg
 
 [AFC_HTLF HTLF_1]
@@ -832,6 +858,45 @@ enable_sensors_in_gui: True
 #    Default: True
 #    Set to True to show prep and load sensors switches as filament sensors 
 #    in Mainsail/Fluidd gui, overrides value set in AFC.cfg.
+selector_movement_speed: 50
+#    Default: 50
+#    Speed in mm/s to move filament when selecting lanes with selector motor.
+selector_movement_accel: 50
+#    Default: 50
+#    Acceleration in mm/s squared when selecting lanes with selector motor.
+```
+
+## [AFC_vivid unit_name] Section
+
+The following options are available in the `[AFC_vivid unit_name]` section of the `AFC_UnitType_1.cfg` file. These
+options control the configuration of the AFC system when interfacing with the AFC_vivid unit type. This section is
+typically used to define the unit name and other options that are specific to the AFC_vivid unit type. 
+
+The following macro is specific to ViViD:  
+- [AFC_SELECT_LANE](../klipper/internal/misc.md#AFC_HTLF.AFC_HTLF.cmd_AFC_SELECT_LANE)
+
+AFC_vivid inherits configuration options from AFC_BoxTurtle configuration section, below are additional configuration values
+for a ViViD unit.  
+``` cfg
+
+[AFC_vivid Vivid_1]
+drive_stepper:
+#    Name of AFC_stepper for drive motor.
+selector_stepper:
+#    Name of AFC_stepper for selector motor.
+enable_sensors_in_gui: True
+#    Default: True
+#    Set to True to show prep and load sensors switches as filament sensors 
+#    in Mainsail/Fluidd gui, overrides value set in AFC.cfg.
+selector_movement_speed: 150
+#    Default: 150
+#    Speed in mm/s to move filament when selecting lanes with selector motor.
+selector_movement_accel: 150
+#    Default: 150
+#    Acceleration in mm/s squared when selecting lanes with selector motor.
+max_selector_movement: 800
+#    Default: 800
+#    Max movement in mm to try to move selector to specified lane.
 ```
 
 ## [servo tool_cut] Section

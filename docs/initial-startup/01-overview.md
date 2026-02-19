@@ -13,6 +13,13 @@ units.
 
     [HTLF Assembly Manual](https://armoredturtle.xyz/manual-sections.html?manual=htlf)
 
+=== "ViViD"
+
+    [ViViD Manual](https://github.com/bigtreetech/BIGTREETECH_ViViD/blob/master/BIGTREETECH_ViViD_User_Manual%20V1.0.2.pdf)
+
+    !!!warning
+        ViViD heater temperature sensor is currently not supported in Kalico. Currently there is a pull request waiting to be merged in to support this sensor.
+
 ## Prerequisites
 
 ### Calibrate/tune existing printer extruder

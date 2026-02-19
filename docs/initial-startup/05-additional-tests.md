@@ -1,10 +1,10 @@
 ## Further tests
 
-### Respoolers
-
-Run the ``TEST`` command against each lane (one at a time) to verify proper respooler operation:
-
 === "BoxTurtle"
+    
+    ### Respoolers
+
+    Run the ``TEST`` command against each lane (one at a time) to verify proper respooler operation:
 
     - `TEST LANE=lane1`
     - `TEST LANE=lane2`
@@ -49,11 +49,31 @@ Run the ``TEST`` command against each lane (one at a time) to verify proper resp
     reports no errors, move on to the next step.
 === "HTLF"
 
-    - `TEST LANE=lane1`
-    - `TEST LANE=lane2`
-    - `TEST LANE=lane3`
-    - `TEST LANE=lane4`
+    ### Lane selection
 
+    Run ``AFC_SELECT_LANE`` command against each lane (once at a time) to verify proper lane selection operation:
+
+    - `AFC_SELECT_LANE LANE=lane1`
+    - `AFC_SELECT_LANE LANE=lane2`
+    - `AFC_SELECT_LANE LANE=lane3`
+    - `AFC_SELECT_LANE LANE=lane4`
+
+    ### Homing Unit
+
+    Run ``AFC_HOME_UNIT`` command to verify that unit moves selector back to home pin:
+
+    - `AFC_HOME_UNIT UNIT=HTLF_1`
+
+=== "ViViD"
+
+    ### Lane selection
+
+    Run ``AFC_SELECT_LANE`` command against each lane (once at a time) to verify proper lane selection operation:
+
+    - `AFC_SELECT_LANE LANE=lane1`
+    - `AFC_SELECT_LANE LANE=lane2`
+    - `AFC_SELECT_LANE LANE=lane3`
+    - `AFC_SELECT_LANE LANE=lane4`
 
 ### Buffer
 

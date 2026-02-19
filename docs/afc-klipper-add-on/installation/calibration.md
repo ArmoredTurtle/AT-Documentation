@@ -3,9 +3,15 @@
 ## Guided Calibration
 
 `AFC_CALIBRATION` starts the process of a guided calibration process. Prompts will show in the GUI that will walk you
-through the calibration steps.
+through the calibration steps. Make sure you run through both lane and bowden calibration.
+
+For ViViD units, lane calibration does not need to be redone, since lanes are automatically calibrated once first 
+inserting filament. If you would like to redo calibration, then select lane calibration for the lanes you want to calibrate.
+AFC will eject each selected lane, once you re-insert filament for those lanes they will be re-calibrated to the load sensor.
 
 ## Manual Calibration
+
+Manual Calibration does not need to be ran if guided calibration with `AFC_CALIBRATION` has already been done.
 
 The function `CALIBRATE_AFC` can be called in the console to calibrate distances.  
 

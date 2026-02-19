@@ -127,3 +127,17 @@ These commands are used for various purposes, including error handling, tool cha
     options:
       docstring_style: numpy
       heading_level: 3
+
+-----
+[AFC_HOME_UNIT]
+::: AFC_HTLF.AFC_HTLF.cmd_AFC_HOME_UNIT
+    options:
+      docstring_style: numpy
+      heading_level: 3
+
+-----
+[AFC_SELECT_LANE]
+::: AFC_unit.afcUnit.cmd_AFC_SELECT_LANE
+    options:
+      docstring_style: numpy
+      heading_level: 3
