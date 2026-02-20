@@ -833,7 +833,7 @@ typically used to define the unit name and other options that are specific to th
 
 The following macro's are specific to HTLF:  
 - [AFC_HOME_UNIT](../klipper/internal/misc.md#AFC_HTLF.AFC_HTLF.cmd_AFC_HOME_UNIT)  
-- [AFC_SELECT_LANE](../klipper/internal/misc.md#AFC_HTLF.AFC_HTLF.cmd_AFC_SELECT_LANE)
+- [AFC_SELECT_LANE](../klipper/internal/misc.md#AFC_unit.afcUnit.cmd_AFC_SELECT_LANE)
 
 AFC_HTLF inherits configuration options from AFC_BoxTurtle configuration section, below are additional configuration values
 for a HTLF unit.  
@@ -873,7 +873,7 @@ options control the configuration of the AFC system when interfacing with the AF
 typically used to define the unit name and other options that are specific to the AFC_vivid unit type. 
 
 The following macro is specific to ViViD:  
-- [AFC_SELECT_LANE](../klipper/internal/misc.md#AFC_HTLF.AFC_HTLF.cmd_AFC_SELECT_LANE)
+- [AFC_SELECT_LANE](../klipper/internal/misc.md#AFC_unit.afcUnit.cmd_AFC_SELECT_LANE)
 
 AFC_vivid inherits configuration options from AFC_BoxTurtle configuration section, below are additional configuration values
 for a ViViD unit.  
