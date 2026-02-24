@@ -33,6 +33,8 @@ nav:
           - Slicer / PRINT_START Setup: afc-klipper-add-on/installation/slicer-setup.md
       - Updating:
           - Updating AFC-Klipper-Add-On: afc-klipper-add-on/updates/updates.md
+      - Additional Units:
+          - Adding additional units: afc-klipper-add-on/additional-units/index.md
       - Configuration:
           - Configuration Overview: afc-klipper-add-on/configuration/configuration_overview.md
           - Configuration Files:
