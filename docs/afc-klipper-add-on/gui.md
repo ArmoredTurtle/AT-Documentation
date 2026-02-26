@@ -3,7 +3,7 @@
 ## Mainsail
 
 AFC integrates with [Mainsail](https://www.mainsail.xyz) >= 2.15.0. Installation instructions are available 
-[here](https://docs.mainsail.xyz/setup/getting-started). 
+[here](https://docs.mainsail.xyz/setup/). 
 
 As shown below, it can integrate with multiple 
 units including different types (in this case, BoxTurtle and [HTLF](https://www.printables.com/model/1249234-happyturtlelettucefeeder-htlf-by-armoredturtle-an)).
