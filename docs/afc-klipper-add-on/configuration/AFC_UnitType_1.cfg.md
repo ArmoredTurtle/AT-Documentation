@@ -349,6 +349,7 @@ homing_overshoot: 50
 #    Default: 50
 #    Additional amount to add to all homing moves to guarantee the move will hit
 #    endstops when homing.
+#
 #    Overrides variable that is set in unit(AFC_BoxTurtle/NightOwl/etc) sections.
 homing_delta: 300
 #    Default: 300
@@ -356,6 +357,21 @@ homing_delta: 300
 #    to make sure filament is within this range from commanded homing movement. If
 #    homing move is not within this delta of commanded movement then AFC will try 
 #    to home again to verify that filament is at correct position.
+#
+#    Overrides variable that is set in unit(AFC_BoxTurtle/NightOwl/etc) sections.
+load_then_home: True
+#    Default: True
+#    When set to True and utilizing the buffer in ramming mode, AFC will do a normal move
+#    to toolhead where the total distance is afc_bowden_length or 
+#    minus load_undershoot. After this move to the toolhead, AFC will then do a homing
+#    move the rest of the way until buffer advance sensor is triggered.
+#
+#    Overrides variable that is set in unit(AFC_BoxTurtle/NightOwl/etc) sections.
+load_undershoot: 20
+#    Default: 20
+#    Amount to subtract from afc_bowden_length or dist_hub(when using a direct hub) when
+#    load_then_home is enabled.
+#
 #    Overrides variable that is set in unit(AFC_BoxTurtle/NightOwl/etc) sections.
 extruder_clear_dis: 50
 #    Default: 50
@@ -367,6 +383,12 @@ calibrated_lane: False
 #    Default: False
 #    Currently used in AFC_vivid units so AFC know if lane needs to calibrate dist_hub
 #    distance when inserting filament for the first time.
+selector_cal_distance: 0.0
+#    Default: 0.0
+#    Currently used only by AFC_vivid units, this value is the amount to move in mm once
+#    selector is homed to specified lane. AFC will then move the selector by this amount
+#    after the home to sensor has finished. By modifying this value, this could allow
+#    the selector to have a better grip on the filament.
 ```
 
 ## [AFC_stepper lane_name] Section
@@ -747,11 +769,13 @@ remember_spool: False
 #    If true, AFC will retain values (spoolID, weight, color, material) of the last
 #    spool that was ejected from a lane and will reuse those values the next time
 #    the given lane is loaded.
-#    Can be overridden in the AFC_lane/AFC_stepper sections.
+#
+#    This variable can be overridden per AFC_lane/AFC_Stepper config sections.
 homing_overshoot: 50
 #    Default: 50
 #    Additional amount to add to all homing moves to guarantee the move will hit
 #    endstops when homing.
+#
 #    This variable can be overridden per AFC_lane/AFC_Stepper config sections.
 homing_delta: 300
 #    Default: 300
@@ -759,6 +783,21 @@ homing_delta: 300
 #    to make sure filament is within this range from commanded homing movement. If
 #    homing move is not within this delta of commanded movement then AFC will try 
 #    to home again to verify that filament is at correct position.
+#
+#    This variable can be overridden per AFC_lane/AFC_Stepper config sections.
+load_then_home: True
+#    Default: True
+#    When set to True and utilizing the buffer in ramming mode, AFC will do a normal move
+#    to toolhead where the total distance is afc_bowden_length or 
+#    minus load_undershoot. After this move to the toolhead, AFC will then do a homing
+#    move the rest of the way until buffer advance sensor is triggered.
+#
+#    This variable can be overridden per AFC_lane/AFC_Stepper config sections.
+load_undershoot: 20
+#    Default: 20
+#    Amount to subtract from afc_bowden_length or dist_hub(when using a direct hub) when
+#    load_then_home is enabled.
+#
 #    This variable can be overridden per AFC_lane/AFC_Stepper config sections.
 extruder_clear_dis: 50
 #    Default: 50
@@ -833,7 +872,7 @@ typically used to define the unit name and other options that are specific to th
 
 The following macro's are specific to HTLF:  
 - [AFC_HOME_UNIT](../klipper/internal/misc.md#AFC_HTLF.AFC_HTLF.cmd_AFC_HOME_UNIT)  
-- [AFC_SELECT_LANE](../klipper/internal/misc.md#AFC_unit.afcUnit.cmd_AFC_SELECT_LANE)
+- [AFC_SELECT_LANE](../klipper/internal/lane.md#AFC_unit.afcUnit.cmd_AFC_SELECT_LANE)
 
 AFC_HTLF inherits configuration options from AFC_BoxTurtle configuration section, below are additional configuration values
 for a HTLF unit.  
@@ -873,7 +912,9 @@ options control the configuration of the AFC system when interfacing with the AF
 typically used to define the unit name and other options that are specific to the AFC_vivid unit type. 
 
 The following macro is specific to ViViD:  
-- [AFC_SELECT_LANE](../klipper/internal/misc.md#AFC_unit.afcUnit.cmd_AFC_SELECT_LANE)
+- [AFC_SELECT_LANE](../klipper/internal/lane.md#AFC_unit.afcUnit.cmd_AFC_SELECT_LANE)
+- [AFC_RECOVER_LANE](../klipper/internal/lane.md#AFC_lane.AFCLane.cmd_AFC_RECOVER_LANE)
+- [AFC_UNSELECT_LANE](../klipper/internal/lane.md#AFC_unit.afcUnit.cmd_AFC_UNSELECT_LANE)
 
 AFC_vivid inherits configuration options from AFC_BoxTurtle configuration section, below are additional configuration values
 for a ViViD unit.  

@@ -134,10 +134,3 @@ These commands are used for various purposes, including error handling, tool cha
     options:
       docstring_style: numpy
       heading_level: 3
-
------
-[AFC_SELECT_LANE]
-::: AFC_unit.afcUnit.cmd_AFC_SELECT_LANE
-    options:
-      docstring_style: numpy
-      heading_level: 3
