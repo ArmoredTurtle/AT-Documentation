@@ -27,6 +27,16 @@ During `TOOL_UNLOAD` AFC will perform the user specified macros (cut/tip shaping
   buffer.
 - The rest of the unload will follow.
 
+### Verifying lane loaded to toolhead
+During `PREP` if homing is enabled AFC can verify that filament is loaded to toolhead by advancing filament until the 
+advance sensor is triggered. If the advance sensor does not trigger after a 200mm move, then AFC will give the following error:
+```
+Buffer toolhead loaded check failed for lane3. Please verify that lane3 is loaded to toolhead.
+If lane is not loaded to toolhead then run AFC_RESET and choose lane3 to reset back to hub.
+Once lane is reset run UNSET_LANE_LOADED macro.
+```
+To enable this feature add `enable_buffer_tool_check: True` to your AFC_Boxturtle/AFC_vivid etc. config section.
+
 ## Configuration
 
 ### Required Configuration
