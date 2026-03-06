@@ -66,7 +66,7 @@ buffer: Turtle_1
 ```
 
 ```
-[AFC_Stepper <stepper_name>]
+[AFC_stepper <stepper_name>]
 buffer: Turtle_1
 <rest_of_config>
 ```

@@ -208,11 +208,11 @@ enable_assist_weight: 500
 spool_ratio: 2
 #    Default: 2
 #    Gear ratio for printed gearbox between N20 and spooler wheels, can be overridden in
-#    [AFC_Boxturtle/AFC_NightOwl etc] sections and [AFC_Stepper/AFC_Lane] sections.
+#    [AFC_Boxturtle/AFC_NightOwl etc] sections and [AFC_stepper/AFC_lane] sections.
 full_weight: 1000
 #    Default: 1000
 #    Full starting weight of filament spool (not including spool),  can be overridden in
-#    [AFC_Boxturtle/AFC_NightOwl etc] sections and [AFC_Stepper/AFC_Lane] sections.
+#    [AFC_Boxturtle/AFC_NightOwl etc] sections and [AFC_stepper/AFC_lane] sections.
 debounce_delay: 0
 #    Default: 0
 #    Global value for a period of time in seconds to debounce switches prior
@@ -263,20 +263,22 @@ home_to_tool: True
 #    short-distance moves until the toolhead/buffer advance switch is triggered.
 load_then_home: True
 #    Default: True
-#    When set to True and utilizing the buffer in ramming mode, AFC will do a normal move
-#    to toolhead where the total distance is afc_bowden_length or 
-#    minus load_undershoot. After this move to the toolhead, AFC will then do a homing
-#    move the rest of the way until buffer advance sensor is triggered.
+#    When set to True and utilizing the buffer in ramming mode, AFC will first do a normal
+#    move toward the toolhead where the total distance is:
+#       - afc_bowden_length - load_undershoot, or
+#       - dist_hub - load_undershoot (when using a direct hub).
+#    After this initial move to the toolhead, AFC will then do a homing move the rest of
+#    the way until the buffer advance sensor is triggered.
 #
 #    This is a global setting and can be overridden in unit specific sections
-#    eg. [AFC_Boxturtle ], [AFC_NightOwl ] etc.
+#    eg. [AFC_Boxturtle <unit_name>], [AFC_NightOwl <unit_name>] etc.
 load_undershoot: 20
 #    Default: 20
-#    Amount to subtract from afc_bowden_length or dist_hub(when using a direct hub) when
-#    load_then_home is enabled.
+#    Amount to subtract from afc_bowden_length (or from dist_hub when using a direct hub)
+#    when load_then_home is enabled.
 #
 #    This is a global setting and can be overridden in unit specific sections
-#    eg. [AFC_Boxturtle ], [AFC_NightOwl ] etc.
+#    eg. [AFC_Boxturtle <unit_name>], [AFC_NightOwl <unit_name>] etc.
 lower_extruder_temp_on_change: True
 #    Default: True
 #    If False, AFC will not lower the extruder temperature during a filament change,

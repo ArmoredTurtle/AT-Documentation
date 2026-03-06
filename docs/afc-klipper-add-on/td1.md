@@ -42,13 +42,13 @@ config file it will be added to `AFC_auto_vars.cfg` file.
 
 ## Other configuration values
 - To capture TD and color values when filament is loaded into a lane `capture_td1_when_loaded` needs to be set to `True`. 
-This variable can be added to AFC, AFC_BoxTurtle/AFC_NightOwl/etc, AFC_Stepper/AFC_lane config sections. This only 
+This variable can be added to AFC, AFC_BoxTurtle/AFC_NightOwl/etc, AFC_stepper/AFC_lane config sections. This only 
 happens if a lane is not loaded to the toolhead and the hub is clear.
 - To capture TD and color during PREP startup sequence set `capture_td1_data: True` under AFC_prep in AFC.cfg file. 
 This only happens if a lane is not loaded to the toolhead and the hub is clear. 
 - If any error occurs during PREP AFC will not capture data upon first loading.
 - When using multiple TD-1 devices in system, use `td1_device_id` to specify which id belongs to a specific Unit or lane. 
-This value can be added to AFC_BoxTurtle/AFC_NightOwl/etc, AFC_Stepper/AFC_lane config sections. If only using one device, 
+This value can be added to AFC_BoxTurtle/AFC_NightOwl/etc, AFC_stepper/AFC_lane config sections. If only using one device, 
 this variable is not needed.
 
 ## Macros

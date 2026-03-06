@@ -150,12 +150,14 @@ the toolhead / extruder.
       docstring_style: numpy
       heading_level: 3
 
+-----
 [AFC_UNSELECT_LANE]
 ::: AFC_unit.afcUnit.cmd_AFC_UNSELECT_LANE
     options:
       docstring_style: numpy
       heading_level: 3
 
+-----
 [AFC_RECOVER_LANE]
 ::: AFC_lane.AFCLane.cmd_AFC_RECOVER_LANE
     options:
