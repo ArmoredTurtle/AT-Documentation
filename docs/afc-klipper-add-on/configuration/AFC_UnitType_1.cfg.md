@@ -805,6 +805,17 @@ extruder_clear_dis: 50
 #    filament has passed load sensor. AFC will move this additional amount to
 #    make sure filament is not longer in extruder gears.
 #    This variable can be overridden per AFC_lane/AFC_Stepper config sections.
+enable_buffer_tool_check: False
+#    Default: False
+#    When enabled AFC will verify that a lane is loaded to toolhead when using
+#    buffer as a ramming sensor. AFC will try to expand out buffer to hit the 
+#    advance sensor, if advance sensor is triggered then AFC know that lane
+#    is loaded to toolhead. If this check fails AFC will notify that it could
+#    not verify that lane is loaded and give instructions on how to fix.
+#
+#    Currently this is only intended to work with buffers that have springs
+#    or rubber bands between PTFE tubes. Do not enable this if your buffer is
+#    not setup this way.
 ```
 
 ## [AFC_NightOwl unit_name] Section
