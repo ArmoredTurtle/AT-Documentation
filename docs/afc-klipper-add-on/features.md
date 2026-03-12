@@ -238,7 +238,6 @@ N20 active time:
 - [AFC_RESET_MOTOR_TIME](klipper/internal/lane.md#AFC_assist.Espooler.cmd_AFC_RESET_MOTOR_TIME) - run macro when N20 motor has been swapped out in a lane  
 - [AFC_RESET_STATS](klipper/internal/misc.md#AFC.afc.cmd_AFC_RESET_STATS) - run macro to reset extruder and lane counts
 
-
 Both variables can be added/updated in `[AFC]` [section](configuration/AFC.cfg.md#afc-section) :  
 - `print_short_stats`: Add/uncomment to have the statistics printout to be skinnier. Useful for those that have consoles that are skinnier (eg. Klipperscreen )  
 - `tool_cut_threshold`: Defaults to 10000 cuts, update to if you want threshold to be larger. This controls when AFC prints out warning/errors when number of cuts since changed reaches/exceeds this number.

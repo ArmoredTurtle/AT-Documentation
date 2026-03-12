@@ -13,6 +13,10 @@ configured as per the below screenshot.
 
     Only select the `Purge in prime tower` option when you are not using the `POOP` macro/functionality.
 
+!!! note
+
+    Only select the `Purge in prime tower` option when you are not using the `POOP` macro/functionality.
+
 Also, on the Extruder 1 setting page - reduce `Retraction while switching material` length from the default of 2 to
 0.
 
