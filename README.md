@@ -5,7 +5,7 @@ Material for Mkdocs: https://squidfunk.github.io/mkdocs-material/
 
 ## Set up environment (venv)
 
-Run these from inside the `_afc` dir:
+Run these from inside the base dir:
 
 Install `uv`
 
