@@ -32,8 +32,10 @@ This website is organized into multiple sections, each with its own focus. The m
   instructions, configuration options, examples, and more.
 
 - [BoxTurtle](boxturtle/index.md): This section contains information about the BoxTurtle, including a quick start 
-  guide, configuration 
-  options, slicer configuration and more.
+  guide, configuration options, slicer configuration and more.
+
+- [Initial Setup](initial-startup/01-overview.md): This section contains information about the initial setup of your 
+  Armored Turtle project, including post-assembly steps, configuration, and tuning instructions.
 
 - [AFC-Accessories](afc-accessories/index.md): This section contains information about the AFC-Accessories, including 
   installation instructions, configuration 
