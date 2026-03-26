@@ -283,6 +283,12 @@ lower_extruder_temp_on_change: True
 #    Default: True
 #    If False, AFC will not lower the extruder temperature during a filament change,
 #    as long as the current temperature is above the target material temperature - 5°C.
+auto_spool_switch: False               
+#    Default: False
+#    Trigger spool switch based on remaining filament weight for infinite runout instead of waiting on runout sensor. 
+auto_spool_switch_threshold: 25        
+#    Default: 25
+#    Weight in grams at or below which to trigger auto switch
 ```
 
 The next part of the `[AFC]` section contains the configuration for the AFC macros. These macros are used to control the

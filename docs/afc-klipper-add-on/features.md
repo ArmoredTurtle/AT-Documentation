@@ -298,6 +298,10 @@ Runout detection can be turned off while printing by disabling sensor in web GUI
 Example of runout enabled/disabled:
 ![runout_enabled_disabled](../assets/images/runout_switch.png)
 
+
+Additionally, AFC supports triggering a runout based on remaining weight of the filament spool. If `auto_spool_switch: True` is set in your config, then AFC will trigger a runout if the weight of the filament spool gets below the `auto_spool_switch_threshold` value set in your config. 
+This functionality is useful when the manufacturer of a filament spool leaves a hooked end at the end of the roll, which may prevent a normal runout from triggering properly. 
+
 ## TD-1 Support
 AFC has the ability to grab data from TD-1 devices that are connected to your printer. More information about this and setting it up can be found under [TD-1](td1.md) section.
 

@@ -4,6 +4,13 @@ These commands are used to manage the spool and its properties. This allows for 
 using a spool tracking system such as [Spoolman](https://github.com/Donkie/Spoolman).
 
 -----
+[AFC_SET_SPOOL_TEMP]
+::: AFC_spool.AFCSpool.cmd_SET_SPOOL_TEMP
+    options:
+      docstring_style: numpy
+      heading_level: 3
+
+-----
 [SET_MAP]
 ::: AFC_spool.AFCSpool.cmd_SET_MAP
     options:
