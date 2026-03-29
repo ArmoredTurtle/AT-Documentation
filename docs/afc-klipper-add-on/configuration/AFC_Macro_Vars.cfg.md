@@ -174,8 +174,8 @@ variable_tool_servo_angle_in      : 0
     This should be the position of the toolhead where the cutter arm just lightly touches the 
     depressor pin.
 
-    This variable works for most cutter configurations.  If the cutter pin needs to be
-    configured in other axis, then comment out this variable and set the axis specific locations.
+This variable works for most cutter configurations.  If the cutter pin needs to be
+configured in other axis, then comment out this variable and set the axis specific locations.
 
 === "variable_pin_loc_x"
     Default: `-1`
@@ -262,13 +262,13 @@ the steppers can lose steps. Therefore, for a cut:
     This value should be set to `True` or `False`.
 
 === "variable_post_cut_safe_move"
-    Default: `True`
+    Default: `True` 
     After the cut is finished, ensure that the next move will not collide with the cutter pin.  A safe move will
     always be performed if restore_position is True.  However, even if the position is not being restored, a safe
     move may still be necessary.  This may be set to False if the next step in a filament change is guaranteed to
     to collide.
 
-    See the section on safe margin/safe location for details on the locataion for the safe move.
+See the section on safe margin/safe location for details on the locataion for the safe move.
 
 -----
 === "variable_retract_length"
@@ -339,7 +339,7 @@ finished.
 === "variable_safe_margin_xy"
     Default: `0, 30`  
     Define the safe position relative to the pin park coordinates.  The values are always zero or larger.
-    The x and y vales are added or subtracted from the pin park to calculate the safe position.  The calculated
+    The x and y values are added or subtracted from the pin park to calculate the safe position.  The calculated
     position will always be toward the center of the bed.
 
 === "variable_safe_loc_x"
@@ -356,21 +356,21 @@ finished.
 
 === "Examples"
     A printer that is using a servo and has no obstructed moves should comment out all of these variables:
-    ```# variable_safe_margin               : 0,30
-    # variable_safe_loc_x                 : -1
-    # variable_safe_loc_y                 : -1
-    # variable_safe_loc_z                 : -1```
+```# variable_safe_margin               : 0,30 
+# variable_safe_loc_x                 : -1 
+# variable_safe_loc_y                 : -1 
+# variable_safe_loc_z                 : -1```
 
-    A CoreXY printer with the cutter pin in the left rear.  The pin location is 13,305, pin park distance is 6.
-    The safe position will be 19,275, and the safe move will happen when the toolhead X location is less than or
-    equal to 19mm.
+A CoreXY printer with the cutter pin in the left rear.  The pin location is 13,305, pin park distance is 6.
+The safe position will be 19,275, and the safe move will happen when the toolhead X location is less than or
+equal to 19mm.
 
-    ```variable_safe_margin               : 0,30```
+```variable_safe_margin               : 0,30```
 
-    A bed slinger with a left mounted cutter pin.  The pin location is x=44, z=270.  Pin park distance is 10.
-    The safe position will be x=54, z=190.
-    ```# variable_safe_margin               : 0,30
-    variable_safe_loc_z                 : 190```
+A bed slinger with a left mounted cutter pin.  The pin location is x=44, z=270.  Pin park distance is 10.
+The safe position will be x=54, z=190.
+```# variable_safe_margin               : 0,30
+variable_safe_loc_z                 : 190```
 
 -----
 Some printers may need a boost of power to complete the cut without skipping steps.
