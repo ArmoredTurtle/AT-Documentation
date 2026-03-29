@@ -336,25 +336,25 @@ For setups that don't require a safe move, comment out all of these variables.
 If `restore_position` or `post_cust_safe_move` is set, the cut macro will move to the safe position after the cut is
 finished.
 
-=== "variable_safe_margin_xy"
+=== "variable_safe_margin_xy"  
     Default: `0, 30`  
     Define the safe position relative to the pin park coordinates.  The values are always zero or larger.
     The x and y values are added or subtracted from the pin park to calculate the safe position.  The calculated
     position will always be toward the center of the bed.
 
-=== "variable_safe_loc_x" 
-    Default: The X coordinate of the pin park location. 
+=== "variable_safe_loc_x"  
+    Default: The X coordinate of the pin park location.  
     The X coordinate of the safe location.
 
 === "variable_safe_loc_y"  
-    Default: The Y coordinate of the pin park location. 
+    Default: The Y coordinate of the pin park location.  
     The Y coordinate of the safe location.
 
-=== "variable_safe_loc_z" 
-    Default: The Z coordinate of the pin park location. 
+=== "variable_safe_loc_z"  
+    Default: The Z coordinate of the pin park location.  
     The Z coordinate of the safe location.
 
-=== "Examples" 
+=== "Examples"  
     A printer that is using a servo and has no obstructed moves should comment out all of these variables:
 ``` cfg
 # variable_safe_margin               : 0,30 
@@ -363,8 +363,9 @@ finished.
 # variable_safe_loc_z                 : -1
 ```
 
-A CoreXY printer with the cutter pin in the left rear.  The pin location is 13,305, pin park distance is 6.
-The safe position will be 19,275, and the safe move will happen when the toolhead X location is less than or
+A CoreXY printer with the cutter pin in the left rear.  The pin location is
+13, 305 with the pin park distance set to 6.
+The safe position will be 19, 275 and the safe move will happen when the toolhead X location is less than or
 equal to 19mm.
 
 ``` cfg
@@ -372,7 +373,8 @@ variable_safe_margin               : 0,30
 ```
 
 A bed slinger with a left mounted cutter pin.  The pin location is x=44, z=270.  Pin park distance is 10.
-The safe position will be x=54, z=190.
+The safe position will be x=54, z=190.  The safe move will happen with the toolhead
+X location is less than or equal to 54.
 ``` cfg
 # variable_safe_margin               : 0,30
 variable_safe_loc_z                 : 190
