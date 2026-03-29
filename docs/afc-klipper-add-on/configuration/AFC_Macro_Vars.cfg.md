@@ -354,12 +354,12 @@ finished.
     Default: The Z coordinate of the pin park location.
     The Z coordinate of the safe location.
 
-=== "Examples"
+=== "Examples" 
     A printer that is using a servo and has no obstructed moves should comment out all of these variables:
 ```# variable_safe_margin               : 0,30 
 # variable_safe_loc_x                 : -1 
 # variable_safe_loc_y                 : -1 
-# variable_safe_loc_z                 : -1```
+# variable_safe_loc_z                 : -1 ```
 
 A CoreXY printer with the cutter pin in the left rear.  The pin location is 13,305, pin park distance is 6.
 The safe position will be 19,275, and the safe move will happen when the toolhead X location is less than or
