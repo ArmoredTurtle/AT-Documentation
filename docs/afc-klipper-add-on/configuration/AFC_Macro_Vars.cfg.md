@@ -124,7 +124,10 @@ variables help define items such as locations, speed, and other parameters that 
 [gcode_macro _AFC_CUT_TIP_VARS]
 description: Toolhead tip cutting macro configuration variables
 gcode: # Leave empty
-variable_pin_loc_xy               : -1, -1  
+variable_pin_loc_xy               : -1, -1 
+variable_pin_loc_x                : -1
+variable_pin_loc_y                : -1
+variable_pin_loc_z                : -1
 variable_cut_accel                : 0
 variable_cut_direction            : "left"
 variable_pin_park_dist            : 6.0       
@@ -136,13 +139,17 @@ variable_cut_dwell_time           : 50
 variable_cut_fast_move_fraction   : 0.85    
 variable_extruder_move_speed      : 25   
 variable_restore_position         : False
+variable_post_cut_safe_move:      : True
 variable_retract_length           : 20
 variable_quick_tip_forming        : False
 variable_cut_count                : 2
 variable_rip_length               : 1.0 
 variable_rip_speed                : 3 
 variable_pushback_length          : 15
-variable_safe_margin_xy           : 30, 30 
+variable_safe_margin_xy           : 0, 30
+variable_safe_loc_x               : -1
+variable_safe_loc_y               : -1
+variable_safe_loc_z               : -1
 variable_cut_current_stepper_x: 0
 variable_cut_current_stepper_y: 0
 variable_cut_current_dual_carriage: 0
@@ -166,6 +173,21 @@ variable_tool_servo_angle_in      : 0
     This is the value that is used to define the location of the pin in the X and Y axis. 
     This should be the position of the toolhead where the cutter arm just lightly touches the 
     depressor pin.
+
+    This variable works for most cutter configurations.  If the cutter pin needs to be
+    configured in other axis, then comment out this variable and set the axis specific locations.
+
+=== "variable_pin_loc_x"
+    Default: `-1`
+    Set the X location for the cutter pin if needed.
+
+=== "variable_pin_loc_y"
+    Default: `-1`
+    Set the Y location for the cutter pin if needed.
+
+=== "variable_pin_loc_z"
+    Default: `-1`
+    Set the Z location for the cutter pin if needed.
 
 -----
 === "variable_cut_accel"
@@ -239,6 +261,15 @@ the steppers can lose steps. Therefore, for a cut:
     complete. 
     This value should be set to `True` or `False`.
 
+=== "variable_post_cut_safe_move"
+    Default: `True`
+    After the cut is finished, ensure that the next move will not collide with the cutter pin.  A safe move will
+    always be performed if restore_position is True.  However, even if the position is not being restored, a safe
+    move may still be necessary.  This may be set to False if the next step in a filament change is guaranteed to
+    to collide.
+
+    See the section on safe margin/safe location for details on the locataion for the safe move.
+
 -----
 === "variable_retract_length"
     Default: `20`  
@@ -285,15 +316,61 @@ the steppers can lose steps. Therefore, for a cut:
     retracting it back into the hotend.
 
 -----
-=== "variable_safe_margin_xy"
-    Default: `30, 30`  
-    Safety margin for fast vs slow travel. When traveling to the pin location we make a safer but longer move if we 
-    are closer to the pin than this specified margin. Usually setting these to the size of the toolhead 
-    (plus a small margin) should be good enough. 
 
-=== "Example"
-    For example, if your toolhead is 25mm wide, you can set this to `30, 30` to ensure that the toolhead 
-    does not hit the pin when moving to the cut location.
+Moves to and from the cut location may result in collisions between the cutter pin and the toolhead.  To prevent this,
+an intermediate coordinate can be defined that:
+1.  Is always a safe move from the side of the printer with the cutter pin.
+2.  Has a direct move to the pin park position.
+
+For pins mounted behind the bed, this safe location is usually in front of the pin park position.
+
+At the start of the cut, if the toolhead starts near the same side of the bed as the cutter pin, the toolhead
+will first move to the safe location before moving to the park position.  If the toolhead is elsewhere on the build
+place, it will move directly to the park position.
+
+When using the safe location variables, it is only necessary to set the variable(s) for values that are different
+from the pin park location.  The safe move will use pin park coordiantes for the remaining coordinates.
+
+For setups that don't require a safe move, comment out all of these variables.
+
+If `restore_position` or `post_cust_safe_move` is set, the cut macro will move to the safe position after the cut is
+finished.
+
+=== "variable_safe_margin_xy"
+    Default: `0, 30`  
+    Define the safe position relative to the pin park coordinates.  The values are always zero or larger.
+    The x and y vales are added or subtracted from the pin park to calculate the safe position.  The calculated
+    position will always be toward the center of the bed.
+
+=== "variable_safe_loc_x"
+    Default: The X coordinate of the pin park location.
+    The X coordinate of the safe location.
+
+=== "variable_safe_loc_y"
+    Default: The Y coordinate of the pin park location.
+    The Y coordinate of the safe location.
+
+=== "variable_safe_loc_z"
+    Default: The Z coordinate of the pin park location.
+    The Z coordinate of the safe location.
+
+=== "Examples"
+    A printer that is using a servo and has no obstructed moves should comment out all of these variables:
+    ```# variable_safe_margin               : 0,30
+    # variable_safe_loc_x                 : -1
+    # variable_safe_loc_y                 : -1
+    # variable_safe_loc_z                 : -1```
+
+    A CoreXY printer with the cutter pin in the left rear.  The pin location is 13,305, pin park distance is 6.
+    The safe position will be 19,275, and the safe move will happen when the toolhead X location is less than or
+    equal to 19mm.
+
+    ```variable_safe_margin               : 0,30```
+
+    A bed slinger with a left mounted cutter pin.  The pin location is x=44, z=270.  Pin park distance is 10.
+    The safe position will be x=54, z=190.
+    ```# variable_safe_margin               : 0,30
+    variable_safe_loc_z                 : 190```
 
 -----
 Some printers may need a boost of power to complete the cut without skipping steps.
