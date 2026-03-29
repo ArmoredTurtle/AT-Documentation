@@ -342,16 +342,16 @@ finished.
     The x and y values are added or subtracted from the pin park to calculate the safe position.  The calculated
     position will always be toward the center of the bed.
 
-=== "variable_safe_loc_x"
-    Default: The X coordinate of the pin park location.
+=== "variable_safe_loc_x" 
+    Default: The X coordinate of the pin park location. 
     The X coordinate of the safe location.
 
-=== "variable_safe_loc_y"
-    Default: The Y coordinate of the pin park location.
+=== "variable_safe_loc_y"  
+    Default: The Y coordinate of the pin park location. 
     The Y coordinate of the safe location.
 
-=== "variable_safe_loc_z"
-    Default: The Z coordinate of the pin park location.
+=== "variable_safe_loc_z" 
+    Default: The Z coordinate of the pin park location. 
     The Z coordinate of the safe location.
 
 === "Examples" 
