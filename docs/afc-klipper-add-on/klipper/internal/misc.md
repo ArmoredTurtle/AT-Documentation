@@ -31,13 +31,6 @@ These commands are used for various purposes, including error handling, tool cha
       heading_level: 3
 
 -----
-[AFC_STATUS]
-::: AFC.afc.cmd_AFC_STATUS
-    options:
-      docstring_style: numpy
-      heading_level: 3
-
------
 [TURN_OFF_AFC_LED]
 ::: AFC.afc.cmd_TURN_OFF_AFC_LED
     options:
