@@ -13,6 +13,10 @@ configured as per the below screenshot.
 
     Only select the `Purge in prime tower` option when you are not using the `POOP` macro/functionality.
 
+!!! note
+
+    Ensure you select `Type 2` as the wipe tower type. 
+
 Also, on the Extruder 1 setting page - reduce `Retraction while switching material` length from the default of 2 to 0.
 
 #### Adding additional filaments/extruders
