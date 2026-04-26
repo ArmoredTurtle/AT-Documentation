@@ -141,8 +141,18 @@ led_not_ready: 1,0,0,0
 #    Not ready color
 led_loading: 1,1,1,0            
 #    Loading color
-led_tool_loaded: 0,0,1,0        
-#    Loaded color
+led_tool_loaded: 0,0,1,0
+#    Default: 0,0,1,0
+#    Color to set when lane is loaded into toolhead extruder.
+led_unloading: 1,1,.5,0
+#    Default: 1,1,.5,0
+#    Color to set when unloading a lane.
+led_tool_loaded_idle: 0.4,0.4,0,0
+#    Default: 0.4,0.4,0,0
+#    Color to set when toolhead is loaded but idle/docked. Only affects toolchanger setups.
+led_tool_unloaded: 1,0,0,0
+#    Default: 1,0,0,0
+#    Color to set when toolhead is unloaded.
 led_buffer_advancing: 0,0,1,0   
 #    Buffer advancing color
 led_buffer_trailing: 0,1,0,0    
@@ -152,6 +162,10 @@ led_buffer_disable: 0,0,0,0.25
 led_spool_illuminate: 1,1,1,0
 #    Loading color to illuminate spool, currently only for QuattroBox units 
 #    and can be overridden in AFC_QuattroBox section
+led_use_filament_color: False
+#    Default: False
+#    When True, lane LED colors will use the filament color from the spool color
+#    field (set manually or synced from Spoolman) instead of the configured LED state colors.
 n20_break_delay_time: 0.200
 #    Default: 0.200
 #    Time to wait between braking N20 motors(nSleep/FWD/RWD all 1) and then 
@@ -279,16 +293,40 @@ load_undershoot: 20
 #
 #    This is a global setting and can be overridden in unit specific sections
 #    eg. [AFC_Boxturtle <unit_name>], [AFC_NightOwl <unit_name>] etc.
+temp_wait_tolerance: 5.0
+#    Default: 5.0
+#    Temperature +/- tolerance when waiting on hotend to reach a target. AFC will proceed
+#     once within this range of the target, whether heating or cooling.
 lower_extruder_temp_on_change: True
 #    Default: True
 #    If False, AFC will not lower the extruder temperature during a filament change,
 #    as long as the current temperature is above the target material temperature - 5°C.
 auto_spool_switch: False               
 #    Default: False
-#    Trigger spool switch based on remaining filament weight for infinite runout instead of waiting on runout sensor. 
+#    Trigger spool switch based on remaining filament weight for infinite runout instead
+#    of waiting on runout sensor. 
 auto_spool_switch_threshold: 25        
 #    Default: 25
 #    Weight in grams at or below which to trigger auto switch
+```
+
+### Multiple Extruder variables only
+Below are variables that only are useful when running multiple extruders
+```
+disable_ooze_check: False
+#    Default: False
+#    Disables ooze prevention check for lanes on the same extruder when commanding
+#    M104/M109 commands during printing. By disabling this, if a M104 T(n) S170 is 
+#    commanded and T(n) is not active lane but extruder is active, AFC will still set
+#    temperature to 170.
+toolchange_temp_drop: 0
+#    Default: 0
+#    Degrees to drop the old extruder's temperature with no wait after a successful
+#    toolchange when the extruder changes.
+disable_homing_check: False
+#    Default: False
+#    Disables homing check when doing a toolchange, useful if you are using a toolchanger
+#    and don't need to home to unload toolheads(using tip forming).
 ```
 
 The next part of the `[AFC]` section contains the configuration for the AFC macros. These macros are used to control the
@@ -368,6 +406,14 @@ form_tip_cmd: AFC
 #    call the built-in macro. You can replace this with a custom macro name if 
 #    you have a different tip-forming method or tool. Configuration for the AFC 
 #    macro is defined in the `AFC.cfg` file.
+
+post_load_macro:
+#    Default: 
+#    Macro called at the end of the load sequence, after poop, kick, and wipe
+#    have been executed (if supplied).
+post_unload_macro:
+#    Default:
+#    Macro called at the end of the unloading sequence (if supplied).
 ```
 
 ## [AFC_prep] Section
