@@ -42,6 +42,7 @@ nav:
               - AFC_Hardware.cfg: afc-klipper-add-on/configuration/AFC_Hardware.cfg.md
               - AFC_UnitType_1.cfg: afc-klipper-add-on/configuration/AFC_UnitType_1.cfg.md
               - AFC_Macro_Vars.cfg: afc-klipper-add-on/configuration/AFC_Macro_Vars.cfg.md
+              - AFC_Toolchanger.cfg: afc-klipper-add-on/configuration/AFC_Toolchanger.cfg.md
       - Klipper Commands:
           - Command Overview: afc-klipper-add-on/klipper/commands.md
           - Internal Commands:
