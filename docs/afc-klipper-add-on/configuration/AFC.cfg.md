@@ -149,7 +149,7 @@ led_unloading: 1,1,.5,0
 #    Color to set when unloading a lane.
 led_tool_loaded_idle: 0.4,0.4,0,0
 #    Default: 0.4,0.4,0,0
-#    Color to set when toolhead is loaded but idle/docked. Only affects toolchanger setups.
+#    Color to set when toolhead is loaded but idle/docked.
 led_tool_unloaded: 1,0,0,0
 #    Default: 1,0,0,0
 #    Color to set when toolhead is unloaded.
@@ -165,7 +165,8 @@ led_spool_illuminate: 1,1,1,0
 led_use_filament_color: False
 #    Default: False
 #    When True, lane LED colors will use the filament color from the spool color
-#    field (set manually or synced from Spoolman) instead of the configured LED state colors.
+#    field (set manually or synced from Spoolman) instead of the configured LED 
+#    state colors.
 n20_break_delay_time: 0.200
 #    Default: 0.200
 #    Time to wait between braking N20 motors(nSleep/FWD/RWD all 1) and then 

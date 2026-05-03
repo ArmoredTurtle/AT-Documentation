@@ -168,8 +168,31 @@ led_spool_index:
 #    Index can have multiple entries in a comma separated list and range 
 #    values also are allowed.
 #    eg. AFC_Indicator_4:1,2,3,4, 6-9, 11-14, 16-18
+led_tool_loaded_idle: 0.4,0.4,0,0
+#    Default: 0.4,0.4,0,0
+#    LED color used when this lane is loaded into the toolhead and idle.
+#    Format: (R,G,B,W) where 0 = off and 1 = full brightness.
+#
+#    Setting value here overrides values set in unit(AFC_BoxTurtle/NightOwl/etc) 
+#    section.
+led_tool_unloaded: 1,0,0,0
+#    Default: 1,0,0,0
+#    LED color used when this lane is not loaded in the toolhead.
+#    Format: (R,G,B,W) where 0 = off and 1 = full brightness.
+#
+#    Setting value here overrides values set in unit(AFC_BoxTurtle/NightOwl/etc) 
+#    section.
 led_spool_illuminate: 1,1,1,0
+#    Default: 1,1,1,0
 #    Loading color to illuminate spool, currently only for QuattroBox units.
+led_use_filament_color: False
+#    Default: False
+#    When True, lane LED colors will use the filament color from the spool color
+#    field (set manually or synced from Spoolman) instead of the configured LED 
+#    state colors.
+#
+#    Setting value here overrides values set in unit(AFC_BoxTurtle/NightOwl/etc) 
+#    section.
 long_moves_speed: 150
 #    Default: 150
 #    Speed in mm/s to move filament when doing long moves. 
@@ -391,6 +414,38 @@ selector_cal_distance: 0.0
 #    selector is homed to specified lane. AFC will then move the selector by this amount
 #    after the home to sensor has finished. By modifying this value, this could allow
 #    the selector to have a better grip on the filament.
+td1_bowden_length:
+#    Default: value from AFC_hub config section (if set)
+#    Length (in mm) of the Bowden path between this lane and the TD-1.
+#
+#    Used when TD-1 integration is enabled to correctly position filament
+#    for measurement and color detection.
+#
+#    If not set, the value from the AFC_hub configuration will be used.
+#
+#    Run AFC_CALIBRATION to automatically calibrate this length,
+#    option to calibrate will only show up if TD-1 has been setup
+#    correctly in moonraker.
+custom_load_cmd:
+#    Default: <none>
+#    Custom macro or command to execute when loading this lane.
+#    Replaces the standard AFC load sequence for this lane.
+#
+#    Example:
+#      custom_load_cmd: MY_LANE_LOAD
+#
+#    When set, AFC will call this command instead of its internal
+#    loading logic.
+
+custom_unload_cmd:
+#    Default: <none>
+#    Custom macro or command to execute when unloading this lane.
+#    Replaces the standard AFC unload sequence for this lane.
+#
+#    Example:
+#      custom_unload_cmd: MY_LANE_UNLOAD
+#
+#    Allows full control over unload behavior (retraction, parking, etc).
 ```
 
 ## [AFC_stepper lane_name] Section
