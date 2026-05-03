@@ -149,10 +149,12 @@ led_unloading: 1,1,.5,0
 #    Color to set when unloading a lane.
 led_tool_loaded_idle: 0.4,0.4,0,0
 #    Default: 0.4,0.4,0,0
-#    Color to set when toolhead is loaded but idle/docked.
+#    LED color used when a lane is loaded into the toolhead and idle.
+#    Format: (R,G,B,W) where 0 = off and 1 = full brightness.
 led_tool_unloaded: 1,0,0,0
 #    Default: 1,0,0,0
-#    Color to set when toolhead is unloaded.
+#    LED color used when a lane is not loaded in the toolhead.
+#    Format: (R,G,B,W) where 0 = off and 1 = full brightness.
 led_buffer_advancing: 0,0,1,0   
 #    Buffer advancing color
 led_buffer_trailing: 0,1,0,0    

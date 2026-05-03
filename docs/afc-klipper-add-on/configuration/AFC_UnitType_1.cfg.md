@@ -768,6 +768,25 @@ led_tool_loaded: 1,1,0,0
 #    LED color to set when lane is loaded in toolhead
 #    (R,G,B,W) 0 = off, 1 = full brightness. Setting value here
 #    overrides values set in AFC.cfg file.
+led_tool_loaded_idle: 0.4,0.4,0,0
+#    Default: 0.4,0.4,0,0
+#    LED color used when a lane is loaded into the toolhead and idle.
+#    Format: (R,G,B,W) where 0 = off and 1 = full brightness.
+#
+#    Setting value here overrides values set in AFC.cfg file.
+led_tool_unloaded: 1,0,0,0
+#    Default: 1,0,0,0
+#    LED color used when a lane is not loaded in the toolhead.
+#    Format: (R,G,B,W) where 0 = off and 1 = full brightness.
+#
+#    Setting value here overrides values set in AFC.cfg file.
+led_use_filament_color: False
+#    Default: False
+#    When True, lane LED colors will use the filament color from the spool color
+#    field (set manually or synced from Spoolman) instead of the configured LED 
+#    state colors.
+#
+#    Setting value here overrides values set in AFC.cfg file.
 long_moves_speed: 100
 #    Default: 100
 #    Speed in mm/s to move filament when doing long moves.
