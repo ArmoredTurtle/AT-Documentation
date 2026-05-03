@@ -70,18 +70,20 @@ debounce_delay: 0
 [AFC_extruder extruder]
 deadband: 2
 #    Default: 2
-#    Temperature deadband tolerance in degrees Celsius. AFC considers the
-#    extruder "at temperature" when the current reading is within ±deadband
-#    degrees of the target. Prevents excessive waiting caused by minor
-#    sensor fluctuations. Also used as the D parameter in AFC's M109
-#    override when waiting for temperature.
-toolchange_temp_drop: 0
+#    Temperature tolerance (°C) when checking if the extruder has reached
+#    its target.
+#    AFC considers the target reached when within ±deadband.
+#    Increasing this value (e.g. 3–5) can help if the hotend oscillates
+#    around the target temperature.
+toolchange_temp_drop:0
 #    Default: 0
-#    Degrees to drop this extruder's temperature without waiting after it
-#    becomes the outgoing tool in a toolchange. Setting above 0 reduces
-#    idle ooze on deselected toolheads while keeping them warm enough for
-#    a quick reheat. Explicitly overrides the global toolchange_temp_drop
-#    in AFC.cfg for this extruder only. Set to 0 to disable the drop.
+#    Amount (°C) to lower this extruder’s temperature after it is deselected
+#    during a toolchange. Applied immediately with no wait.
+#
+#    Set to 0 to disable temperature drop. Useful for faster tool swaps,
+#    while non-zero values can help reduce oozing on inactive tools.
+#
+#    Overrides the global setting in AFC.cfg.
 ```
 
 ### LED Settings
@@ -94,27 +96,44 @@ toolchange_temp_drop: 0
     error at startup if they do.
  
 ``` cfg
-[AFC_extruder extruder]
-led_name: neopixel toolhead_leds
-#    Name of the Klipper LED object (matching a [neopixel ...] or
-#    [dotstar ...] config section) that AFC should control for this
-#    toolhead. Used for both status indication and nozzle illumination.
-#    AFC will raise an error at startup if the named object is not found.
-#    Leave unset to disable LED control for this extruder.
-status_led_idx: 1
+led_name:
+#    Default: <none>
+#    Name of the LED group used for this toolhead. Used for both status
+#    indication and nozzle illumination.
+#    Must match an LED defined in your Klipper config.
+#
+#    Example:
+#      led_name: neopixel tool1_led
+#
+#    Required for AFC_SET_TOOLHEAD_LED and toolhead lighting control.
+status_led_idx:
+#    Default: <none>
 #    Comma-separated LED index position(s) (1-based) within the led_name
 #    chain reserved for AFC status indication. These LEDs reflect the
 #    current lane/tool state (e.g. ready, loading, fault) and are excluded
 #    from print lighting controlled by AFC_SET_EXTRUDER_LED.
-#    Example: status_led_idx: 1        (single status LED)
-#    Example: status_led_idx: 1,2      (two status LEDs)
+#
+#    Accepts a single index or a comma-separated list.
+#
+#    Examples:
+#      status_led_idx: 0
+#      status_led_idx: 0,1
+#
 #    Leave unset if no LEDs are dedicated to status.
-nozzle_led_idx: 2,3
+nozzle_led_idx:
+#    Default: <none>
 #    Comma-separated LED index position(s) (1-based) within the led_name
 #    chain used for nozzle illumination. When set, AFC_SET_EXTRUDER_LED
 #    toggles only these LEDs for print lighting instead of all non-status
 #    LEDs in the chain. Leave unset to allow AFC_SET_EXTRUDER_LED to
 #    toggle all LEDs not reserved by status_led_idx.
+#
+#    Examples:
+#      nozzle_led_idx: 2
+#      nozzle_led_idx: 2,3,4
+#
+#    If not set, all LEDs except those in status_led_idx are used.
+#    Must not overlap with status_led_idx.
 ```
 
 ### Toolchanger Settings
@@ -125,50 +144,59 @@ nozzle_led_idx: 2,3
     setups. Leave all of these unset for standard single-toolhead printers.
  
 ``` cfg
-[AFC_extruder extruder]
-toolchanger_unit: toolchanger
-#    Name of the AFC_Toolchanger unit this extruder belongs to
-#    (e.g. toolchanger references [AFC_Toolchanger toolchanger]).
-#    When set, AFC creates a synthetic lane for this extruder, enables
-#    shuttle detection via the tool's dock sensor, and registers this
-#    extruder with the toolchanger unit at startup. AFC will raise an
-#    error if the named AFC_Toolchanger object is not found in the config.
-#    Leave unset for single-toolhead printers.
-tool: tool T0
-#    Full Klipper config section name of the klipper-toolchanger tool
-#    object associated with this extruder (e.g. tool T0 references
-#    [tool T0]). AFC uses this object to determine whether the tool is
-#    physically docked or attached to the carriage via the tool's
-#    detect_state attribute. If unset while toolchanger_unit is set,
-#    AFC assumes the tool is always on the shuttle (on_shuttle returns
-#    True unconditionally), which is appropriate when using
-#    custom_tool_swap and custom_unselect macros without native
-#    toolchanger detection.
-map: T0
-#    T-number identifier (e.g. T0, T1) that maps this extruder to a tool
-#    position. Routes slicer temperature commands (M104/M109 T<n>),
-#    AFC_SET_TOOLHEAD_LED, and Moonraker lane data to this extruder.
-#    If left unset, AFC auto-assigns the next available T-number at
-#    startup (T0, T1, T2...) while respecting any manually assigned values
-#    on other lanes. Explicit assignment is strongly recommended for
-#    multi-toolhead setups to guarantee predictable T-number ordering.
-#    Runtime remapping is possible via SET_MAP and RESET_AFC_MAPPING.
-custom_tool_swap: _MY_PICK_T0
-#    Name of a G-code macro to execute instead of klipper-toolchanger default
-#    SELECT_TOOL T=<n> macro when this extruder becomes the incoming tool in a
-#    toolchange. The macro is responsible for the physical tool pickup motion
-#    only — AFC automatically calls ACTIVATE_EXTRUDER and updates position offsets
-#    after the macro returns. The tool index for the default SELECT_TOOL
-#    path is derived from the extruder name (extruder=T0, extruder1=T1).
-#    Leave unset to use AFC's default SELECT_TOOL behavior.
-custom_unselect: _MY_DOCK_T0
-#    Name of a G-code macro to execute instead of klipper-toolchanger default
-#    UNSELECT_TOOL macro when this extruder is the outgoing tool in a toolchange
-#    or when AFC_UNSELECT_TOOL is called. The macro is responsible for the
-#    physical docking motion only — AFC handles LED state updates and
-#    Spoolman spool deactivation after the macro returns. This macro is
-#    triggered on every toolchange where this extruder is deselected.
-#    Leave unset to use AFC's default UNSELECT_TOOL behavior.
+toolchanger_unit:
+#    Default: <none>
+#    Name of the AFC toolchanger this extruder belongs to.
+#    Enables toolchanger features such as tool selection, swapping,
+#    and AFC_SELECT_TOOL / AFC_UNSELECT_TOOL commands.
+#
+#    Example:
+#      toolchanger_unit: my_toolchanger
+tool:
+#    Default: <none>
+#    Name of the tool as defined in your Klipper toolchanger configuration.
+#    This should match the tool/extruder name used by Klipper (e.g. T0,
+#    T1, T2, etc).
+#
+#    Example:
+#      tool: T0
+#
+#    Usage:
+#      AFC_SELECT_TOOL TOOL=extruder1
+#
+#    This value is used by AFC to look up the corresponding tool object
+#    and perform tool swaps through the toolchanger.
+map:
+#    Default: <none>
+#    Tool mapping label (e.g. T0, T1, etc).
+#    Used for commands that reference tool positions, such as LED control.
+#
+#    When set, AFC will re-register this mapping internally in klipper and
+#    take control of the corresponding tool command (e.g. T0, T1, etc).
+#    Any existing gcode_macro with the same name will be overridden.
+#
+#    Example:
+#      map: T0
+#    Usage:
+#      AFC_SET_TOOLHEAD_LED MAP=T0
+custom_tool_swap:
+#    Default: <none>
+#    Custom macro to run when this tool is selected.
+#    Replaces the default SELECT_TOOL T<n> behavior.
+#
+#    Example:
+#      custom_tool_swap: MY_TOOL_PICKUP
+#
+#    Allows full control over tool pickup or activation behavior.
+custom_unselect:
+#    Default: <none>
+#    Custom macro to run when this tool is deselected.
+#    Replaces the default UNSELECT_TOOL behavior.
+#
+#    Example:
+#      custom_unselect: MY_TOOL_DOCK
+#
+#    Useful for custom docking, parking, or release routines.
 ```
 
 ## [AFC_buffer buffer_name] Section
