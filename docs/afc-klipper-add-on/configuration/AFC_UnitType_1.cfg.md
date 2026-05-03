@@ -362,6 +362,20 @@ td1_device_id: None
 #    Default: None
 #    Set this value to TD-1 device ID to use for a lane, this is only needed if
 #    using multiple TD-1 devices.
+td1_bowden_length:
+#    Default: value from AFC_hub config section (if set)
+#    Length in mm from the hub to the TD-1 device for this lane. AFC moves
+#    filament exactly this distance when capturing TD-1 color and type data.
+#
+#    If not set, AFC falls back to the td1_bowden_length
+#    value defined in the associated AFC_hub section. This value is not
+#    used for direct hub setups.
+#
+#    Setting value here overrides td1_bowden_length set in AFC_hub section.
+#
+#    Run AFC_CALIBRATION to automatically calibrate this length,
+#    option to calibrate will only show up if TD-1 has been setup
+#    correctly in moonraker.
 remember_spool: False
 #    Default: False
 #    If true, AFC will retain values (spoolID, weight, color, material) of the last spool
@@ -414,38 +428,16 @@ selector_cal_distance: 0.0
 #    selector is homed to specified lane. AFC will then move the selector by this amount
 #    after the home to sensor has finished. By modifying this value, this could allow
 #    the selector to have a better grip on the filament.
-td1_bowden_length:
-#    Default: value from AFC_hub config section (if set)
-#    Length (in mm) of the Bowden path between this lane and the TD-1.
-#
-#    Used when TD-1 integration is enabled to correctly position filament
-#    for measurement and color detection.
-#
-#    If not set, the value from the AFC_hub configuration will be used.
-#
-#    Run AFC_CALIBRATION to automatically calibrate this length,
-#    option to calibrate will only show up if TD-1 has been setup
-#    correctly in moonraker.
 custom_load_cmd:
-#    Default: <none>
-#    Custom macro or command to execute when loading this lane.
-#    Replaces the standard AFC load sequence for this lane.
-#
-#    Example:
-#      custom_load_cmd: MY_LANE_LOAD
-#
-#    When set, AFC will call this command instead of its internal
-#    loading logic.
-
+#    Default: None
+#    Custom G-code macro to run instead of AFC's built-in load sequence
+#    when loading this lane to the toolhead. Leave unset to use AFC's
+#    default load sequence.
 custom_unload_cmd:
-#    Default: <none>
-#    Custom macro or command to execute when unloading this lane.
-#    Replaces the standard AFC unload sequence for this lane.
-#
-#    Example:
-#      custom_unload_cmd: MY_LANE_UNLOAD
-#
-#    Allows full control over unload behavior (retraction, parking, etc).
+#    Default: None
+#    Custom G-code macro to run instead of AFC's built-in unload sequence
+#    when unloading this lane from the toolhead. Leave unset to use AFC's
+#    default unload sequence.
 ```
 
 ## [AFC_stepper lane_name] Section
