@@ -467,12 +467,20 @@ hubs may be defined in the configuration file.
 ``` cfg
 [AFC_hub hub_name]
 switch_pin: mcu:pin
-#    Default: <none>
+#    Default: <none> (required)
 #    MCU pin for the hub switch.
 #
-#    This can also be setup as a virtual sensor if all lanes have 
-#    a load sensor close to the hub. Add `virtual` to set switch_pin up
-#    as a virtual switch.
+#    Alternatively, set to `virtual` to use a virtual hub sensor instead
+#    of a physical switch. When set to virtual, the hub state is
+#    determined by the load sensors on each attached lane — the hub is
+#    considered triggered if any lane's load sensor is active.
+#
+#    Requires all lanes attached to this hub to have a load sensor
+#    configured. AFC will raise a configuration error at startup listing
+#    any lanes that are missing a load sensor.
+#
+#    Example (physical): switch_pin: mcu:PA5
+#    Example (virtual):  switch_pin: virtual
 hub_clear_move_dis: 55
 #    Default: 55
 #    How far to move filament so that it doesn't block the hub exit.
