@@ -86,7 +86,46 @@ toolchange_temp_drop:0
 #    Overrides the global setting in AFC.cfg.
 ```
 
-### LED Settings
+### Toolchanger Settings
+ 
+!!! note
+ 
+    The following options are only required for multi-toolhead toolchanger
+    setups. Leave all of these unset for standard single-toolhead printers.
+ 
+``` cfg
+toolchanger_unit:
+#    Default: <none>
+#    Name of the AFC toolchanger this extruder belongs to.
+#    Enables toolchanger features such as tool selection, swapping,
+#    and AFC_SELECT_TOOL / AFC_UNSELECT_TOOL macros.
+tool:
+#    Default: <none>
+#    Name of the tool as defined in your klipper toolchanger(KTC) configuration.
+#
+#    This value is used by AFC to look up the corresponding KTC
+#    tool object and perform tool swaps through KTC.
+map:
+#    Default: <none>
+#    Tool mapping label (e.g. T0, T1, etc).
+#    Only needed when using a toolhead in standalone mode (not attached
+#    to a unit such as AFC_BoxTurtle/NightOwl/etc) and need to override
+#    KTC assigned T(n) macro.
+custom_tool_swap:
+#    Default: <none>
+#    Custom macro to run when this tool is selected.
+#    Replaces the default KTC SELECT_TOOL T<n> behavior.
+#
+#    Allows full control over tool pickup or activation behavior.
+custom_unselect:
+#    Default: <none>
+#    Custom macro to run when this tool is deselected.
+#    Replaces the default KTC UNSELECT_TOOL behavior.
+#
+#    Useful for custom docking, parking, or release routines.
+```
+
+#### LED Settings
  
 !!! note
  
@@ -126,45 +165,6 @@ nozzle_led_idx:
 #
 #    If not set, all LEDs except those in status_led_idx are used.
 #    Must not overlap with status_led_idx.
-```
-
-### Toolchanger Settings
- 
-!!! note
- 
-    The following options are only required for multi-toolhead toolchanger
-    setups. Leave all of these unset for standard single-toolhead printers.
- 
-``` cfg
-toolchanger_unit:
-#    Default: <none>
-#    Name of the AFC toolchanger this extruder belongs to.
-#    Enables toolchanger features such as tool selection, swapping,
-#    and AFC_SELECT_TOOL / AFC_UNSELECT_TOOL macros.
-tool:
-#    Default: <none>
-#    Name of the tool as defined in your klipper toolchanger(KTC) configuration.
-#
-#    This value is used by AFC to look up the corresponding KTC
-#    tool object and perform tool swaps through KTC.
-map:
-#    Default: <none>
-#    Tool mapping label (e.g. T0, T1, etc).
-#    Only needed when using a toolhead in standalone mode (not attached
-#    to a unit such as AFC_BoxTurtle/NightOwl/etc) and need to override
-#    KTC assigned T(n) macro.
-custom_tool_swap:
-#    Default: <none>
-#    Custom macro to run when this tool is selected.
-#    Replaces the default KTC SELECT_TOOL T<n> behavior.
-#
-#    Allows full control over tool pickup or activation behavior.
-custom_unselect:
-#    Default: <none>
-#    Custom macro to run when this tool is deselected.
-#    Replaces the default KTC UNSELECT_TOOL behavior.
-#
-#    Useful for custom docking, parking, or release routines.
 ```
 
 ## [AFC_buffer buffer_name] Section
