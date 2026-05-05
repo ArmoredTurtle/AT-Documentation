@@ -111,26 +111,18 @@ status_led_idx:
 #    Comma-separated LED index position(s) (1-based) within the led_name
 #    chain reserved for AFC status indication. These LEDs reflect the
 #    current lane/tool state (e.g. ready, loading, fault) and are excluded
-#    from print lighting controlled by AFC_SET_EXTRUDER_LED.
+#    from print lighting controlled by AFC_SET_EXTRUDER_LED macro.
 #
 #    Accepts a single index or a comma-separated list.
-#
-#    Examples:
-#      status_led_idx: 0
-#      status_led_idx: 0,1
 #
 #    Leave unset if no LEDs are dedicated to status.
 nozzle_led_idx:
 #    Default: <none>
 #    Comma-separated LED index position(s) (1-based) within the led_name
 #    chain used for nozzle illumination. When set, AFC_SET_EXTRUDER_LED
-#    toggles only these LEDs for print lighting instead of all non-status
-#    LEDs in the chain. Leave unset to allow AFC_SET_EXTRUDER_LED to
+#    macro toggles only these LEDs for print lighting instead of all non-status
+#    LEDs in the chain. Leave unset to allow AFC_SET_EXTRUDER_LED macro to
 #    toggle all LEDs not reserved by status_led_idx.
-#
-#    Examples:
-#      nozzle_led_idx: 2
-#      nozzle_led_idx: 2,3,4
 #
 #    If not set, all LEDs except those in status_led_idx are used.
 #    Must not overlap with status_led_idx.
@@ -148,53 +140,29 @@ toolchanger_unit:
 #    Default: <none>
 #    Name of the AFC toolchanger this extruder belongs to.
 #    Enables toolchanger features such as tool selection, swapping,
-#    and AFC_SELECT_TOOL / AFC_UNSELECT_TOOL commands.
-#
-#    Example:
-#      toolchanger_unit: my_toolchanger
+#    and AFC_SELECT_TOOL / AFC_UNSELECT_TOOL macros.
 tool:
 #    Default: <none>
-#    Name of the tool as defined in your Klipper toolchanger configuration.
-#    This should match the tool/extruder name used by Klipper (e.g. T0,
-#    T1, T2, etc).
+#    Name of the tool as defined in your klipper toolchanger(KTC) configuration.
 #
-#    Example:
-#      tool: T0
-#
-#    Usage:
-#      AFC_SELECT_TOOL TOOL=extruder1
-#
-#    This value is used by AFC to look up the corresponding tool object
-#    and perform tool swaps through the toolchanger.
+#    This value is used by AFC to look up the corresponding KTC
+#    tool object and perform tool swaps through KTC.
 map:
 #    Default: <none>
 #    Tool mapping label (e.g. T0, T1, etc).
-#    Used for commands that reference tool positions, such as LED control.
-#
-#    When set, AFC will re-register this mapping internally in klipper and
-#    take control of the corresponding tool command (e.g. T0, T1, etc).
-#    Any existing gcode_macro with the same name will be overridden.
-#
-#    Example:
-#      map: T0
-#    Usage:
-#      AFC_SET_TOOLHEAD_LED MAP=T0
+#    Only needed when using a toolhead in standalone mode (not attached
+#    to a unit such as AFC_BoxTurtle/NightOwl/etc) and need to override
+#    KTC assigned T(n) macro.
 custom_tool_swap:
 #    Default: <none>
 #    Custom macro to run when this tool is selected.
-#    Replaces the default SELECT_TOOL T<n> behavior.
-#
-#    Example:
-#      custom_tool_swap: MY_TOOL_PICKUP
+#    Replaces the default KTC SELECT_TOOL T<n> behavior.
 #
 #    Allows full control over tool pickup or activation behavior.
 custom_unselect:
 #    Default: <none>
 #    Custom macro to run when this tool is deselected.
-#    Replaces the default UNSELECT_TOOL behavior.
-#
-#    Example:
-#      custom_unselect: MY_TOOL_DOCK
+#    Replaces the default KTC UNSELECT_TOOL behavior.
 #
 #    Useful for custom docking, parking, or release routines.
 ```
