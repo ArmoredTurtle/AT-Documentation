@@ -50,8 +50,6 @@ The following options are available in the `[AFC_lane <lane_name>]` section of t
 options control the configuration of the AFC system when interfacing with the stepper motor for the specific unit type.
 You will typically have one of these sections for each lane in the unit.  
 
-Currently, AFC_lane sections are only valid for HTLF unit.
-
 ``` cfg
 [AFC_lane <lane_name>]
 
@@ -332,8 +330,17 @@ max_motor_rpm: 465
 #    Maximum motor RPM for the assist motor (N20).
 hub: 
 #    Default: <none>
-#    Hub name(AFC_hub) that belongs to this stepper, overrides hub 
-#    that is set in unit(AFC_BoxTurtle/NightOwl/etc) section.
+#    Hub that this lane belongs to. Set to the name of an AFC_hub
+#    section to override the hub assigned by the
+#    unit (AFC_BoxTurtle/NightOwl/etc).
+#
+#    Two special values are also accepted:
+#
+#    direct       - Use when this lane has no hub and connects directly
+#                   to the toolhead.
+#    direct_load  - Same as direct, but AFC will automatically load
+#                   filament to the toolhead when filament is inserted
+#                   into the lane.
 buffer:
 #    Default: <none>
 #    Buffer name(AFC_buffer) that belongs to this stepper, overrides 
@@ -669,10 +676,18 @@ typically used to define the unit name and other options that are specific to th
 
 ``` cfg
 [AFC_BoxTurtle Turtle_1]
-hub:
+hub: 
 #    Default: <none>
-#    Hub name(AFC_hub) that belongs to this unit. can be overridden in 
-#    the [AFC_stepper] section.
+#    Hub that this unit belongs to. Set to the name of an AFC_hub
+#    section. This value can be overridden in the AFC_stepper/AFC_lane sections.
+#
+#    Two special values are also accepted:
+#
+#    direct       - Use when this lane has no hub and connects directly
+#                   to the toolhead.
+#    direct_load  - Same as direct, but AFC will automatically load
+#                   filament to the toolhead when filament is inserted
+#                   into the lane.
 extruder:
 #    Default: <none>
 #    Extruder name(AFC_extruder) that belongs to this unit. can be
