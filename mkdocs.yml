@@ -52,6 +52,7 @@ nav:
               - Lane / Movement Commands: afc-klipper-add-on/klipper/internal/lane.md
               - Misc. Commands: afc-klipper-add-on/klipper/internal/misc.md
               - TD-1 Commands: afc-klipper-add-on/klipper/internal/td1.md
+              - Toolchanger Commands: afc-klipper-add-on/klipper/internal/toolchanger.md
           - External Macros: afc-klipper-add-on/klipper/external/macros.md
       - Configuration Examples: afc-klipper-add-on/configuration/configuration_examples.md
       - Calibration Process: afc-klipper-add-on/installation/calibration.md

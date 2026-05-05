@@ -45,7 +45,7 @@
     pushing back on the filament instead of pulling it in, try reversing the `dir_pin` setting for that extruder motor in
     your unit-specific config file (e.g., `AFC/AFC_Turtle_1.cfg` for BoxTurtle).
     
-    If you are able to load filament into all lanes and get a green LED indicator, and `AFC_STATUS` at the console
+    If you are able to load filament into all lanes and get a green LED indicator, and the console
     reports no errors, move on to the next step.
 === "HTLF"
 
