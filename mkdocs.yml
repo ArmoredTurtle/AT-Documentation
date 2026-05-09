@@ -35,6 +35,9 @@ nav:
           - Updating AFC-Klipper-Add-On: afc-klipper-add-on/updates/updates.md
       - Additional Units:
           - Adding additional units: afc-klipper-add-on/additional-units/index.md
+      - Toolchangers:
+          - Overview: afc-klipper-add-on/toolchanger/overview.md
+          - Configuration: afc-klipper-add-on/toolchanger/configuration.md
       - Configuration:
           - Configuration Overview: afc-klipper-add-on/configuration/configuration_overview.md
           - Configuration Files:
