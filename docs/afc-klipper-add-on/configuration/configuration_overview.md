@@ -6,13 +6,13 @@ This section provides an overview of the configuration options available in the 
 ## Configuration Files
 
 The AFC-Klipper-Add-On uses a variety of configuration files to define its behavior and settings. These files are 
-installed by the `install-afc.sh` script and are by default located in the `~/printer_data/config/AFC` directory.
+installed by the `install-afc.sh` script and are by default located in the `~/printer_data/config/AFC` directory,  and `[include AFC/*.cfg]` is automatically added to the bottom of your `printer.cfg` file.
 
 !!! note
     The configuration files are typically named with a `.cfg` extension and can be edited using any text editor. 
 
 When the AFC-Klipper-Add-On is installed, a set of default configuration files are created. An example of the default 
-installation directory structure for a BoxTurtle is shown below. 
+installation directory structure for a BoxTurtle is shown below.
 
 ```plaintext
 ~/printer_data/config/AFC
