@@ -39,6 +39,7 @@ nav:
           - Overview: afc-klipper-add-on/toolchanger/overview.md
           - Configuration: afc-klipper-add-on/toolchanger/configuration.md
           - Print Start/End Macros: afc-klipper-add-on/toolchanger/print_start_end.md
+          - Slicer Config: afc-klipper-add-on/toolchanger/slicer_config.md
       - Configuration:
           - Configuration Overview: afc-klipper-add-on/configuration/configuration_overview.md
           - Configuration Files:
