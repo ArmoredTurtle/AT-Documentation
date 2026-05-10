@@ -31,6 +31,10 @@ Every toolhead in the system requires its own `[AFC_extruder]` section. The foll
 are specific to toolchanger setups and must be set on each extruder that participates in tool
 selection.
 
+The following config is meant as an example for what additional values are needed to
+add to `AFC_extruder` config's for toolchangers, only add the variables that are required for your
+setup as described on this page.
+
 !!! note
     These options are only required for multi-toolhead toolchanger setups. Leave all of
     these unset for standard single-toolhead printers.
@@ -104,18 +108,28 @@ manually.
 **Lane configuration example:**
 
 ```ini
+# Since this example is for an HTLF unit type, other unit types may use
+# AFC_stepper in place of AFC_lane. Only the commented variables below are
+# important for a toolchanger setup.
 [AFC_lane lane1]
 unit: HTLF_1:1
+#    Extruder variable needs to be set to the correct extruder name that
+#    this lane is directly attached to.
 extruder: extruder
+#    Buffer variable needs to be set to the correct AFC_buffer name that
+#    this lane uses.
 buffer: TN0
-#    Set to `direct` when this lane connects directly to the toolhead with no hub in between.
-#    Use `direct_load` instead to have AFC automatically load filament to the toolhead when
-#    a spool is inserted into the lane.
+#    Set to `direct` when this lane connects directly to the toolhead
+#    with no hub in between. Use `direct_load` instead to have AFC
+#    automatically load filament to the toolhead when a spool is inserted
+#    into the lane.
 hub: direct
 #    Distance in mm from the lane extruder to the toolhead load sensor.
 #    This replaces afc_bowden_length for direct connections.
 #    Run AFC_CALIBRATION to calibrate this value automatically.
 dist_hub: 1555.0
+#    Lane's that will map the same and klipper-toolchanger need to have
+#    this override here to override and replace klipper-toolchanger T(n) macro.
 map: T0
 load: !MMB:LOAD1
 led_index: AFC_Indicator_HTLF_1:4
