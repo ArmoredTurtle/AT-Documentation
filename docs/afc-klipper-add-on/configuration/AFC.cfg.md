@@ -283,6 +283,9 @@ lower_extruder_temp_on_change: True
 #    Default: True
 #    If False, AFC will not lower the extruder temperature during a filament change,
 #    as long as the current temperature is above the target material temperature - 5°C.
+restore_extruder_temp_on_load_or_unload: False
+#    Default: False
+#    When True, AFC will restore extruder target temp after tool load/unload when not printing.
 ```
 
 The next part of the `[AFC]` section contains the configuration for the AFC macros. These macros are used to control the
