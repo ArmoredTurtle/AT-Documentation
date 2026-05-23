@@ -295,7 +295,11 @@ See the section on safe margin/safe location for details on the locataion for th
 -----
 === "variable_rip_length"
     Default: `1.0`  
-    Distance in mm to retract to aid level decompression. This must be >= 0.
+    Distance in mm to aid lever decompression after the cut. The sign of this value depends on the cutter orientation:
+
+    - **Positive value** (cutter-below-extruder): Retracts the filament by this distance to relieve pressure on the cutter lever.
+    - **Negative value** (cutter-above-extruder): Feeds the filament forward by the absolute distance while simultaneously moving the lane motor backward by the same amount.
+    - **Zero**: No rip motion is performed after the cut.
 
 -----
 === "variable_rip_speed"
