@@ -124,7 +124,7 @@ variables help define items such as locations, speed, and other parameters that 
 [gcode_macro _AFC_CUT_TIP_VARS]
 description: Toolhead tip cutting macro configuration variables
 gcode: # Leave empty
-variable_pin_loc_xy               : -1, -1 
+variable_pin_loc_xy               : -99, -99 
 variable_pin_loc_x                : -1
 variable_pin_loc_y                : -1
 variable_pin_loc_z                : -1
@@ -146,7 +146,8 @@ variable_cut_count                : 2
 variable_rip_length               : 1.0 
 variable_rip_speed                : 3 
 variable_pushback_length          : 15
-variable_safe_margin_xy           : 0, 30
+variable_safe_margin_xy           : 60, 60
+variable_safe_move_first          : "x"
 variable_safe_loc_x               : -1
 variable_safe_loc_y               : -1
 variable_safe_loc_z               : -1
@@ -169,7 +170,7 @@ variable_tool_servo_angle_in      : 0
 
 -----
 === "variable_pin_loc_xy"
-    Default: `-1, -1`  
+    Default: `-99, -99`  
     This is the value that is used to define the location of the pin in the X and Y axis. 
     This should be the position of the toolhead where the cutter arm just lightly touches the 
     depressor pin.
@@ -337,10 +338,15 @@ If `restore_position` or `post_cust_safe_move` is set, the cut macro will move t
 finished.
 
 === "variable_safe_margin_xy"  
-    Default: `0, 30`  
+    Default: `60, 60`  
     Define the safe position relative to the pin park coordinates.  The values are always zero or larger.
     The x and y values are added or subtracted from the pin park to calculate the safe position.  The calculated
     position will always be toward the center of the bed.
+
+=== "variable_safe_move_first"  
+    Default: "x"  
+    Axes to move in first when performing the safe margin move away from the cutter pin.
+    Valid options are: x, y, z, xy, xz, yz, xyz
 
 === "variable_safe_loc_x"  
     Default: The X coordinate of the pin park location.  
@@ -357,7 +363,7 @@ finished.
 === "Examples"  
     A printer that is using a servo and has no obstructed moves should comment out all of these variables:
 ``` cfg
-# variable_safe_margin               : 0,30 
+# variable_safe_margin                : 60,60 
 # variable_safe_loc_x                 : -1 
 # variable_safe_loc_y                 : -1 
 # variable_safe_loc_z                 : -1
@@ -378,6 +384,7 @@ X location is less than or equal to 54.
 ``` cfg
 # variable_safe_margin               : 0,30
 variable_safe_loc_z                 : 190
+variable_safe_move_first            : "xz"
 ```
 
 -----
