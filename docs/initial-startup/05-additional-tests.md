@@ -75,6 +75,20 @@
     - `AFC_SELECT_LANE LANE=lane3`
     - `AFC_SELECT_LANE LANE=lane4`
 
+=== "EMU"
+    
+    ### For sensorless hub setups:
+    Insert filament and verify that AFC moves filament to load sensor and then backs up the filament. Your load sensor in Fluidd/Mainsail should show it's
+    not detected.
+
+
+    ### For setups with hub sensor:
+    Insert filament and verify that AFC moves filament towards your hub but not far enough to block the hub outlet. If filament is moved too far either run
+    [AFC_CALIBRATION](../afc-klipper-add-on/klipper/internal/calibration.md#AFC_functions.afcFunction.cmd_AFC_CALIBRATION) for that lane or update `dist_hub` before inserting filament in another lane.
+
+    !!! note
+        Please see additional note about EMUs default config setup [here](../afc-klipper-add-on/configuration/AFC_UnitType_1.cfg.md#afc_emu-unit_name-section)
+
 ### Buffer
 
 Test that your buffer is configured correctly by extending the slide all the way out, then run

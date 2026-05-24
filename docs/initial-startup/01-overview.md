@@ -20,6 +20,10 @@ units.
     !!!warning
         ViViD heater temperature sensor is currently not supported in Kalico. Currently there is a pull request waiting to be merged in to support this sensor.
 
+=== "EMU"
+    [EMU docs](https://github.com/DW-Tas/EMU/tree/main/docs)
+    [EMU manuals](https://github.com/DW-Tas/EMU/tree/main/Manuals)
+
 ## Prerequisites
 
 ### Calibrate/tune existing printer extruder

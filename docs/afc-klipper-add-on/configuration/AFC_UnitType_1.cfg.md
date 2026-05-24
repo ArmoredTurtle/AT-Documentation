@@ -556,6 +556,16 @@ td1_bowden_length: <afc_bowden_length> - 50
 #    Run AFC_CALIBRATION to automatically calibrate this length,
 #    option to calibrate will only show up if TD-1 has been setup
 #    correctly in moonraker.
+use_dist_hub: False
+#    Default: False
+#    Set to True to use dist_hub value for PTFE length to toolhead.
+#    This is useful when using sensorless hubs like in EMU Units and
+#    parking filament behind load switch instead of at the hub. This
+#    is needed since PTFE path per lane can differ when loading to
+#    toolhead.
+#
+#    Caution: This is not fully implemented everywhere and has only
+#    been tested with EMU units.
 assisted_retract: False
 #    Default: False
 #    If true, retracts are assisted to prevent loose windings on the
@@ -1043,6 +1053,31 @@ max_selector_movement: 800
 #    Default: 800
 #    Max movement in mm to try to move selector to specified lane.
 ```
+
+## [AFC_EMU unit_name] Section
+
+The following options are available in the `[AFC_EMU unit_name]` section of the `AFC_UnitType_1.cfg` file. These
+options control the configuration of the AFC system when interfacing with the EMU unit type. This section is
+typically used to define the unit name and other options that are specific to the EMU unit type.
+ 
+
+AFC_EMU inherits configuration options from AFC_BoxTurtle configuration section, below are additional configuration values
+for a EMU unit.  
+
+``` cfg
+[AFC_EMU EMU_1]
+```
+
+### Notes about default EMU config setup
+EMU default configuration is setup to run with a sensorless hub, what this means is that filament is parked behind the load sensor instead of at the hub.
+Verify that your hub configuration section has `switch_pin: virtual` and `use_dist_hub: True` set. Setting switch pin as virtual means that all your load
+sensors become the hub sensor, so once one load sensor is triggered then AFC will think that your hub has filament in the path to your toolhead. The `use_dist_hub`
+variable is needed to tell AFC to use the `dist_hub` variable from each lane instead of `afc_bowden_length` since distance from load switch to toolhead can
+differ per lane.
+
+To switch to a hub that uses a sensor, remove `use_dist_hub: True` and set your hubs switch_pin correctly in your AFC_hub configuration section. Then make sure you
+update `dist_hub` in each `AFC_stepper` section to be around what the PTFE length is between the load sensor and hub sensor. Make sure you run calibration as this
+will then be calibrated to the correct distance.
 
 ## [servo tool_cut] Section
 
