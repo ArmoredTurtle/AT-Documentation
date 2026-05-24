@@ -62,7 +62,7 @@ The `AFC-Klipper-Add-On` software is available on GitHub. You can clone the repo
 === "Command Line"
     ```bash
     cd ~
-    git clone https://github.com/ArmoredTurtle/AFC-Klipper-Add-On.git
+    git clone https://github.com/AFCProject/AFC-Klipper-Add-On.git
     cd AFC-Klipper-Add-On
     ```
 === "Explanation"

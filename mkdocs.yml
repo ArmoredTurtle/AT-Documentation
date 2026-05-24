@@ -92,7 +92,7 @@ nav:
       - Troubleshooting: troubleshooting/troubleshooting.md
       - FAQ: troubleshooting/faq.md
   - Assembly Manual: https://armoredturtle.xyz
-  - Latest Release: https://github.com/ArmoredTurtle/AFC-Klipper-Add-On/releases
+  - Latest Release: https://github.com/AFCProject/AFC-Klipper-Add-On/releases
 draft_docs: |
   _unpublished.md 
 

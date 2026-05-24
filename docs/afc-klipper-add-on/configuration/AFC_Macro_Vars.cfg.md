@@ -178,14 +178,17 @@ variable_tool_servo_angle_in      : 0
 This variable works for most cutter configurations.  If the cutter pin needs to be
 configured in other axis, then comment out this variable and set the axis specific locations.
 
+-----
 === "variable_pin_loc_x"
     Default: `-1`
     Set the X location for the cutter pin if needed.
 
+-----
 === "variable_pin_loc_y"
     Default: `-1`
     Set the Y location for the cutter pin if needed.
 
+-----
 === "variable_pin_loc_z"
     Default: `-1`
     Set the Z location for the cutter pin if needed.
@@ -215,7 +218,7 @@ configured in other axis, then comment out this variable and set the axis specif
     arm is completely compressed. Take 0.5mm off this distance as a buffer. 
 
 === "Example"
-    `pin_loc_x : 9, 310`  fully compressed at 0, 310 set `cut_move_dist` to 8.5
+    `pin_loc_x : 9, 310`  fully compressed at `0, 310` set `cut_move_dist` to 8.5
 
 -----
 The following variables are used to define the speed of the cutting action.  Note that if the cut speed is too fast, 
@@ -262,6 +265,7 @@ the steppers can lose steps. Therefore, for a cut:
     complete. 
     This value should be set to `True` or `False`.
 
+-----
 === "variable_post_cut_safe_move"
     Default: `True` 
     After the cut is finished, ensure that the next move will not collide with the cutter pin.  A safe move will
@@ -341,29 +345,35 @@ For setups that don't require a safe move, comment out all of these variables.
 If `restore_position` or `post_cust_safe_move` is set, the cut macro will move to the safe position after the cut is
 finished.
 
+-----
 === "variable_safe_margin_xy"  
     Default: `60, 60`  
     Define the safe position relative to the pin park coordinates.  The values are always zero or larger.
     The x and y values are added or subtracted from the pin park to calculate the safe position.  The calculated
     position will always be toward the center of the bed.
 
+-----
 === "variable_safe_move_first"  
     Default: "x"  
     Axes to move in first when performing the safe margin move away from the cutter pin.
     Valid options are: x, y, z, xy, xz, yz, xyz
 
+-----
 === "variable_safe_loc_x"  
     Default: The X coordinate of the pin park location.  
     The X coordinate of the safe location.
 
+-----
 === "variable_safe_loc_y"  
     Default: The Y coordinate of the pin park location.  
     The Y coordinate of the safe location.
 
+-----
 === "variable_safe_loc_z"  
     Default: The Z coordinate of the pin park location.  
     The Z coordinate of the safe location.
 
+-----
 === "Examples"  
     A printer that is using a servo and has no obstructed moves should comment out all of these variables:
 ``` cfg
@@ -784,4 +794,3 @@ variable_z_hop                    : 0
     Default: `0`  
     Height to raise Z when moving to park. Leave 0 to disable.
     If you want z_hop during toolchanges please set the value in the AFC.cfg.
-```
