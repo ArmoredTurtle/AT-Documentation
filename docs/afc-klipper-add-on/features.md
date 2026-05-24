@@ -329,6 +329,7 @@ Endpoint returns all lanes in system in a json format like the following:
             "nozzle_temp":245,
             "scan_time": "2025-09-14T03:13:27.189383Z",
             "lane": "1",
+            "extruder_index": "0",
             "spool_id": 12345
         },
         "lane2": {
@@ -339,6 +340,7 @@ Endpoint returns all lanes in system in a json format like the following:
             "nozzle_temp":245,
             "scan_time": "2025-09-14T03:13:27.189383Z",
             "lane": "0",
+            "extruder_index": "0",
             "spool_id": 54321
         },
         "lane3": {
@@ -348,6 +350,7 @@ Endpoint returns all lanes in system in a json format like the following:
             "nozzle_temp": "",
             "scan_time": "",
             "lane": "2",
+            "extruder_index": "1",
             "spool_id": null
         }
     }
@@ -361,4 +364,5 @@ Endpoint returns all lanes in system in a json format like the following:
 - Nozzle Temp: Nozzle temperature pulled from spoolman data  
 - Scan Temp: Only is populated if TD-1 is connected and enabled in system and filament was scanned  
 - Lane: Current tool mapping for lane/slot. eg. T0/T1/T2/etc.  
+- Extruder Index: Current extruder index that lane is attached to, useful in multi-toolhead setups where multiple lanes can be going to one toolhead. This variable is exposed so that third-party tools could use this variable to group filament/lanes attached to a single toolhead.
 - Spool ID: Spool ID assigned to this lane via [SET_SPOOL_ID](klipper/internal/spool.md#AFC_spool.AFCSpool.cmd_SET_SPOOL_ID) or [SET_NEXT_SPOOL_ID](klipper/internal/spool.md#AFC_spool.AFCSpool.cmd_SET_NEXT_SPOOL_ID). Value is an integer when a spool is assigned, or `null` when the lane is empty/ejected
