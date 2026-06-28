@@ -25,6 +25,10 @@ macros and unexpected behavior.
     Travel speeds in this file are defined in mm/s, however typically Klipper expects 
     this to be in mm/min. Our macros have been designed to convert this value to mm/min for you.
 
+!!! tip "Multi-toolhead printers"
+    On IDEX or toolchanger setups, each toolhead can override individual macro variables without 
+    changing the global defaults. See [Per-Toolhead Variable Overrides](#per-toolhead-variable-overrides).
+
 ## [_AFC_GLOBAL_VARS]
 
 The `_AFC_GLOBAL_VARS` section is used to define the global variables for the AFC-Klipper-Add-On. These variables are
@@ -794,3 +798,35 @@ variable_z_hop                    : 0
     Default: `0`  
     Height to raise Z when moving to park. Leave 0 to disable.
     If you want z_hop during toolchanges please set the value in the AFC.cfg.
+
+## Per-Toolhead Variable Overrides
+
+On multi-toolhead printers (IDEX, toolchangers), each toolhead can have its own macro settings without 
+changing the global defaults. This is done by defining a companion macro named 
+`_AFC_<macro_name>_VARS_<extruder_name>`, where `<extruder_name>` matches the `[AFC_extruder ...]` 
+section name (e.g. `extruder`, `extruder1` for tools T0, T1, etc.).
+
+Only the variables that differ from the global defaults need to be set. All unset variables fall back 
+to the values defined in the base `[gcode_macro _AFC_<macro_name>_VARS]` macro.
+
+This override mechanism applies to the following macros:
+
+- `_AFC_CUT_TIP_VARS` → `_AFC_CUT_TIP_VARS_<extruder>`
+- `_AFC_POOP_VARS` → `_AFC_POOP_VARS_<extruder>`
+- `_AFC_BRUSH_VARS` → `_AFC_BRUSH_VARS_<extruder>`
+- `_AFC_KICK_VARS` → `_AFC_KICK_VARS_<extruder>`
+- `_AFC_PARK_VARS` → `_AFC_PARK_VARS_<extruder>`
+
+### Example
+
+The following example configures a second toolhead (`extruder1`) with a different cutter pin location 
+and cut direction, while the first toolhead (`extruder`) continues to use the global defaults:
+
+``` cfg
+[gcode_macro _AFC_CUT_TIP_VARS_extruder1]
+gcode: # Leave empty
+variable_pin_loc_xy   : 250, 5    # cutter pin position for T1
+variable_cut_direction: "right"   # T1 cuts in the opposite direction
+```
+
+In this example, all other variables not listed in the override macro are inherited from `_AFC_CUT_TIP_VARS`.
