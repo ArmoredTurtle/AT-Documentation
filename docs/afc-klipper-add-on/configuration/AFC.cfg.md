@@ -246,9 +246,9 @@ enable_tool_runout: True
 #    Default: True
 #    If enabled and toolhead sensor(s) detect filament not present while printing AFC
 #    will pause printing. The value can be overridden per toolhead in AFC_extruder config sections.
-disable_tool_runout_in_bypass: False
+enable_runout_in_bypass: False
 #    Default: False
-#    If set to True, the toolhead sensor will not trigger a print pause if runout
+#    If set to True, the toolhead sensor will trigger a print pause if runout
 #    occurs while printing in bypass/manual mode (where no AFC lane is registered as loaded).
 test_extrude_amt: 10
 #    Default: 10
