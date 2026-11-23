@@ -28,21 +28,16 @@ The function `CALIBRATE_AFC` can be called in the console to calibrate distances
 - `dist_hub` for each lane is the distance from the load switch at the extruder to the hub.
 - `afc_bowden_length` is the distance from the hub to the toolhead sensor.
 
+For Anycubic ACE units, lanes do not have a load switch. On an ACE 2, AFC first feeds `stage_initial_dist` (default 330mm)
+so the ACE grips the filament, then feeds `dist_hub` to park the lane just before the hub.
+
+- `dist_hub` for each lane is the distance from where the ACE grips the filament to where the lane parks.
+- `afc_bowden_length` is the distance from where the lane parks to the toolhead sensor.
+
 !!! note
-    **Anycubic ACE:** ACE lanes have no load switch. When a spool is inserted, AFC stages an
-    ACE 2 lane in one feed of `stage_initial_dist` (330mm by default, enough for the unit to
-    grip the filament) plus `dist_hub`. On an ACE, `dist_hub` therefore runs from that
-    gripped point to where the lane parks at the hub. Keep the parked tip short of the point
-    where the lanes merge, or it blocks the other lanes.
-
-    `afc_bowden_length` runs from that park point to the toolhead sensor. Loading a staged
-    lane feeds `afc_bowden_length`, and loading an unstaged lane feeds `dist_hub` plus
-    `afc_bowden_length`.
-
-    With a physical hub sensor, `AFC_ACE_CALIBRATE_HUB LANE=<lane>` measures `dist_hub` on an
-    unstaged lane. It stores the distance to the hub sensor, so if your sensor sits past the
-    merge, reduce `dist_hub` by that amount plus a small margin. `AFC_ACE_CALIBRATE
-    LANE=<lane>` measures `afc_bowden_length`.
+    `AFC_ACE_CALIBRATE_HUB` calibrates `dist_hub` to the hub sensor, and `AFC_ACE_CALIBRATE` calibrates `afc_bowden_length`.
+    If your hub sensor is past the point where the lanes merge, reduce `dist_hub` so a parked lane does not block the
+    other lanes.
 
 ### Usage
 
